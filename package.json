@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "tezos.co.il",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Tezos-IL website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^3.1.2",
     "gatsby-plugin-gatsby-cloud": "^2.1.0",
@@ -20,7 +19,20 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gatsby-plugin-postcss": "^4.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": ">=10",
+    "postcss": "^8.2.8",
+    "prettier": "2.2.1",
+    "simple-git-hooks": ">=2.0.3",
+    "tailwindcss": "^2.0.4"
   },
   "keywords": [
     "gatsby"
@@ -29,11 +41,14 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --loglevel warn --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "pretest": "npm run lint",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "posttest": "npm run format",
+    "lint": "eslint . --cache --fix"
   },
   "repository": {
     "type": "git",
@@ -41,5 +56,17 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,json,md,css}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
