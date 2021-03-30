@@ -1,42 +1,41 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
+import NavLink from './navLink';
+import Button from './shared/button';
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
+import headerData from '../data/header.json';
 
-Header.defaultProps = {
-  siteTitle: '',
+const Header = () => {
+  return (
+    <header className="mb-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
+        <StaticImage
+          src="../images/horizontal_logo_blue.svg"
+          width={127.87}
+          quality={95}
+          formats={['AUTO', 'WEBP', 'AVIF']}
+          alt="A Gatsby astronaut"
+        />
+
+        <ul className="flex items-center">
+          {headerData.menu.map((item, index) => {
+            return (
+              <li key={index}>
+                <NavLink title={item.title} path={item.path} />
+              </li>
+            );
+          })}
+          <li>
+            <Button
+              title="Sign up"
+              className="bg-tezos-blue text-white hover:bg-tezos-dark hover:text-white"
+            />
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
