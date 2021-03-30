@@ -14,7 +14,7 @@ function Header({ headerData }) {
           width={127.87}
           quality={95}
           formats={['AUTO', 'WEBP', 'AVIF']}
-          alt="A Gatsby astronaut"
+          alt="Tezos Logo"
         />
 
         <ul className="flex items-center">
