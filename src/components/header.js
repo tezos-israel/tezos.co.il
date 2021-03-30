@@ -18,13 +18,14 @@ function Header({ headerData }) {
         />
 
         <ul className="flex items-center">
-          {headerData.menu.map((item, index) => {
-            return (
-              <li key={index}>
-                <NavLink title={item.title} path={item.path} />
-              </li>
-            );
-          })}
+          {headerData &&
+            headerData.menu.map((item, index) => {
+              return (
+                <li key={index}>
+                  <NavLink title={item.title} path={item.path} />
+                </li>
+              );
+            })}
           <li>
             <Button
               title="Sign up"
