@@ -15,7 +15,7 @@ import './layout.css';
 function Layout({ headerData, children }) {
   return (
     <>
-      <Header menu={headerData.menu} />
+      {headerData && <Header menu={headerData.menu} />}
       <div>
         <main>{children}</main>
       </div>
