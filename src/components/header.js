@@ -6,7 +6,7 @@ import Button from './shared/button';
 
 import headerData from '../data/header.json';
 
-const Header = () => {
+function Header() {
   return (
     <header className="mb-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
@@ -36,6 +36,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;

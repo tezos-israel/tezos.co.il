@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const footer = () => {
+function footer() {
   return (
     <footer className="bg-tezos-dark text-white text-center py-8">
       <StaticImage
@@ -17,6 +17,6 @@ const footer = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default footer;

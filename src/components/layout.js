@@ -12,7 +12,7 @@ import Header from './header';
 import Footer from './footer';
 import './layout.css';
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   return (
     <>
       <Header />
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
       <Footer />
     </>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

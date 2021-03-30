@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const InputField = ({ className, type, placeholder, label }) => {
+function InputField({ className, type, placeholder, label }) {
   return (
     <div className="flex flex-col">
       {label && <label className="text-tezos-blue mb-1">{label}</label>}
@@ -28,7 +28,7 @@ const InputField = ({ className, type, placeholder, label }) => {
       )}
     </div>
   );
-};
+}
 
 InputField.propTypes = {
   className: PropTypes.string,

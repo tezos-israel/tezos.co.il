@@ -2,16 +2,18 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-const NavLink = ({ title, path }) => (
-  <Link
-    to={path}
-    className={
-      'capitalize py-2 px-6 text-tezos-blue text-sm hover:text-tezos-dark'
-    }
-  >
-    {title}
-  </Link>
-);
+function NavLink({ title, path }) {
+  return (
+    <Link
+      to={path}
+      className={
+        'capitalize py-2 px-6 text-tezos-blue text-sm hover:text-tezos-dark'
+      }
+    >
+      {title}
+    </Link>
+  );
+}
 
 NavLink.propTypes = {
   title: PropTypes.string,

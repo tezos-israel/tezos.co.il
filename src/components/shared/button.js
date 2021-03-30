@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Button = ({ title, className }) => {
+function Button({ title, className }) {
   return (
     <button
       className={classnames(
@@ -13,7 +13,7 @@ const Button = ({ title, className }) => {
       {title}
     </button>
   );
-};
+}
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
