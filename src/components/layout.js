@@ -9,26 +9,29 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './header';
-import PascalCase from './PascalCase';
+import Footer from './footer';
 import './layout.css';
 
-function Layout({ headerData, children }) {
+function Layout({ menu, children }) {
   return (
     <>
-      {headerData && <Header menu={headerData.menu} />}
+      <Header menu={menu} />
       <div>
         <main>{children}</main>
       </div>
-      <PascalCase />
+      <Footer />
     </>
   );
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  headerData: PropTypes.shape({
-    menu: PropTypes.array,
-  }),
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      path: PropTypes.string,
+    }).isRequired
+  ),
 };
 
 export default Layout;

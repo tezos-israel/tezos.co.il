@@ -1,17 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 function NavLink({ title, path }) {
   return (
-    <Link
-      to={path}
-      className={
-        'capitalize py-2 px-6 text-tezos-blue text-sm hover:text-tezos-dark'
-      }
-    >
-      {title}
-    </Link>
+    <li>
+      <Link
+        to={path}
+        className={
+          'capitalize py-2 px-6 text-tezos-blue text-sm hover:text-tezos-dark'
+        }
+      >
+        {title}
+      </Link>
+    </li>
   );
 }
 

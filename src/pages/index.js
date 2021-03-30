@@ -6,7 +6,7 @@ import headerData from '../data/header.json';
 
 function IndexPage() {
   return (
-    <Layout headerData={headerData}>
+    <Layout menu={headerData.menu}>
       <SEO title="Home" />
     </Layout>
   );

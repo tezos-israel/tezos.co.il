@@ -21,9 +21,7 @@ function Header({ menu }) {
           {menu &&
             menu.map((item, index) => {
               return (
-                <li key={index}>
-                  <NavLink title={item.title} path={item.path} />
-                </li>
+                <NavLink key={index} title={item.title} path={item.path} />
               );
             })}
           <li>
@@ -42,7 +40,7 @@ Header.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       path: PropTypes.string,
-    })
+    }).isRequired
   ),
 };
 export default Header;

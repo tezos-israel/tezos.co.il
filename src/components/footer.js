@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-function PascalCase() {
+function Footer() {
   return (
     <footer className="bg-tezos-dark text-white text-center py-8">
       <StaticImage
@@ -19,4 +19,4 @@ function PascalCase() {
   );
 }
 
-export default PascalCase;
+export default Footer;
