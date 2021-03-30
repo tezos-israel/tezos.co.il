@@ -9,7 +9,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './header';
-import Footer from './footer';
+import PascalCase from './PascalCase';
 import './layout.css';
 
 function Layout({ headerData, children }) {
@@ -19,7 +19,7 @@ function Layout({ headerData, children }) {
       <div>
         <main>{children}</main>
       </div>
-      <Footer />
+      <PascalCase />
     </>
   );
 }
