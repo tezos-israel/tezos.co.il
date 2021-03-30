@@ -15,7 +15,7 @@ import './layout.css';
 function Layout({ headerData, children }) {
   return (
     <>
-      <Header headerData={headerData} />
+      <Header menu={headerData.menu} />
       <div>
         <main>{children}</main>
       </div>
@@ -26,7 +26,9 @@ function Layout({ headerData, children }) {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  headerData: PropTypes.object,
+  headerData: PropTypes.shape({
+    menu: PropTypes.array,
+  }),
 };
 
 export default Layout;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import NavLink from './navLink';
 import Button from './shared/button';
 
-function Header({ headerData }) {
+function Header({ menu }) {
   return (
     <header className="mb-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
@@ -18,8 +18,8 @@ function Header({ headerData }) {
         />
 
         <ul className="flex items-center">
-          {headerData &&
-            headerData.menu.map((item, index) => {
+          {menu &&
+            menu.map((item, index) => {
               return (
                 <li key={index}>
                   <NavLink title={item.title} path={item.path} />
@@ -38,6 +38,11 @@ function Header({ headerData }) {
   );
 }
 Header.propTypes = {
-  headerData: PropTypes.object,
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      path: PropTypes.string,
+    })
+  ),
 };
 export default Header;
