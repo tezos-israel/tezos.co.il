@@ -12,10 +12,10 @@ import Header from './header';
 import Footer from './footer';
 import './layout.css';
 
-function Layout({ children }) {
+function Layout({ headerData, children }) {
   return (
     <>
-      <Header />
+      <Header headerData={headerData} />
       <div>
         <main>{children}</main>
       </div>
@@ -26,6 +26,7 @@ function Layout({ children }) {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  headerData: PropTypes.object,
 };
 
 export default Layout;

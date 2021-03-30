@@ -2,10 +2,14 @@ import * as React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-  </Layout>
-);
+import headerData from '../data/header.json';
+
+function IndexPage() {
+  return (
+    <Layout headerData={headerData}>
+      <SEO title="Home" />
+    </Layout>
+  );
+}
 
 export default IndexPage;

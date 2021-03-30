@@ -1,12 +1,11 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import PropTypes from 'prop-types';
 
 import NavLink from './navLink';
 import Button from './shared/button';
 
-import headerData from '../data/header.json';
-
-function Header() {
+function Header({ headerData }) {
   return (
     <header className="mb-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
@@ -37,5 +36,7 @@ function Header() {
     </header>
   );
 }
-
+Header.propTypes = {
+  headerData: PropTypes.object,
+};
 export default Header;
