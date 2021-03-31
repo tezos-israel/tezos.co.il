@@ -1,0 +1,28 @@
+{
+  "menu": [
+    {
+      "title": "Home",
+      "path": "/"
+    },
+    {
+      "title": "Startups",
+      "path": "/"
+    },
+    {
+      "title": "Corporates",
+      "path": "/"
+    },
+    {
+      "title": "Governments",
+      "path": "/"
+    },
+    {
+      "title": "Blog",
+      "path": "/"
+    },
+    {
+      "title": "Team",
+      "path": "/"
+    }
+  ]
+}
