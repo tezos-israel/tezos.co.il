@@ -7,8 +7,8 @@ import Button from './shared/button';
 
 function Header({ menu }) {
   return (
-    <header className="mb-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
+    <header className="fixed right-0 left-0 bg-white z-10">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 relative">
         <StaticImage
           src="../images/horizontal_logo_blue.svg"
           width={127.87}

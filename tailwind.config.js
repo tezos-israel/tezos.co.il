@@ -10,6 +10,9 @@ module.exports = {
       },
       white: '#fff',
     },
+    boxShadow: {
+      '3xl': '0 5px 50px -15px rgba(38, 153, 251, 0.3)',
+    },
   },
   variants: {
     extend: {},
