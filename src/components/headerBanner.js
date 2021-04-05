@@ -8,18 +8,18 @@ import './headerBanner.css';
 
 function HeaderBanner({ bannerText }) {
   return (
-    <div className="main-header flex justify-between items-center min-h-screen">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="w-2/3">
-          <h1 className="text-tezos-dark font-semibold text-5xl leading-normal mb-3">
+    <div className="main-header flex justify-between items-center min-h-screen sm:mt-0 mt-7">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+        <div className="sm:w-2/3 w-full sm:text-left sm:px-0 px-3 text-center">
+          <h1 className="text-tezos-dark font-semibold sm:text-5xl text-3xl leading-normal mb-3 ">
             {bannerText}
           </h1>
           <Button
-            title="Sing up"
+            title="Sign up"
             className="bg-tezos-blue text-white px-8 py-3"
           />
         </div>
-        <div className="">
+        <div className="sm:block hidden">
           <StaticImage
             src="../images/tezos_machine.svg"
             width={460.56}

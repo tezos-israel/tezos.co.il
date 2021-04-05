@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import InputField from './shared/inputField';
 import Button from './shared/button';
+import contactData from '../data/contact.json';
 
 import {
   FaEnvelope,
@@ -15,72 +16,59 @@ import {
 function Contact() {
   return (
     <div className="max-w-7xl mx-auto pt-7">
-      <div className="flex justify-between">
-        <div className="w-1/2">
+      <div className="flex justify-between sm:flex-row flex-col">
+        <div className="sm:w-1/2 w-full">
           <p>
             For inquiries regarding events, projects, collaborations, or general
             information.
           </p>
           <div className="flex flex-wrap justify-between mt-4">
             <div className="w-1/2">
-              <InputField label="Name" className="mr-5" />
+              <InputField label="Name" className="mr-5" id="name" />
             </div>
             <div className="w-1/2">
-              <InputField label="Email" />
+              <InputField label="Email" id="email" />
             </div>
             <div className="w-full mt-4">
-              <InputField label="Company" />
+              <InputField label="Company" id="company" />
             </div>
             <div className="w-full mt-4">
-              <InputField label="Message" type="textarea" />
+              <InputField label="Message" type="textarea" id="message" />
             </div>
             <div className="w-full mt-4">
               <Button
                 title="Send"
-                className="bg-tezos-blue text-white w-full py-3"
+                className="bg-tezos-blue text-white w-full sm:py-3 py-1"
               />
             </div>
           </div>
         </div>
-        <div className="w-1/2 text-right">
+        <div className="sm:w-1/2 w-full sm:text-right text-center">
           <StaticImage
             src="../images/social_icons.svg"
             width={300}
             quality={95}
             formats={['AUTO', 'WEBP', 'AVIF']}
             alt="Tezos Logo"
+            className="sm:my-0 my-5"
           />
-          <div className="text-left pl-16">
-            <div className="text-tezos-blue flex items-center">
-              <FaEnvelope className="mr-2 text-xl" /> contact@tezos.co.il
+          <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">
+            <div className="text-tezos-blue flex items-center sm:justify-start justify-center">
+              <FaEnvelope className="mr-2 text-xl" /> {contactData.email}
             </div>
-            <ul className="text-tezos-blue flex justify-between w-1/3 text-2xl mt-6">
-              <li>
-                <a href="">
-                  <FaFacebookF />
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <FaInstagram />
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <FaTelegramPlane />
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <FaTwitter />
-                </a>
-              </li>
-            </ul>
+            <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
+              {contactData.socialList.map((item, index) => {
+                return (
+                  <a key={index} href={item.url}>
+                    {item.type === 'fb' && <FaFacebookF />}
+                    {item.type === 'linkedin' && <FaLinkedinIn />}
+                    {item.type === 'instagram' && <FaInstagram />}
+                    {item.type === 'telegram' && <FaTelegramPlane />}
+                    {item.type === 'twitter' && <FaTwitter />}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

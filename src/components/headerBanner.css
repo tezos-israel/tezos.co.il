@@ -2,3 +2,9 @@
   background: url(../images/tech_pattern.svg) right top no-repeat;
   background-size: auto;
 }
+
+@media screen and (max-width: 500px) {
+  .main-header {
+    background-size: cover;
+  }
+}
