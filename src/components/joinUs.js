@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './shared/button';
 
-function JoinUs({ joinData }) {
+function JoinUs({ membersTypes }) {
   return (
     <div className="text-center max-w-7xl mx-auto text-white flex justify-between sm:mt-16 sm:flex-row flex-col sm:px-0 px-7">
-      {joinData.map((item, index) => {
+      {membersTypes.map((item, index) => {
         return (
           <div
             key={index}
@@ -31,7 +31,7 @@ function JoinUs({ joinData }) {
 }
 
 JoinUs.propTypes = {
-  joinData: PropTypes.arrayOf(
+  membersTypes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       desc: PropTypes.string,

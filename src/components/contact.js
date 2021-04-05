@@ -13,7 +13,7 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-function Contact({ contactData }) {
+function Contact({ email, socialList }) {
   return (
     <div className="max-w-7xl mx-auto pt-7">
       <div className="flex justify-between sm:flex-row flex-col">
@@ -54,10 +54,10 @@ function Contact({ contactData }) {
           />
           <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">
             <div className="text-tezos-blue flex items-center sm:justify-start justify-center">
-              <FaEnvelope className="mr-2 text-xl" /> {contactData.email}
+              <FaEnvelope className="mr-2 text-xl" /> {email}
             </div>
             <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
-              {contactData.socialList.map((item, index) => {
+              {socialList.map((item, index) => {
                 return (
                   <a key={index} href={item.url}>
                     {item.type === 'fb' && <FaFacebookF />}
@@ -77,15 +77,13 @@ function Contact({ contactData }) {
 }
 
 Contact.propTypes = {
-  contactData: PropTypes.shape({
-    email: PropTypes.string,
-    socialList: PropTypes.arrayOf(
-      PropTypes.shape({
-        url: PropTypes.string,
-        type: PropTypes.string,
-      })
-    ),
-  }),
+  email: PropTypes.string,
+  socialList: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      type: PropTypes.string,
+    })
+  ),
 };
 
 export default Contact;
