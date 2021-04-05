@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
 import InputField from './shared/inputField';
 import Button from './shared/button';
-import contactData from '../data/contact.json';
 
 import {
   FaEnvelope,
@@ -13,7 +13,7 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-function Contact() {
+function Contact({ contactData }) {
   return (
     <div className="max-w-7xl mx-auto pt-7">
       <div className="flex justify-between sm:flex-row flex-col">
@@ -75,5 +75,17 @@ function Contact() {
     </div>
   );
 }
+
+Contact.propTypes = {
+  contactData: PropTypes.shape({
+    email: PropTypes.string,
+    socialList: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string,
+        type: PropTypes.string,
+      })
+    ),
+  }),
+};
 
 export default Contact;

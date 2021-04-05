@@ -1,18 +1,16 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Button from './shared/button';
 
-import services from '../data/services.json';
-
-function Services() {
+function Services({ servicesData }) {
   return (
     <div className="max-w-7xl mx-auto sm:py-20 py-10 sm:px-0 px-7 text-center">
       <h2 className="text-tezos-blue font-semibold sm:mb-14 mb-8 sm:text-3xl text-lg leading-normal">
-        {services.title}
+        {servicesData.title}
       </h2>
 
       <div className="flex sm:flex-row flex-col justify-around sm:-m-5">
-        {services.list.map((item, index) => {
+        {servicesData.list.map((item, index) => {
           return (
             <div
               key={index}
@@ -35,5 +33,18 @@ function Services() {
     </div>
   );
 }
+
+Services.propTypes = {
+  servicesData: PropTypes.shape({
+    title: PropTypes.string,
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        image: PropTypes.string,
+        title: PropTypes.string,
+        desc: PropTypes.string,
+      })
+    ),
+  }),
+};
 
 export default Services;

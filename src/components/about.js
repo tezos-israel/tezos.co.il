@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import aboutData from '../data/about.json';
-
-function About() {
+function About({ aboutData }) {
   return (
     <div className="sm:py-20 py-10 sm:px-0 px-7 bg-tezos-blue text-white">
       <div className="max-w-5xl mx-auto">
@@ -22,5 +21,13 @@ function About() {
     </div>
   );
 }
+
+About.propTypes = {
+  aboutData: PropTypes.shape({
+    title: PropTypes.string,
+    content: PropTypes.string,
+    image: PropTypes.string,
+  }),
+};
 
 export default About;

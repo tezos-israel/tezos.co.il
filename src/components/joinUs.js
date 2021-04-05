@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './shared/button';
 
-import joinData from '../data/join.json';
-function JoinUs() {
+function JoinUs({ joinData }) {
   return (
     <div className="text-center max-w-7xl mx-auto text-white flex justify-between sm:mt-16 sm:flex-row flex-col sm:px-0 px-7">
-      {joinData.list.map((item, index) => {
+      {joinData.map((item, index) => {
         return (
           <div
             key={index}
@@ -29,5 +29,14 @@ function JoinUs() {
     </div>
   );
 }
+
+JoinUs.propTypes = {
+  joinData: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      desc: PropTypes.string,
+    })
+  ),
+};
 
 export default JoinUs;

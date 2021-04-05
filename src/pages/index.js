@@ -12,14 +12,19 @@ import Contact from '../components/contact';
 
 import headerData from '../data/header.json';
 import headerBanner from '../data/headerBanner.json';
+import servicesData from '../data/services.json';
+import aboutData from '../data/about.json';
+import joinData from '../data/join.json';
+import contactData from '../data/contact.json';
+import partnersData from '../data/partners.json';
 
 function IndexPage() {
   return (
     <Layout menu={headerData.menu}>
       <SEO title="Home" />
       <HeaderBanner bannerText={headerBanner.text} />
-      <Services />
-      <About />
+      <Services servicesData={servicesData} />
+      <About aboutData={aboutData} />
       <Section title="Tezos around the world">
         <Map />
       </Section>
@@ -28,13 +33,13 @@ function IndexPage() {
         className="bg-tezos-dark"
         titleColor="white"
       >
-        <JoinUs />
+        <JoinUs joinData={joinData} />
       </Section>
       <Section title="Our Partners">
-        <Partners />
+        <Partners partnersData={partnersData} />
       </Section>
       <Section title="Contact Us" className="text-left" direction="left">
-        <Contact />
+        <Contact contactData={contactData} />
       </Section>
     </Layout>
   );

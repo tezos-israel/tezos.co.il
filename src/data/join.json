@@ -1,16 +1,14 @@
-{
-  "list": [
-    {
-      "title": "Community",
-      "desc": "Community is what was, is, and will be what makes Tezos so special. Join us, it’s free."
-    },
-    {
-      "title": "Developers",
-      "desc": "Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team."
-    },
-    {
-      "title": "Baking",
-      "desc": "Baking is how blocks are produced and validated on the Tezos blockchain."
-    }
-  ]
-}
+[
+  {
+    "title": "Community",
+    "desc": "Community is what was, is, and will be what makes Tezos so special. Join us, it’s free."
+  },
+  {
+    "title": "Developers",
+    "desc": "Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team."
+  },
+  {
+    "title": "Baking",
+    "desc": "Baking is how blocks are produced and validated on the Tezos blockchain."
+  }
+]
