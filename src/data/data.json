@@ -51,7 +51,7 @@
   "about": {
     "title": "Tezos stands as the world leader in blockchain technology with institutional grade security standards.",
     "image": "../images/about_tezos.svg",
-    "content": "<p><b>As the world’s fully democratic blockchain,</b> the Tezos open-source platform, has an ever-growing community and ecosystem with to go along with it. </p> <p class='mt-3'> <b>Due to its ethical approach</b> it is already used and supported by the French and Singaporean Governments, French Military, and over 50 startups and projects worldwide. </p>"
+    "content": "As the world’s fully democratic blockchain, the Tezos open-source platform, has an ever-growing community and ecosystem with to go along with it. Due to its ethical approach it is already used and supported by the French and Singaporean Governments, French Military, and over 50 startups and projects worldwide."
   },
   "membersTypes": [
     {
