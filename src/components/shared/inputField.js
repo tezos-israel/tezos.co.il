@@ -34,7 +34,7 @@ function InputField({
           id={id}
           type={type}
           className={classnames(
-            'rounded-full  bg-tezos-blue bg-opacity-20 px-4 sm:py-3 py-1 focus:outline-none',
+            'rounded-full bg-tezos-blue bg-opacity-20 px-4 sm:py-3 py-1 focus:outline-none',
             className
           )}
           placeholder={placeholder}

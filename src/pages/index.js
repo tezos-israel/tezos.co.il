@@ -10,21 +10,19 @@ import JoinUs from '../components/joinUs';
 import Partners from '../components/partners';
 import Contact from '../components/contact';
 
-import headerData from '../data/header.json';
-import headerBanner from '../data/headerBanner.json';
-import services from '../data/services.json';
-import about from '../data/about.json';
-import membersTypes from '../data/membersTypes.json';
-import contact from '../data/contact.json';
-import partnersList from '../data/partners.json';
+import data from '../data/data.json';
 
 function IndexPage() {
   return (
-    <Layout menu={headerData.menu}>
+    <Layout menu={data.menu}>
       <SEO title="Home" />
-      <HeaderBanner bannerText={headerBanner.text} />
-      <Services title={services.title} list={services.list} />
-      <About title={about.title} content={about.content} image={about.image} />
+      <HeaderBanner bannerText={data.headerBanner.text} />
+      <Services title={data.services.title} list={data.services.list} />
+      <About
+        title={data.about.title}
+        content={data.about.content}
+        image={data.about.image}
+      />
       <Section title="Tezos around the world">
         <Map />
       </Section>
@@ -33,13 +31,16 @@ function IndexPage() {
         className="bg-tezos-dark"
         titleColor="white"
       >
-        <JoinUs membersTypes={membersTypes} />
+        <JoinUs membersTypes={data.membersTypes} />
       </Section>
       <Section title="Our Partners">
-        <Partners partnersList={partnersList} />
+        <Partners partnersList={data.partners} />
       </Section>
       <Section title="Contact Us" className="text-left" direction="left">
-        <Contact email={contact.email} socialList={contact.socialList} />
+        <Contact
+          email={data.contact.email}
+          socialList={data.contact.socialList}
+        />
       </Section>
     </Layout>
   );
