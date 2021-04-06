@@ -16,7 +16,7 @@ function Layout({ menu, children }) {
   return (
     <>
       <Header menu={menu} />
-      <div>
+      <div className="overflow-x-hidden">
         <main>{children}</main>
       </div>
       <Footer />

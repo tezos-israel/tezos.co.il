@@ -12,7 +12,10 @@ function InputField({
   return (
     <div className="flex flex-col">
       {label && (
-        <label htmlFor={id} className="text-tezos-blue mb-1">
+        <label
+          htmlFor={id}
+          className="text-tezos-blue mb-1 sm:text-base text-sm"
+        >
           {label}
         </label>
       )}
@@ -31,7 +34,7 @@ function InputField({
           id={id}
           type={type}
           className={classnames(
-            'rounded-full  bg-tezos-blue bg-opacity-20 px-4 py-3 focus:outline-none',
+            'rounded-full bg-tezos-blue bg-opacity-20 px-4 sm:py-3 py-1 focus:outline-none',
             className
           )}
           placeholder={placeholder}

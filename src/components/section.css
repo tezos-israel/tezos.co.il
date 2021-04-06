@@ -1,0 +1,22 @@
+.section-title:before {
+  content: ' ';
+  position: absolute;
+  top: calc(100% + 10px);
+  width: 70px;
+  height: 5px;
+  background: rgba(44, 125, 247, 0.6);
+  margin: 0 auto;
+  border-radius: 100px;
+}
+.section-title.text-center:before {
+  left: 0;
+  right: 0;
+}
+.section-title.text-left:before {
+  left: 0;
+  right: auto;
+}
+.section-title.text-right:before {
+  left: auto;
+  right: 0;
+}
