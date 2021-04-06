@@ -5,11 +5,11 @@ import './section.css';
 
 function Section({ title, className, titleColor, direction, children }) {
   return (
-    <div className={classnames('sm:py-20 py-10 sm:px-0 px-7', className)}>
+    <div className={classnames('sm:py-20 py-10 xl:px-0 px-7', className)}>
       <div className="max-w-7xl mx-auto">
         <h3
           className={classnames(
-            'section-title text-tezos-dark sm:text-2xl text-xl font-semibold mb-7 relative',
+            'section-title text-tezos-dark sm:text-2xl text-xl font-bold mb-7 relative font-museo',
             {
               'text-tezos-dark': titleColor === 'dark' || !titleColor,
               'text-white': titleColor === 'white',

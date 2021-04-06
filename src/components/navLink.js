@@ -8,7 +8,7 @@ function NavLink({ title = '', path = '/', className }) {
     <Link
       to={path}
       className={classnames(
-        'capitalize py-2 px-6 text-tezos-blue text-sm hover:text-tezos-dark',
+        'capitalize py-2 sm:px-3 lg:px-6 text-tezos-blue text-sm hover:text-tezos-dark',
         className
       )}
     >
