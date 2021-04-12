@@ -2,7 +2,7 @@ import React from 'react';
 import TeamMember from '../components/TeamMember';
 import data from '../data/teamData.json';
 
-function Members() {
+function Team() {
   return (
     <div className="bg-tezos-dark flex flex-col">
       <p className="text-white text-5xl font-bold museo self-center">
@@ -23,4 +23,4 @@ function Members() {
     </div>
   );
 }
-export default Members;
+export default Team;
