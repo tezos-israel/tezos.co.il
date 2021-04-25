@@ -10,14 +10,25 @@ import PropTypes from 'prop-types';
 
 import Header from './header';
 import Footer from './footer';
+import Section from '../components/section';
+import Contact from '../components/contact';
+
 import './layout.css';
 
-function Layout({ menu, children }) {
+import data from '../data/data.json';
+
+function Layout({ children }) {
   return (
     <>
-      <Header menu={menu} />
-      <div className="overflow-x-hidden">
+      <Header menu={data.menu} />
+      <div className="overflow-x-hidden lg:mt-24 md:mt-24 sm:mt-24 mt-24">
         <main>{children}</main>
+        <Section title="Contact Us" className="text-left" direction="left">
+          <Contact
+            email={data.contact.email}
+            socialList={data.contact.socialList}
+          />
+        </Section>
       </div>
       <Footer />
     </>
