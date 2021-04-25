@@ -20,7 +20,7 @@ function Blog() {
                 width={57.87}
                 quality={95}
                 formats={['AUTO', 'WEBP', 'AVIF']}
-                alt="A Gatsby astronaut"
+                alt="Dev portal icon"
               />
               <h3 className="font-museo text-xl mt-5">Dev Portal</h3>
               <p className="text-gray-100 opacity-70 text-sm my-5">
@@ -40,7 +40,7 @@ function Blog() {
                 width={57.87}
                 quality={95}
                 formats={['AUTO', 'WEBP', 'AVIF']}
-                alt="A Gatsby astronaut"
+                alt="Deep dive icon"
               />
               <h3 className="font-museo text-xl mt-5"> Deep Dive on Tezos</h3>
               <p className="text-gray-100 opacity-70 text-sm my-5">
