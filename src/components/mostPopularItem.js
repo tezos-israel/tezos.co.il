@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import classnames from 'classnames';
 
@@ -9,7 +10,7 @@ function MostPopularItem({
   date,
   author,
   type,
-  layout,
+  layout = 'col',
   rowItems,
   size,
 }) {
@@ -22,10 +23,10 @@ function MostPopularItem({
         'w-full': rowItems === 1 || !rowItems,
       })}
     >
-      <a
-        href=""
+      <Link
+        to="/blog"
         className={classnames('lg:p-4 lg:mt-0 md:mt-4 mt-4 flex flex-wrap', {
-          'flex-col': layout === 'col' || !layout,
+          'flex-col': layout === 'col',
           'flex-row': layout === 'row',
         })}
       >
@@ -33,7 +34,7 @@ function MostPopularItem({
           className={classnames(
             'block  overflow-hidden rounded-md',
             {
-              'w-full mb-4': layout === 'col' || !layout,
+              'w-full mb-4': layout === 'col',
               'w-1/3': layout === 'row',
             },
             {
@@ -48,7 +49,7 @@ function MostPopularItem({
             className={classnames(
               'rounded-md',
               {
-                'w-full': layout === 'col' || !layout,
+                'w-full': layout === 'col',
                 ' w-auto': layout === 'row',
               },
               {
@@ -60,7 +61,7 @@ function MostPopularItem({
         </div>
         <div
           className={classnames('', {
-            'w-full': layout === 'col' || !layout,
+            'w-full': layout === 'col',
             'w-2/3 pl-4': layout === 'row',
           })}
         >
@@ -77,7 +78,7 @@ function MostPopularItem({
           </h3>
           <div
             className={classnames('flex justify-between', {
-              'flex-row items-center': layout === 'col' || !layout,
+              'flex-row items-center': layout === 'col',
               'flex-col h-2/3': layout === 'row',
             })}
           >
@@ -97,7 +98,7 @@ function MostPopularItem({
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
@@ -111,9 +112,9 @@ MostPopularItem.propTypes = {
     username: PropTypes.string,
   }),
   type: PropTypes.string,
-  layout: PropTypes.string,
+  layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['normal', 'small']),
 };
 
 export default MostPopularItem;

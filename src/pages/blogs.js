@@ -12,11 +12,9 @@ function Blogs() {
     <Layout>
       <SEO title="Blogs" />
 
-      {data.popularBlogs && <MostPopular popularBlogs={data.popularBlogs} />}
+      <MostPopular popularBlogs={data.popularBlogs} />
 
-      {data.recentlyBlogs && (
-        <RecentlyPosts recentlyBlogs={data.recentlyBlogs} />
-      )}
+      <RecentlyPosts recentlyBlogs={data.recentlyBlogs} />
     </Layout>
   );
 }
