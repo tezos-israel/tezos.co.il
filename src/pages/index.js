@@ -8,13 +8,12 @@ import About from '../components/about';
 import Map from '../components/map';
 import JoinUs from '../components/joinUs';
 import Partners from '../components/partners';
-import Contact from '../components/contact';
 
 import data from '../data/data.json';
 
 function IndexPage() {
   return (
-    <Layout menu={data.menu}>
+    <Layout>
       <SEO title="Home" />
       <HeaderBanner bannerText={data.headerBanner.text} />
       <Services title={data.services.title} list={data.services.list} />
@@ -35,12 +34,6 @@ function IndexPage() {
       </Section>
       <Section title="Our Partners">
         <Partners partnersList={data.partners} />
-      </Section>
-      <Section title="Contact Us" className="text-left" direction="left">
-        <Contact
-          email={data.contact.email}
-          socialList={data.contact.socialList}
-        />
       </Section>
     </Layout>
   );

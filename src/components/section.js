@@ -5,7 +5,7 @@ import './section.css';
 
 function Section({ title, className, titleColor, direction, children }) {
   return (
-    <div className={classnames('sm:py-20 py-10 xl:px-0 px-7', className)}>
+    <div className={classnames('sm:py-14 py-10 xl:px-0 px-7', className)}>
       <div className="max-w-7xl mx-auto">
         <h3
           className={classnames(

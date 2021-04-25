@@ -9,7 +9,7 @@ function Footer() {
         width={57.87}
         quality={95}
         formats={['AUTO', 'WEBP', 'AVIF']}
-        alt="A Gatsby astronaut"
+        alt="Tezos Logo"
       />
       <div className="mt-5 text-sm">
         © Copyright {new Date().getFullYear()}, Tezos Isreal - All Rights
