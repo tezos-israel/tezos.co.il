@@ -5,24 +5,16 @@
       "path": "/"
     },
     {
-      "title": "Startups",
-      "path": "/"
-    },
-    {
-      "title": "Corporates",
-      "path": "/"
-    },
-    {
-      "title": "Governments",
-      "path": "/"
-    },
-    {
       "title": "Blogs",
       "path": "/blogs"
     },
     {
       "title": "Team",
       "path": "/team"
+    },
+    {
+      "title": "Dev Tools",
+      "path": "/dev"
     }
   ],
   "headerBanner": {
