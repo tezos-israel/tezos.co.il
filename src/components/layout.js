@@ -16,11 +16,12 @@ import Contact from '../components/contact';
 import './layout.css';
 
 import data from '../data/data.json';
+import navigation from '../../data/settings/navigation.yml';
 
 function Layout({ children }) {
   return (
     <>
-      <Header menu={data.menu} />
+      <Header menu={navigation.nav_items} />
       <div className="overflow-x-hidden lg:mt-24 md:mt-24 sm:mt-24 mt-24">
         <main>{children}</main>
         <Section title="Contact Us" className="text-left" direction="left">

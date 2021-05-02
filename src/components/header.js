@@ -67,12 +67,11 @@ function Header({ menu }) {
 
         <div className="items-center">
           <div className="hidden sm:inline-block">
-            {menu &&
-              menu.map((item, index) => {
-                return (
-                  <NavLink key={index} title={item.title} path={item.path} />
-                );
-              })}
+            {menu.map((item, index) => {
+              return (
+                <NavLink key={index} title={item.label} path={item.path} />
+              );
+            })}
           </div>
 
           <Button
@@ -87,17 +86,16 @@ function Header({ menu }) {
             id="mobile-menu"
           >
             <div className="px-2 py-3 space-y-1">
-              {menu &&
-                menu.map((item, index) => {
-                  return (
-                    <NavLink
-                      key={index}
-                      title={item.title}
-                      path={item.path}
-                      className="block text-lg py-3 text-tezos-dark"
-                    />
-                  );
-                })}
+              {menu.map((item, index) => {
+                return (
+                  <NavLink
+                    key={index}
+                    title={item.label}
+                    path={item.path}
+                    className="block text-lg py-3 text-tezos-dark"
+                  />
+                );
+              })}
             </div>
           </div>
         )}
@@ -108,7 +106,7 @@ function Header({ menu }) {
 Header.propTypes = {
   menu: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
+      label: PropTypes.string,
       path: PropTypes.string,
     }).isRequired
   ),
