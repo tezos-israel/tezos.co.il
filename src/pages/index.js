@@ -1,4 +1,7 @@
-import * as React from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { graphql } from 'gatsby';
+
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import HeaderBanner from '../components/headerBanner';
@@ -11,7 +14,11 @@ import Partners from '../components/partners';
 
 import data from '../data/data.json';
 
-function IndexPage() {
+export default function IndexPage({
+  data: {
+    markdownRemark: { frontmatter },
+  },
+}) {
   return (
     <Layout>
       <SEO
@@ -20,8 +27,11 @@ function IndexPage() {
         lang={data.configs.lang}
         meta={data.configs.meta}
       />
-      <HeaderBanner bannerText={data.headerBanner.text} />
-      <Services title={data.services.title} list={data.services.list} />
+      <HeaderBanner bannerText={frontmatter.title} />
+      <Services
+        title={frontmatter.servicesSection.title}
+        list={frontmatter.servicesSection.services}
+      />
       <About
         title={data.about.title}
         content={data.about.content}
@@ -44,4 +54,36 @@ function IndexPage() {
   );
 }
 
-export default IndexPage;
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        servicesSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          services: PropTypes.array,
+        }),
+      }),
+    }),
+  }).isRequired,
+};
+
+export const pageQuery = graphql`
+  query IndexPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "index" } }) {
+      frontmatter {
+        title
+        servicesSection {
+          title
+          services {
+            title
+            description
+            image {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+  }
+`;

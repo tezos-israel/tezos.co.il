@@ -3,16 +3,67 @@ backend:
   repo: tezos-israel/gatsby-website
   branch: netlify
 
+local_backend: true
+
 media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: data/pages/blog
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'blog-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Featured Post', name: 'featuredpost', widget: 'boolean' }
+      - { label: 'Featured Image', name: 'featuredimage', widget: image }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+  - name: settings
+    label: Settings
+    files:
+      - file: data/settings/navigation.yml
+        label: Navigation
+        name: navigation
+        fields:
+          - label: Navigation
+            name: nav_items
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+  - label: 'Pages'
+    name: 'pages'
+    files:
+      - label: 'Landing page'
+        name: 'home'
+        file: 'data/pages/home.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'index',
+            }
+          - { label: Title, name: title, widget: string }
+          - label: ServicesSection
+            name: servicesSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Services
+                name: services
+                widget: list
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: string }

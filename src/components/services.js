@@ -10,44 +10,51 @@ function Services({ title, list }) {
       </h2>
 
       <div className="flex sm:flex-row flex-col justify-around lg:-m-5">
-        {list.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className="shadow-3xl shadwo-tezos-blue bg-white p-10 rounded-xl lg:m-5 sm:m-1 w-full sm:mt-0 mt-4"
-            >
-              <div className="text-center">
-                <img
-                  src={item.image}
-                  width="100"
-                  className="mx-auto"
-                  alt={item.title}
-                />
-                <h4 className="font-semibold sm:text-xl text-lg text-tezos-blue mt-5">
-                  {item.title}
-                </h4>
-                <p className="text-tezos-dark sm:text-md text-sm sm:my-5 my-3 ">
-                  {item.desc}
-                </p>
-              </div>
-              <Button title="Learn More" className="bg-tezos-blue text-white" />
-            </div>
-          );
-        })}
+        {list.map((service) => (
+          <ServiceItem key={service.title} {...service} />
+        ))}
       </div>
     </div>
   );
 }
 
 Services.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(
     PropTypes.shape({
-      image: PropTypes.string,
       title: PropTypes.string,
-      desc: PropTypes.string,
     })
-  ),
+  ).isRequired,
 };
 
 export default Services;
+
+function ServiceItem({ image, title, description }) {
+  return (
+    <div className="shadow-3xl shadwo-tezos-blue bg-white p-10 rounded-xl lg:m-5 sm:m-1 w-full sm:mt-0 mt-4">
+      <div className="text-center">
+        <img
+          src={image.publicURL}
+          width="100"
+          className="mx-auto"
+          alt={title}
+        />
+        <h4 className="font-semibold sm:text-xl text-lg text-tezos-blue mt-5">
+          {title}
+        </h4>
+        <p className="text-tezos-dark sm:text-md text-sm sm:my-5 my-3 ">
+          {description}
+        </p>
+      </div>
+      <Button title="Learn More" className="bg-tezos-blue text-white" />
+    </div>
+  );
+}
+
+ServiceItem.propTypes = {
+  description: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    publicURL: PropTypes.string,
+  }).isRequired,
+  title: PropTypes.string.isRequired,
+};
