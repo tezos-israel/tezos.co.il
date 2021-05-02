@@ -1,6 +1,6 @@
 import React from 'react';
 import TeamMember from '../components/TeamMember';
-import data from '../data/teamData.json';
+import data from '../data/data.json';
 import teamData from '../data/teamData.json';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
