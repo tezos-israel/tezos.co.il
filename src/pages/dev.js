@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 import { FaGlobeAmericas, FaCodeBranch } from 'react-icons/fa';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import data from '../data/teamData.json';
+import data from '../data/data.json';
 
 function Blog() {
   return (
