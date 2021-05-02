@@ -17,7 +17,12 @@ function Services({ title, list }) {
               className="shadow-3xl shadwo-tezos-blue bg-white p-10 rounded-xl lg:m-5 sm:m-1 w-full sm:mt-0 mt-4"
             >
               <div className="text-center">
-                <img src={item.image} width="100" className="mx-auto" />
+                <img
+                  src={item.image}
+                  width="100"
+                  className="mx-auto"
+                  alt={item.title}
+                />
                 <h4 className="font-semibold sm:text-xl text-lg text-tezos-blue mt-5">
                   {item.title}
                 </h4>

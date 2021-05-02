@@ -49,7 +49,7 @@ function Contact({ email, socialList }) {
             width={300}
             quality={95}
             formats={['AUTO', 'WEBP', 'AVIF']}
-            alt="Tezos Logo"
+            alt="Contact icon"
             className="sm:my-0 my-5"
           />
           <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">

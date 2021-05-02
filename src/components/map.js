@@ -8,7 +8,7 @@ function Map() {
         src="../images/map.svg"
         quality={95}
         formats={['AUTO', 'WEBP', 'AVIF']}
-        alt="Tezos Logo"
+        alt="Tezos map around the world"
       />
     </div>
   );

@@ -8,8 +8,8 @@ function TeamMember({ social, name, role }) {
     <div className="flex flex-col items-center text-tezos-blue museo p-1 lg:w-1/3 md:w-1/3 w-full mb-4">
       <StaticImage
         src="../images/map.svg"
-        alt="Sample"
         className="w-48 h-48 rounded-full m-6"
+        alt={name}
       />
       <div className="text-center mb-4">
         <p className="text-xl font-bold font-museo">{name}</p>

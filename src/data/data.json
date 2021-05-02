@@ -67,11 +67,13 @@
   "partners": [
     {
       "image": "/images/logo_long_bleu_couleur-1.png",
-      "url": "#"
+      "url": "#",
+      "name": "nomadic labs"
     },
     {
       "image": "/images/tf_logo.png",
-      "url": ""
+      "url": "#",
+      "name": "tezos foundation"
     }
   ],
   "contact": {

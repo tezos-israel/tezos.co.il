@@ -8,7 +8,7 @@ function Partners({ partnersList }) {
         {partnersList.map((item, index) => {
           return (
             <a href={item.url} key={index}>
-              <img src={item.image} width="300" />
+              <img src={item.image} width="300" alt={item.name} />
             </a>
           );
         })}
