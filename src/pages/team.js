@@ -1,6 +1,7 @@
 import React from 'react';
 import TeamMember from '../components/TeamMember';
 import data from '../data/teamData.json';
+import teamData from '../data/teamData.json';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -19,7 +20,7 @@ function Team() {
             Our Team
           </h2>
           <div className="flex flex-wrap  items-center justify-center">
-            {data.map((item, index) => {
+            {teamData.map((item, index) => {
               return (
                 <TeamMember
                   key={index}
