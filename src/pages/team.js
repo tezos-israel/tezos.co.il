@@ -7,7 +7,12 @@ import SEO from '../components/seo';
 function Team() {
   return (
     <Layout>
-      <SEO title="Team" />
+      <SEO
+        title="Team"
+        description={data.configs.description}
+        lang={data.configs.lang}
+        meta={data.configs.meta}
+      />
       <div className="bg-tezos-dark flex flex-col py-7">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-white text-2xl text-center font-museo">

@@ -1,4 +1,9 @@
 {
+  "configs": {
+    "lang": "en-US",
+    "description": "Tezos Israel is an innovation lab that serves the Israeli ecosystem in educating, training, and onboarding blockchain technology.",
+    "meta": []
+  },
   "menu": [
     {
       "title": "Home",

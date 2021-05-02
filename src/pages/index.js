@@ -14,7 +14,12 @@ import data from '../data/data.json';
 function IndexPage() {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        description={data.configs.description}
+        lang={data.configs.lang}
+        meta={data.configs.meta}
+      />
       <HeaderBanner bannerText={data.headerBanner.text} />
       <Services title={data.services.title} list={data.services.list} />
       <About

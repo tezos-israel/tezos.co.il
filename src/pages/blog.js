@@ -12,7 +12,12 @@ function Blog() {
   const blogData = data.blog;
   return (
     <Layout>
-      <SEO title="Blog title" />
+      <SEO
+        title="Blog title"
+        description={data.configs.description}
+        lang={data.configs.lang}
+        meta={data.configs.meta}
+      />
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-0 px-7">
