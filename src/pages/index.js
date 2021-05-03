@@ -33,9 +33,9 @@ export default function IndexPage({
         list={frontmatter.servicesSection.services}
       />
       <About
-        title={data.about.title}
-        content={data.about.content}
-        image={data.about.image}
+        title={frontmatter.aboutSection.title}
+        content={frontmatter.aboutSection.content}
+        image={frontmatter.aboutSection.image}
       />
       <Section title="Tezos around the world">
         <Map />
@@ -63,6 +63,11 @@ IndexPage.propTypes = {
           title: PropTypes.string.isRequired,
           services: PropTypes.array,
         }),
+        aboutSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          content: PropTypes.string.isRequired,
+          image: PropTypes.string,
+        }),
       }),
     }),
   }).isRequired,
@@ -81,6 +86,13 @@ export const pageQuery = graphql`
             image {
               publicURL
             }
+          }
+        }
+        aboutSection {
+          title
+          content
+          image {
+            publicURL
           }
         }
       }
