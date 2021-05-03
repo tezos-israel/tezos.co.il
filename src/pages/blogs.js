@@ -10,7 +10,12 @@ import data from '../data/data.json';
 function Blogs() {
   return (
     <Layout>
-      <SEO title="Blogs" />
+      <SEO
+        title="Blogs"
+        description={data.configs.description}
+        lang={data.configs.lang}
+        meta={data.configs.meta}
+      />
 
       <MostPopular popularBlogs={data.popularBlogs} />
 

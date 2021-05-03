@@ -84,7 +84,7 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={author.avatar} />
+                <img src={author.avatar} alt={author.username} />
               </div>
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>

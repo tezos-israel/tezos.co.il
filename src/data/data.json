@@ -1,4 +1,9 @@
 {
+  "configs": {
+    "lang": "en-US",
+    "description": "Tezos Israel is an innovation lab that serves the Israeli ecosystem in educating, training, and onboarding blockchain technology.",
+    "meta": []
+  },
   "menu": [
     {
       "title": "Home",
@@ -62,11 +67,13 @@
   "partners": [
     {
       "image": "/images/logo_long_bleu_couleur-1.png",
-      "url": "#"
+      "url": "#",
+      "name": "nomadic labs"
     },
     {
       "image": "/images/tf_logo.png",
-      "url": ""
+      "url": "#",
+      "name": "tezos foundation"
     }
   ],
   "contact": {
