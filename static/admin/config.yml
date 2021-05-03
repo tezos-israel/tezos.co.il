@@ -72,3 +72,13 @@ collections:
                   - { label: Image, name: image, widget: image }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: string }
+      - label: 'Team Page'
+        name: 'team'
+        file: 'data/pages/team.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'team',
+            }

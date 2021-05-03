@@ -21,7 +21,7 @@ import navigation from '../../data/settings/navigation.yml';
 function Layout({ children }) {
   return (
     <>
-      <Header menu={navigation.nav_items} />
+      <Header menu={navigation.navItems} />
       <div className="overflow-x-hidden lg:mt-24 md:mt-24 sm:mt-24 mt-24">
         <main>{children}</main>
         <Section title="Contact Us" className="text-left" direction="left">
