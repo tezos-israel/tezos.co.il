@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 
 import NavLink from './navLink';
 import Button from './shared/button';
 
-function Header({ menu }) {
+function Header({ menu, logo }) {
   const [menuOpened, setMenuOpened] = useState(false);
+
+  console.log(logo);
+
   return (
     <header className="fixed top-0 right-0 left-0 bg-white z-10 xl:px-0 xs:px-4 px-4">
       <div className="max-w-auto sm:max-w-7xl mx-auto flex justify-between items-center py-4 relative font-museo">
@@ -56,13 +58,7 @@ function Header({ menu }) {
           </button>
         </div>
         <div className="text-center sm:text-left">
-          <StaticImage
-            src="../images/horizontal_logo_blue.svg"
-            width={120.87}
-            quality={95}
-            formats={['AUTO', 'WEBP', 'AVIF']}
-            alt="Tezos Logo"
-          />
+          <img src={logo} width={120.87} alt="Tezos Logo" />
         </div>
 
         <div className="items-center">
@@ -110,5 +106,6 @@ Header.propTypes = {
       path: PropTypes.string,
     }).isRequired
   ),
+  logo: PropTypes.string,
 };
 export default Header;

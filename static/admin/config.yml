@@ -46,6 +46,13 @@ collections:
             fields:
               - { label: Label, name: label, widget: string }
               - { label: Path, name: path, widget: string }
+      - file: data/settings/logos.yml
+        label: Logos
+        name: logos
+        widget: list
+        fields:
+          - { label: HeaderLogo, name: headerLogo, widget: image }
+          - { label: FooterLogo, name: footerLogo, widget: image }
   - label: 'Pages'
     name: 'pages'
     files:
