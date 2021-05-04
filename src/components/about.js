@@ -13,7 +13,7 @@ function About({ title, content, image }) {
           </div>
           <div className="text-right xl:w-1/3 lg:w-2/5 w-1/4">
             <img
-              src={image}
+              src={image.publicURL}
               width="200"
               className="max-w-full float-right"
               alt={title}

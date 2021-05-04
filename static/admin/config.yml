@@ -72,6 +72,13 @@ collections:
                   - { label: Image, name: image, widget: image }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: string }
+          - label: AboutSection
+            name: aboutSection
+            widget: object
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Content, name: content, widget: string}
+              - {label: Image, name: image, widget: image}
       - label: 'Team Page'
         name: 'team'
         file: 'data/pages/team.md'
