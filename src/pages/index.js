@@ -19,6 +19,8 @@ export default function IndexPage({
     markdownRemark: { frontmatter },
   },
 }) {
+  console.log(frontmatter.aboutSection);
+
   return (
     <Layout>
       <SEO
@@ -41,11 +43,11 @@ export default function IndexPage({
         <Map />
       </Section>
       <Section
-        title="Join the Tezos Eco-system"
+        title={frontmatter.joinSection.title}
         className="bg-tezos-dark"
         titleColor="white"
       >
-        <JoinUs membersTypes={data.membersTypes} />
+        <JoinUs membersTypes={frontmatter.joinSection.joinList} />
       </Section>
       <Section title="Our Partners">
         <Partners partnersList={data.partners} />
@@ -67,6 +69,10 @@ IndexPage.propTypes = {
           title: PropTypes.string.isRequired,
           content: PropTypes.string.isRequired,
           image: PropTypes.string,
+        }),
+        joinSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          joinList: PropTypes.array,
         }),
       }),
     }),
@@ -93,6 +99,14 @@ export const pageQuery = graphql`
           content
           image {
             publicURL
+          }
+        }
+        joinSection {
+          title
+          joinList {
+            title
+            description
+            link
           }
         }
       }

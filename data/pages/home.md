@@ -13,5 +13,17 @@ servicesSection:
 aboutSection:
   title: 'Tezos stands as the world leader in blockchain technology with institutional grade security standards. '
   content: As the world’s fully democratic blockchain, the Tezos open-source platform, has an ever-growing community and ecosystem with to go along with it. Due to its ethical approach it is already used and supported by the French and Singaporean Governments, French Military, and over 50 startups and projects worldwide.
-  image: /assets/tezos_machine.svg
+  image: /assets/stands.png
+joinSection:
+  title: Join the Tezos Eco-system
+  joinList:
+    - title: Community
+      description: Community is what was, is, and will be what makes Tezos so special. Join us, it’s free.
+      link: /community
+    - title: Developers
+      description: Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team.
+      link: /dev
+    - title: Baking
+      description: Baking is how blocks are produced and validated on the Tezos blockchain.
+      link: /baking
 ---

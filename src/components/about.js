@@ -28,7 +28,9 @@ function About({ title, content, image }) {
 About.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    publicURL: PropTypes.string,
+  }),
 };
 
 export default About;
