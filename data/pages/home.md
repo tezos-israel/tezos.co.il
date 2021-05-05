@@ -26,4 +26,11 @@ joinSection:
     - title: Baking
       description: Baking is how blocks are produced and validated on the Tezos blockchain.
       link: /baking
+partnersSection:
+  title: Our Partners
+  partnersList:
+    - partnerImage: /assets/logo_long_bleu_couleur-1.png
+      link: https://www.nomadic-labs.com/
+    - link: https://tezos.foundation/
+      partnerImage: /assets/tf_logo.png
 ---

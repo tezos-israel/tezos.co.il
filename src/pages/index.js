@@ -49,8 +49,8 @@ export default function IndexPage({
       >
         <JoinUs membersTypes={frontmatter.joinSection.joinList} />
       </Section>
-      <Section title="Our Partners">
-        <Partners partnersList={data.partners} />
+      <Section title={frontmatter.partnersSection.title}>
+        <Partners partnersList={frontmatter.partnersSection.partnersList} />
       </Section>
     </Layout>
   );
@@ -73,6 +73,10 @@ IndexPage.propTypes = {
         joinSection: PropTypes.shape({
           title: PropTypes.string.isRequired,
           joinList: PropTypes.array,
+        }),
+        partnersSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          partnersList: PropTypes.array,
         }),
       }),
     }),
@@ -106,6 +110,15 @@ export const pageQuery = graphql`
           joinList {
             title
             description
+            link
+          }
+        }
+        partnersSection {
+          title
+          partnersList {
+            partnerImage {
+              publicURL
+            }
             link
           }
         }
