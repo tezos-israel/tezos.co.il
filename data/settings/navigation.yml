@@ -1,6 +1,4 @@
 navItems:
-  - label: Home
-    path: /
   - label: Blog
     path: /blog
   - label: Team

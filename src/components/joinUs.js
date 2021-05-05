@@ -20,7 +20,7 @@ function JoinUs({ membersTypes }) {
             </div>
             <div>
               <Link
-                to={item.link}
+                to={item.url}
                 className="bg-tezos-blue text-white capitalize py-2 px-6 rounded-full text-sm focus:outline-none"
               >
                 View Details

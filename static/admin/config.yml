@@ -67,7 +67,7 @@ collections:
               default: 'index',
             }
           - { label: Title, name: title, widget: string }
-          - label: ServicesSection
+          - label: 'Services Section'
             name: servicesSection
             widget: object
             fields:
@@ -79,36 +79,36 @@ collections:
                   - { label: Image, name: image, widget: image }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: string }
-          - label: AboutSection
+          - label: 'About Section'
             name: aboutSection
             widget: object
             fields:
               - {label: Title, name: title, widget: string}
               - {label: Content, name: content, widget: string}
               - {label: Image, name: image, widget: image}
-          - label: JoinSection
+          - label: 'Join Section'
             name: joinSection
             widget: object
             fields:
               - { label: Title, name: title, widget: string }
-              - label: JoinList
+              - label: 'Join List'
                 name: joinList
                 widget: list
                 fields:
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: string }
-                  - { label: link, name: link, widget: string }
-          - label: PartnersSection
+                  - { label: Url, name: url, widget: string }
+          - label: 'Partners Section'
             name: partnersSection
             widget: object
             fields:
               - { label: Title, name: title, widget: string }
-              - label: PartnersList
+              - label: 'Partners List'
                 name: partnersList
                 widget: list
                 fields:
                   - { label: PartnerImage, name: partnerImage, widget: image }
-                  - { label: link, name: link, widget: string }
+                  - { label: Url, name: url, widget: string }
       - label: 'Team Page'
         name: 'team'
         file: 'data/pages/team.md'

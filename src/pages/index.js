@@ -19,8 +19,6 @@ export default function IndexPage({
     markdownRemark: { frontmatter },
   },
 }) {
-  console.log(frontmatter.aboutSection);
-
   return (
     <Layout>
       <SEO

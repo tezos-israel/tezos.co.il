@@ -19,18 +19,18 @@ joinSection:
   joinList:
     - title: Community
       description: Community is what was, is, and will be what makes Tezos so special. Join us, it’s free.
-      link: /community
+      url: /community
     - title: Developers
       description: Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team.
-      link: /dev
+      url: /dev
     - title: Baking
       description: Baking is how blocks are produced and validated on the Tezos blockchain.
-      link: /baking
+      url: /baing
 partnersSection:
   title: Our Partners
   partnersList:
     - partnerImage: /assets/logo_long_bleu_couleur-1.png
-      link: https://www.nomadic-labs.com/
-    - link: https://tezos.foundation/
-      partnerImage: /assets/tf_logo.png
+      url: https://www.nomadic-labs.com/
+    - partnerImage: /assets/tf_logo.png
+      url: https://tezos.foundation/
 ---
