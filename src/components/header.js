@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'gatsby';
 import NavLink from './navLink';
 import Button from './shared/button';
 
@@ -58,7 +58,9 @@ function Header({ menu, logo }) {
           </button>
         </div>
         <div className="text-center sm:text-left">
-          <img src={logo} width={120.87} alt="Tezos Logo" />
+          <Link to="/">
+            <img src={logo} width={120.87} alt="Tezos Logo" />
+          </Link>
         </div>
 
         <div className="items-center">
