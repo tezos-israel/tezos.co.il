@@ -108,7 +108,7 @@ export const pageQuery = graphql`
           joinList {
             title
             description
-            link
+            url
           }
         }
         partnersSection {
@@ -117,7 +117,7 @@ export const pageQuery = graphql`
             partnerImage {
               publicURL
             }
-            link
+            url
           }
         }
       }
