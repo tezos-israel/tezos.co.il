@@ -38,7 +38,7 @@ JoinUs.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
-      link: PropTypes.string,
+      url: PropTypes.string,
     })
   ),
 };
