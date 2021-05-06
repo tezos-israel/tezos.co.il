@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './shared/button';
-
+import { Link } from 'gatsby';
 function JoinUs({ membersTypes }) {
   return (
     <div className="text-center max-w-7xl mx-auto text-white flex justify-between sm:mt-16 sm:flex-row flex-col sm:px-0 px-7">
@@ -16,14 +15,16 @@ function JoinUs({ membersTypes }) {
                 {item.title}
               </h4>
               <p className="sm:text-sm text-xs sm:my-6 my-4 text-opacity-60">
-                {item.desc}
+                {item.description}
               </p>
             </div>
             <div>
-              <Button
-                title="View Details"
-                className="bg-tezos-blue text-white"
-              />
+              <Link
+                to={item.url}
+                className="bg-tezos-blue text-white capitalize py-2 px-6 rounded-full text-sm focus:outline-none"
+              >
+                View Details
+              </Link>
             </div>
           </div>
         );
@@ -36,7 +37,8 @@ JoinUs.propTypes = {
   membersTypes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      desc: PropTypes.string,
+      description: PropTypes.string,
+      url: PropTypes.string,
     })
   ),
 };

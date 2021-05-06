@@ -17,11 +17,12 @@ import './layout.css';
 
 import data from '../data/data.json';
 import navigation from '../../data/settings/navigation.yml';
+import logos from '../../data/settings/logos.yml';
 
 function Layout({ children }) {
   return (
     <>
-      <Header menu={navigation.navItems} />
+      <Header menu={navigation.navItems} logo={logos.headerLogo} />
       <div className="overflow-x-hidden lg:mt-24 md:mt-24 sm:mt-24 mt-24">
         <main>{children}</main>
         <Section title="Contact Us" className="text-left" direction="left">
@@ -31,7 +32,7 @@ function Layout({ children }) {
           />
         </Section>
       </div>
-      <Footer />
+      <Footer logo={logos.footerLogo} />
     </>
   );
 }

@@ -46,6 +46,13 @@ collections:
             fields:
               - { label: Label, name: label, widget: string }
               - { label: Path, name: path, widget: string }
+      - file: data/settings/logos.yml
+        label: Logos
+        name: logos
+        widget: list
+        fields:
+          - { label: HeaderLogo, name: headerLogo, widget: image }
+          - { label: FooterLogo, name: footerLogo, widget: image }
   - label: 'Pages'
     name: 'pages'
     files:
@@ -60,7 +67,7 @@ collections:
               default: 'index',
             }
           - { label: Title, name: title, widget: string }
-          - label: ServicesSection
+          - label: 'Services Section'
             name: servicesSection
             widget: object
             fields:
@@ -72,6 +79,36 @@ collections:
                   - { label: Image, name: image, widget: image }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: string }
+          - label: 'About Section'
+            name: aboutSection
+            widget: object
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Content, name: content, widget: string}
+              - {label: Image, name: image, widget: image}
+          - label: 'Join Section'
+            name: joinSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: 'Join List'
+                name: joinList
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: string }
+                  - { label: Url, name: url, widget: string }
+          - label: 'Partners Section'
+            name: partnersSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: 'Partners List'
+                name: partnersList
+                widget: list
+                fields:
+                  - { label: PartnerImage, name: partnerImage, widget: image }
+                  - { label: Url, name: url, widget: string }
       - label: 'Team Page'
         name: 'team'
         file: 'data/pages/team.md'

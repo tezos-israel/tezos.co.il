@@ -33,22 +33,22 @@ export default function IndexPage({
         list={frontmatter.servicesSection.services}
       />
       <About
-        title={data.about.title}
-        content={data.about.content}
-        image={data.about.image}
+        title={frontmatter.aboutSection.title}
+        content={frontmatter.aboutSection.content}
+        image={frontmatter.aboutSection.image}
       />
       <Section title="Tezos around the world">
         <Map />
       </Section>
       <Section
-        title="Join the Tezos Eco-system"
+        title={frontmatter.joinSection.title}
         className="bg-tezos-dark"
         titleColor="white"
       >
-        <JoinUs membersTypes={data.membersTypes} />
+        <JoinUs membersTypes={frontmatter.joinSection.joinList} />
       </Section>
-      <Section title="Our Partners">
-        <Partners partnersList={data.partners} />
+      <Section title={frontmatter.partnersSection.title}>
+        <Partners partnersList={frontmatter.partnersSection.partnersList} />
       </Section>
     </Layout>
   );
@@ -62,6 +62,19 @@ IndexPage.propTypes = {
         servicesSection: PropTypes.shape({
           title: PropTypes.string.isRequired,
           services: PropTypes.array,
+        }),
+        aboutSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          content: PropTypes.string.isRequired,
+          image: PropTypes.string,
+        }),
+        joinSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          joinList: PropTypes.array,
+        }),
+        partnersSection: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          partnersList: PropTypes.array,
         }),
       }),
     }),
@@ -81,6 +94,30 @@ export const pageQuery = graphql`
             image {
               publicURL
             }
+          }
+        }
+        aboutSection {
+          title
+          content
+          image {
+            publicURL
+          }
+        }
+        joinSection {
+          title
+          joinList {
+            title
+            description
+            url
+          }
+        }
+        partnersSection {
+          title
+          partnersList {
+            partnerImage {
+              publicURL
+            }
+            url
           }
         }
       }

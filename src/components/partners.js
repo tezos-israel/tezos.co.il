@@ -7,8 +7,12 @@ function Partners({ partnersList }) {
       <div className="flex justify-center items-center">
         {partnersList.map((item, index) => {
           return (
-            <a href={item.url} key={index}>
-              <img src={item.image} width="300" alt={item.name} />
+            <a href={item.url} key={index} target="_blank" rel="noreferrer">
+              <img
+                src={item.partnerImage.publicURL}
+                width="300"
+                alt={item.url}
+              />
             </a>
           );
         })}
@@ -21,7 +25,9 @@ Partners.propTypes = {
   partnersList: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,
-      image: PropTypes.string,
+      partnerImage: PropTypes.shape({
+        publicURL: PropTypes.string,
+      }),
     })
   ),
 };
