@@ -53,6 +53,18 @@ collections:
         fields:
           - { label: HeaderLogo, name: headerLogo, widget: image }
           - { label: FooterLogo, name: footerLogo, widget: image }
+      - file: data/settings/socials.yml
+        label: 'Social Links'
+        name: socialLinks
+        widget: list
+        fields:
+          - { label: Email, name: email, widget: string }
+          - { label: Facebook, name: facebook, widget: string }
+          - { label: LinkedIn, name: linkedIn, widget: string }
+          - { label: Instagram, name: instagram, widget: string }
+          - { label: Telegram, name: telegram, widget: string }
+          - { label: Twitter, name: twitter, widget: string }
+
   - label: 'Pages'
     name: 'pages'
     files:

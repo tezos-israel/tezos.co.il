@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
 import InputField from './shared/inputField';
 import Button from './shared/button';
+import socialLinks from '../../data/settings/socials.yml';
 
 import {
   FaEnvelope,
@@ -13,7 +13,7 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-function Contact({ email, socialList }) {
+function Contact() {
   return (
     <div className="max-w-7xl mx-auto pt-7">
       <div className="flex justify-between sm:flex-row flex-col">
@@ -54,20 +54,34 @@ function Contact({ email, socialList }) {
           />
           <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">
             <div className="text-tezos-blue flex items-center sm:justify-start justify-center">
-              <FaEnvelope className="mr-2 text-xl" /> {email}
+              <FaEnvelope className="mr-2 text-xl" /> {socialLinks.email}
             </div>
             <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
-              {socialList.map((item, index) => {
-                return (
-                  <a key={index} href={item.url}>
-                    {item.type === 'fb' && <FaFacebookF />}
-                    {item.type === 'linkedin' && <FaLinkedinIn />}
-                    {item.type === 'instagram' && <FaInstagram />}
-                    {item.type === 'telegram' && <FaTelegramPlane />}
-                    {item.type === 'twitter' && <FaTwitter />}
-                  </a>
-                );
-              })}
+              {socialLinks.facebook.length > 0 && (
+                <a href={socialLinks.facebook}>
+                  <FaFacebookF />
+                </a>
+              )}
+              {socialLinks.linkedIn.length > 0 && (
+                <a href={socialLinks.linkedIn}>
+                  <FaLinkedinIn />
+                </a>
+              )}
+              {socialLinks.instagram.length > 0 && (
+                <a href={socialLinks.instagram}>
+                  <FaInstagram />
+                </a>
+              )}
+              {socialLinks.telegram.length > 0 && (
+                <a href={socialLinks.telegram}>
+                  <FaTelegramPlane />
+                </a>
+              )}
+              {socialLinks.twitter.length > 0 && (
+                <a href={socialLinks.twitter}>
+                  <FaTwitter />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -75,15 +89,5 @@ function Contact({ email, socialList }) {
     </div>
   );
 }
-
-Contact.propTypes = {
-  email: PropTypes.string,
-  socialList: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string,
-      type: PropTypes.string,
-    })
-  ),
-};
 
 export default Contact;
