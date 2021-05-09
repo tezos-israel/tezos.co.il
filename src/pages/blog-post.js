@@ -7,20 +7,18 @@ import { format } from 'date-fns';
 
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
-import data2 from '../data/data.json';
+import SeoData from '../data/data.json';
 
 function Blog({ data }) {
   const post = data.markdownRemark;
-  console.log(post);
-
-  const blogData = data2.blog;
+  const Seo = SeoData.configs;
   return (
     <Layout>
       <SEO
         title="Blog title"
-        description={data2.configs.description}
-        lang={data2.configs.lang}
-        meta={data2.configs.meta}
+        description={Seo.description}
+        lang={Seo.lang}
+        meta={Seo.meta}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -36,13 +34,13 @@ function Blog({ data }) {
           <div className="relative mt-24">
             <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto">
               <div className="text-sm mb-3">
-                <h4>{blogData.author.name}</h4>
+                <h4>{'Author Name'}</h4>
                 <div className="text-black text-opacity-50">
                   {format(new Date(post.frontmatter.date), 'MM-dd-yyyy')}
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img src={blogData.author.avatar} />
+                <img src={''} />
               </div>
             </div>
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">

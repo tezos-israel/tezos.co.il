@@ -13,7 +13,7 @@ function MostPopularItem({
       'https://pbs.twimg.com/profile_images/1352350142393966592/j5oUEbAP_400x400.jpg',
     username: 'Ameed',
   },
-  type,
+  tags,
   slug,
   layout = 'col',
   rowItems,
@@ -94,14 +94,13 @@ function MostPopularItem({
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>
                 <div className="text-black text-opacity-50">
-                  {' '}
                   {format(new Date(date), 'MM-dd-yyyy')}
                 </div>
               </div>
             </div>
             <div className="mt-1">
               <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize ">
-                {type}
+                {tags}
               </span>
             </div>
           </div>
@@ -122,7 +121,7 @@ MostPopularItem.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  type: PropTypes.array,
+  tags: PropTypes.array,
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),
