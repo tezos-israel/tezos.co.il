@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-
+import { format } from 'date-fns';
 import classnames from 'classnames';
 
 function MostPopularItem({
   title,
   image,
   date,
-  author,
+  author = {
+    avatar:
+      'https://pbs.twimg.com/profile_images/1352350142393966592/j5oUEbAP_400x400.jpg',
+    username: 'Ameed',
+  },
   type,
+  slug,
   layout = 'col',
   rowItems,
   size,
@@ -24,7 +29,7 @@ function MostPopularItem({
       })}
     >
       <Link
-        to="/blog"
+        to={slug}
         className={classnames('lg:p-4 lg:mt-0 md:mt-4 mt-4 flex flex-wrap', {
           'flex-col': layout === 'col',
           'flex-row': layout === 'row',
@@ -45,7 +50,7 @@ function MostPopularItem({
           )}
         >
           <img
-            src={image}
+            src={image.publicURL}
             className={classnames(
               'rounded-md',
               {
@@ -88,7 +93,10 @@ function MostPopularItem({
               </div>
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>
-                <div className="text-black text-opacity-50">{date}</div>
+                <div className="text-black text-opacity-50">
+                  {' '}
+                  {format(new Date(date), 'MM-dd-yyyy')}
+                </div>
               </div>
             </div>
             <div className="mt-1">
@@ -104,14 +112,17 @@ function MostPopularItem({
 }
 
 MostPopularItem.propTypes = {
+  slug: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    publicURL: PropTypes.string,
+  }),
   date: PropTypes.string,
   author: PropTypes.shape({
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  type: PropTypes.string,
+  type: PropTypes.array,
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),

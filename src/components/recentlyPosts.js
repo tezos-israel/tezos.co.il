@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MostPopularItem from './mostPopularItem';
 
 function RecentlyPost({ recentlyBlogs }) {
+  console.log(recentlyBlogs);
   return (
     <div className="">
       <div className="max-w-7xl mx-auto py-7">
@@ -11,20 +12,25 @@ function RecentlyPost({ recentlyBlogs }) {
           Recently posted
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap xl:px-0 lg:px-0 px-4">
-          {recentlyBlogs.map((item, index) => {
-            return (
-              <MostPopularItem
-                key={index}
-                title={item.title}
-                image={item.image}
-                date={item.date}
-                author={item.author}
-                type={item.type}
-                layout="row"
-                rowItems={2}
-              />
-            );
-          })}
+          {recentlyBlogs &&
+            recentlyBlogs.map((item, index) => {
+              const data = item.node.frontmatter;
+              const slug = item.node.fields.slug;
+
+              return (
+                <MostPopularItem
+                  key={index}
+                  title={data.title}
+                  image={data.featuredimage}
+                  date={data.date}
+                  author={data.author}
+                  type={data.tags}
+                  slug={slug}
+                  layout="row"
+                  rowItems={2}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
