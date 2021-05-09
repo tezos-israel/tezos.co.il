@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: tezos-israel/gatsby-website
   branch: netlify
 
@@ -83,9 +83,9 @@ collections:
             name: aboutSection
             widget: object
             fields:
-              - {label: Title, name: title, widget: string}
-              - {label: Content, name: content, widget: string}
-              - {label: Image, name: image, widget: image}
+              - { label: Title, name: title, widget: string }
+              - { label: Content, name: content, widget: string }
+              - { label: Image, name: image, widget: image }
           - label: 'Join Section'
             name: joinSection
             widget: object
