@@ -69,10 +69,12 @@ function Blog({ data }) {
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md  overflow-hidden">
-              <img
-                src={post.frontmatter.featuredimage.publicURL}
-                className="rounded-md"
-              />
+              {post.frontmatter.featuredimage && (
+                <img
+                  src={post.frontmatter.featuredimage.publicURL}
+                  className="rounded-md"
+                />
+              )}
             </div>
           </div>
 
@@ -110,7 +112,7 @@ Blog.propTypes = {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
