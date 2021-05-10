@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
-title: 'What Are Digital Assets and Why They Are Important  What Are Digital Assets and Why They Are Important '
+title: What Are Digital Assets and Why They Are Important  What Are Digital Assets and Why They Are Important !
+author: Ameed
 date: 2021-05-08T22:58:25.874Z
 description: Life as we know it has undergone a technological transformation from physical formats to more efficient digital formats. Photographs that used to take hours to develop only take seconds to send across the world today.
 featuredpost: true

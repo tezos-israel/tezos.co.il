@@ -7,18 +7,18 @@ import { format } from 'date-fns';
 
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
-import SeoData from '../data/data.json';
+import Data from '../data/data.json';
 
 function Blog({ data }) {
   const post = data.markdownRemark;
-  const Seo = SeoData.configs;
+  const SeoData = Data.configs;
   return (
     <Layout>
       <SEO
         title="Blog title"
-        description={Seo.description}
-        lang={Seo.lang}
-        meta={Seo.meta}
+        description={SeoData.description}
+        lang={SeoData.lang}
+        meta={SeoData.meta}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -34,7 +34,7 @@ function Blog({ data }) {
           <div className="relative mt-24">
             <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto">
               <div className="text-sm mb-3">
-                <h4>{'Author Name'}</h4>
+                <h4>{post.frontmatter.author}</h4>
                 <div className="text-black text-opacity-50">
                   {format(new Date(post.frontmatter.date), 'MM-dd-yyyy')}
                 </div>
@@ -104,6 +104,7 @@ Blog.propTypes = {
         featuredimage: PropTypes.shape({
           publicURL: PropTypes.string,
         }),
+        author: PropTypes.string,
       }),
     }),
   }).isRequired,
@@ -120,6 +121,7 @@ export const query = graphql`
           publicURL
         }
         tags
+        author
       }
     }
   }

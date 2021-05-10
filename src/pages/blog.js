@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -6,27 +6,53 @@ import { graphql } from 'gatsby';
 
 import RecentlyPosts from '../components/recentlyPosts';
 
-import data from '../data/data.json';
+import Data from '../data/data.json';
 
 function Blogs({
   data: {
     allMarkdownRemark: { edges },
   },
 }) {
+  const [recentlyBlogs, setRecentlyBlogs] = useState([]);
+  const SeoData = Data.configs;
+
+  useEffect(() => {
+    prepareDate();
+  });
   return (
     <Layout>
       <SEO
         title="Blogs"
-        description={data.configs.description}
-        lang={data.configs.lang}
-        meta={data.configs.meta}
+        description={SeoData.description}
+        lang={SeoData.lang}
+        meta={SeoData.meta}
       />
 
       {/* <MostPopular popularBlogs={data.popularBlogs} /> */}
 
-      <RecentlyPosts recentlyBlogs={edges} />
+      <RecentlyPosts recentlyBlogs={recentlyBlogs} />
     </Layout>
   );
+
+  function prepareDate() {
+    let recentlyBlogs = [];
+
+    edges.forEach((item) => {
+      let node = item.node;
+      recentlyBlogs.push({
+        slug: node.fields.slug,
+        title: node.frontmatter.title,
+        image: node.frontmatter.featuredimage
+          ? item.node.frontmatter.featuredimage.publicURL
+          : '',
+        date: node.frontmatter.date,
+        tags: node.frontmatter.tags,
+        author: node.frontmatter.author,
+      });
+
+      setRecentlyBlogs(recentlyBlogs);
+    });
+  }
 }
 
 Blogs.propTypes = {
@@ -57,6 +83,7 @@ export const pageQuery = graphql`
               publicURL
             }
             tags
+            author
           }
         }
       }

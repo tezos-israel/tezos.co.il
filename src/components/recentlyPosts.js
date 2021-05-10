@@ -12,17 +12,15 @@ function RecentlyPost({ recentlyBlogs }) {
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap xl:px-0 lg:px-0 px-4">
           {recentlyBlogs.map((item, index) => {
-            const data = item.node.frontmatter;
-            const slug = item.node.fields.slug;
             return (
               <MostPopularItem
                 key={index}
-                title={data.title}
-                image={data.featuredimage}
-                date={data.date}
-                author={data.author}
-                tags={data.tags}
-                slug={slug}
+                title={item.title}
+                image={item.image}
+                date={item.date}
+                author={item.author}
+                tags={item.tags}
+                slug={item.slug}
                 layout="row"
                 rowItems={2}
               />

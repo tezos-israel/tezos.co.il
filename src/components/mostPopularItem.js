@@ -8,11 +8,7 @@ function MostPopularItem({
   title,
   image,
   date,
-  author = {
-    avatar:
-      'https://pbs.twimg.com/profile_images/1352350142393966592/j5oUEbAP_400x400.jpg',
-    username: 'Ameed',
-  },
+  author,
   tags,
   slug,
   layout = 'col',
@@ -50,7 +46,7 @@ function MostPopularItem({
           )}
         >
           <img
-            src={image.publicURL}
+            src={image}
             className={classnames(
               'rounded-md',
               {
@@ -89,19 +85,27 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={author.avatar} alt={author.username} />
+                <img src={author} alt={author} />
               </div>
               <div className="text-sm ml-3">
-                <h4>{author.username}</h4>
+                <h4>{author}</h4>
                 <div className="text-black text-opacity-50">
                   {format(new Date(date), 'MM-dd-yyyy')}
                 </div>
               </div>
             </div>
             <div className="mt-1">
-              <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize ">
-                {tags}
-              </span>
+              {tags.length > 0 &&
+                tags.map((item) => {
+                  return (
+                    <span
+                      key={item}
+                      className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
+                    >
+                      {item}
+                    </span>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -113,9 +117,7 @@ function MostPopularItem({
 MostPopularItem.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.shape({
-    publicURL: PropTypes.string,
-  }),
+  image: PropTypes.string,
   date: PropTypes.string,
   author: PropTypes.shape({
     avatar: PropTypes.string,
