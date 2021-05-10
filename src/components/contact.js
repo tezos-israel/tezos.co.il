@@ -2,7 +2,6 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import InputField from './shared/inputField';
 import Button from './shared/button';
-import socialLinks from '../../data/settings/socials.yml';
 
 import {
   FaEnvelope,
@@ -12,6 +11,8 @@ import {
   FaTelegramPlane,
   FaTwitter,
 } from 'react-icons/fa';
+
+import socialData from '../../data/settings/socials.yml';
 
 function Contact() {
   return (
@@ -54,34 +55,20 @@ function Contact() {
           />
           <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">
             <div className="text-tezos-blue flex items-center sm:justify-start justify-center">
-              <FaEnvelope className="mr-2 text-xl" /> {socialLinks.email}
+              <FaEnvelope className="mr-2 text-xl" /> {socialData.email}
             </div>
             <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
-              {socialLinks.facebook.length > 0 && (
-                <a href={socialLinks.facebook}>
-                  <FaFacebookF />
-                </a>
-              )}
-              {socialLinks.linkedIn.length > 0 && (
-                <a href={socialLinks.linkedIn}>
-                  <FaLinkedinIn />
-                </a>
-              )}
-              {socialLinks.instagram.length > 0 && (
-                <a href={socialLinks.instagram}>
-                  <FaInstagram />
-                </a>
-              )}
-              {socialLinks.telegram.length > 0 && (
-                <a href={socialLinks.telegram}>
-                  <FaTelegramPlane />
-                </a>
-              )}
-              {socialLinks.twitter.length > 0 && (
-                <a href={socialLinks.twitter}>
-                  <FaTwitter />
-                </a>
-              )}
+              {socialData.socialItems.map((item, index) => {
+                return (
+                  <a key={index} href={item.url}>
+                    {item.type === 'facebook' && <FaFacebookF />}
+                    {item.type === 'linkedin' && <FaLinkedinIn />}
+                    {item.type === 'instagram' && <FaInstagram />}
+                    {item.type === 'telegram' && <FaTelegramPlane />}
+                    {item.type === 'twitter' && <FaTwitter />}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

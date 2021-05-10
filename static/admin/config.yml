@@ -56,14 +56,16 @@ collections:
       - file: data/settings/socials.yml
         label: 'Social Links'
         name: socialLinks
-        widget: list
-        fields:
-          - { label: Email, name: email, widget: string }
-          - { label: Facebook, name: facebook, widget: string }
-          - { label: LinkedIn, name: linkedIn, widget: string }
-          - { label: Instagram, name: instagram, widget: string }
-          - { label: Telegram, name: telegram, widget: string }
-          - { label: Twitter, name: twitter, widget: string }
+        widget: object
+        fields :
+          - {label: Email, name: email, widget: string}
+            
+          - label: 'Social Items'
+            name: socialItems
+            widget: list
+            fields:
+              - { label: Type, name: type, widget: string }
+              - { label: Url, name: url, widget: string }
 
   - label: 'Pages'
     name: 'pages'
