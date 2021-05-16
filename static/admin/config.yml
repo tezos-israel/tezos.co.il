@@ -119,3 +119,19 @@ collections:
               widget: 'hidden',
               default: 'team',
             }
+          - { label: Title, name: title, widget: string }
+          - label: 'Team Member'
+            name: teamMember
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - label: 'Social Links'
+                name : socialLinks
+                widget: object
+                fields :
+                  - { label: Twitter, name: twitter, widget: string }
+                  - { label: Linkedin, name: linkedin, widget: string }
+                  - { label: Telegram, name: telegram, widget: string }
+              
