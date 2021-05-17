@@ -9,7 +9,7 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 import Data from '../data/data.json';
 
-function Blog({ data }) {
+function BlogPost({ data }) {
   const post = data.markdownRemark;
   const SeoData = Data.configs;
   return (
@@ -67,12 +67,10 @@ function Blog({ data }) {
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md  overflow-hidden">
-              {post.frontmatter.featuredimage && (
-                <img
-                  src={post.frontmatter.featuredimage.publicURL}
-                  className="rounded-md"
-                />
-              )}
+              <img
+                src={post.frontmatter.featuredImage.publicURL}
+                className="rounded-md"
+              />
             </div>
           </div>
 
@@ -93,7 +91,7 @@ function Blog({ data }) {
   );
 }
 
-Blog.propTypes = {
+BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       html: PropTypes.string,
@@ -101,7 +99,7 @@ Blog.propTypes = {
         title: PropTypes.string,
         date: PropTypes.string,
         tags: PropTypes.array,
-        featuredimage: PropTypes.shape({
+        featuredImage: PropTypes.shape({
           publicURL: PropTypes.string,
         }).isRequired,
         author: PropTypes.string,
@@ -117,7 +115,7 @@ export const query = graphql`
       frontmatter {
         title
         date
-        featuredimage {
+        featuredImage {
           publicURL
         }
         tags
@@ -127,4 +125,4 @@ export const query = graphql`
   }
 `;
 
-export default Blog;
+export default BlogPost;

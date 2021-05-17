@@ -83,3 +83,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemark implements Node @infer {
+      frontmatter: Frontmatter!
+    }
+    type Frontmatter @infer {
+      title: String!
+      date: Date! @dateformat
+      description: String!
+      authorFull: AuthorsJson @link(by: "email", from: "author")
+    }
+  `;
+  createTypes(typeDefs);
+};

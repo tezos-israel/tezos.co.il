@@ -18,7 +18,7 @@ function Blogs({
 
   useEffect(() => {
     prepareDate();
-  });
+  }, []);
   return (
     <Layout>
       <SEO
@@ -42,8 +42,8 @@ function Blogs({
       recentlyBlogs.push({
         slug: node.fields.slug,
         title: node.frontmatter.title,
-        image: node.frontmatter.featuredimage
-          ? item.node.frontmatter.featuredimage.publicURL
+        image: node.frontmatter.featuredImage
+          ? item.node.frontmatter.featuredImage.publicURL
           : '',
         date: node.frontmatter.date,
         tags: node.frontmatter.tags,
@@ -79,7 +79,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
-            featuredimage {
+            featuredImage {
               publicURL
             }
             tags
