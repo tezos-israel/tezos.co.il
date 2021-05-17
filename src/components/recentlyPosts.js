@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import MostPopularItem from './mostPopularItem';
 
 function RecentlyPost({ recentlyBlogs }) {
-  console.log(recentlyBlogs);
   return (
     <div className="">
       <div className="max-w-7xl mx-auto py-7">

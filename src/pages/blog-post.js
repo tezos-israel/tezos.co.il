@@ -1,17 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
-
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import RecentlyPosts from '../components/recentlyPosts';
+import RelatedPosts from '../components/relatedPosts';
 
 import Data from '../data/data.json';
 
 function BlogPost({ data }) {
   const post = data.markdownRemark;
   const SeoData = Data.configs;
+  const recentlyBlogs = data.allMarkdownRemark.edges.map((item) => {
+    return {
+      slug: item.node.fields.slug,
+      title: item.node.frontmatter.title,
+      image: item.node.frontmatter.featuredImage
+        ? item.node.frontmatter.featuredImage.publicURL
+        : '',
+      date: item.node.frontmatter.date,
+      tags: item.node.frontmatter.tags,
+      author: {
+        username: item.node.frontmatter.authorFull.name,
+        avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
+      },
+    };
+  });
+
+  let relatedBlogs = [];
+
+  data.allMarkdownRemark.edges.forEach((item) => {
+    if (
+      post.frontmatter.tags.some((i) =>
+        item.node.frontmatter.tags.includes(i)
+      ) &&
+      item.node.frontmatter.title !== post.frontmatter.title
+    ) {
+      relatedBlogs.push({
+        slug: item.node.fields.slug,
+        title: item.node.frontmatter.title,
+        image: item.node.frontmatter.featuredImage
+          ? item.node.frontmatter.featuredImage.publicURL
+          : '',
+        date: item.node.frontmatter.date,
+        tags: item.node.frontmatter.tags,
+        author: {
+          username: item.node.frontmatter.authorFull.name,
+          avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
+        },
+      });
+    }
+  });
+
   return (
     <Layout>
       <SEO
@@ -80,13 +123,13 @@ function BlogPost({ data }) {
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="lg:w-1/3 w-full xl:mt-0 lg:mt-0 mt-4">
-              {/* <RelatedPosts recentlyBlogs={data.recentlyBlogs} /> */}
+              <RelatedPosts recentlyBlogs={relatedBlogs} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* <RecentlyPosts recentlyBlogs={data.recentlyBlogs} /> */}
+      <RecentlyPosts recentlyBlogs={recentlyBlogs} limit={3} />
     </Layout>
   );
 }
@@ -110,11 +153,14 @@ BlogPost.propTypes = {
         }).isRequired,
       }),
     }),
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }).isRequired,
 };
 
 export const query = graphql`
-  query($slug: String) {
+  query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -128,6 +174,32 @@ export const query = graphql`
           name
           authorimage {
             publicURL
+          }
+        }
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date
+            featuredImage {
+              publicURL
+            }
+            tags
+            authorFull {
+              name
+              authorimage {
+                publicURL
+              }
+            }
           }
         }
       }

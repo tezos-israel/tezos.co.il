@@ -19,7 +19,9 @@ function RelatedPost({ recentlyBlogs }) {
                 image={item.image}
                 date={item.date}
                 author={item.author}
-                type={item.type}
+                authorImage={item.authorImage}
+                tags={item.tags}
+                slug={item.slug}
                 layout="row"
                 rowItems={1}
                 size="small"
