@@ -56,7 +56,12 @@ Team.propTypes = {
             image: PropTypes.shape({
               publicURL: PropTypes.string.isRequired,
             }).isRequired,
-            socialLinks: PropTypes.object,
+            socialLinks: PropTypes.arrayOf(
+              PropTypes.shape({
+                socialNetwork: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+              })
+            ),
           })
         ),
       }),
@@ -73,9 +78,8 @@ export const pageQuery = graphql`
           name
           role
           socialLinks {
-            twitter
-            linkedin
-            telegram
+            socialNetwork
+            url
           }
           image {
             publicURL

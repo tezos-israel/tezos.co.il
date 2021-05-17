@@ -129,9 +129,12 @@ collections:
               - { label: Role, name: role, widget: string }
               - label: 'Social Links'
                 name : socialLinks
-                widget: object
+                widget: list
                 fields :
-                  - { label: Twitter, name: twitter, widget: string }
-                  - { label: Linkedin, name: linkedin, widget: string }
-                  - { label: Telegram, name: telegram, widget: string }
+                  - { label: 'Social Network',
+                      name: socialNetwork,
+                      widget: select,
+                      options: ["twitter","linkedin","telegram"]
+                    }
+                  - { label: Url, name: url, widget: string }
               

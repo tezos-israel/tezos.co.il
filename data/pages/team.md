@@ -3,10 +3,13 @@ templateKey: team
 title: our team
 teamMember:
   - image: /assets/139378360_148518143707093_3712230806941674200_n.jpg
-    name: Ameed Jadallah
-    role: Senior Software Engineer
+    name: Ameed
+    role: Senior Front-end Developer
     socialLinks:
-      twitter: https://twitter.com/ameedjadallah
-      linkedin: https://linkedin.com/in/ameedjadallah
-      telegram: https://t.me/ameedjadallah
+      - socialNetwork: twitter
+        url: https://www.twitter.com/ameedjadallah
+      - socialNetwork: linkedin
+        url: https://www.linkedin.com/in/ameedjadallah/
+      - socialNetwork: telegram
+        url: https://t.me/ameedjadallah
 ---
