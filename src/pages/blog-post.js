@@ -34,13 +34,13 @@ function BlogPost({ data }) {
           <div className="relative mt-24">
             <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto">
               <div className="text-sm mb-3">
-                <h4>{post.frontmatter.author}</h4>
+                <h4>{post.frontmatter.authorFull.name}</h4>
                 <div className="text-black text-opacity-50">
                   {format(new Date(post.frontmatter.date), 'MM-dd-yyyy')}
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img src={''} />
+                <img src={post.frontmatter.authorFull.authorimage.publicURL} />
               </div>
             </div>
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
@@ -102,7 +102,12 @@ BlogPost.propTypes = {
         featuredImage: PropTypes.shape({
           publicURL: PropTypes.string,
         }).isRequired,
-        author: PropTypes.string,
+        authorFull: PropTypes.shape({
+          name: PropTypes.string,
+          authorimage: PropTypes.shape({
+            publicURL: PropTypes.string,
+          }),
+        }).isRequired,
       }),
     }),
   }).isRequired,
@@ -119,7 +124,12 @@ export const query = graphql`
           publicURL
         }
         tags
-        author
+        authorFull {
+          name
+          authorimage {
+            publicURL
+          }
+        }
       }
     }
   }

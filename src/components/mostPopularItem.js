@@ -85,10 +85,10 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={author} alt={author} />
+                <img src={author.avatar} alt={author.username} />
               </div>
               <div className="text-sm ml-3">
-                <h4>{author}</h4>
+                <h4>{author.username}</h4>
                 <div className="text-black text-opacity-50">
                   {format(new Date(date), 'MM-dd-yyyy')}
                 </div>

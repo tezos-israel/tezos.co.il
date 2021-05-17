@@ -47,7 +47,10 @@ function Blogs({
           : '',
         date: node.frontmatter.date,
         tags: node.frontmatter.tags,
-        author: node.frontmatter.author,
+        author: {
+          username: node.frontmatter.authorFull.name,
+          avatar: node.frontmatter.authorFull.authorimage.publicURL,
+        },
       });
 
       setRecentlyBlogs(recentlyBlogs);
@@ -83,7 +86,12 @@ export const pageQuery = graphql`
               publicURL
             }
             tags
-            author
+            authorFull {
+              name
+              authorimage {
+                publicURL
+              }
+            }
           }
         }
       }
