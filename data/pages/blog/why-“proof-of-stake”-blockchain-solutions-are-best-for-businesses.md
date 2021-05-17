@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: _blog-post
 title: Why “Proof of Stake” Blockchain Solutions Are Best for Businesses
 author: ameed.jadallah@gmail.com
 date: 2021-05-17T13:56:15.499Z

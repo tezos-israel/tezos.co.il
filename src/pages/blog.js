@@ -60,7 +60,7 @@ export default Blogs;
 export const pageQuery = graphql`
   query PostsTemplate {
     allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
     ) {
       edges {
         node {

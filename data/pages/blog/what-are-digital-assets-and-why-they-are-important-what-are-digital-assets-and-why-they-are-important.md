@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: _blog-post
 title: What Are Digital Assets and Why They Are Important  What Are Digital Assets and Why They Are Important !
 author: ameed.jadallah@gmail.com
 date: 2021-05-08T22:58:25.874Z
