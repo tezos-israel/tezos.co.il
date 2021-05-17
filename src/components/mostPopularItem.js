@@ -95,17 +95,16 @@ function MostPopularItem({
               </div>
             </div>
             <div className="mt-1">
-              {tags.length > 0 &&
-                tags.map((item) => {
-                  return (
-                    <span
-                      key={item}
-                      className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
-                    >
-                      {item}
-                    </span>
-                  );
-                })}
+              {tags.map((item) => {
+                return (
+                  <span
+                    key={item}
+                    className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
+                  >
+                    {item}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
