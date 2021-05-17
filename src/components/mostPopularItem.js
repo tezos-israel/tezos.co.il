@@ -123,7 +123,7 @@ MostPopularItem.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  tags: PropTypes.array,
+  tags: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),
