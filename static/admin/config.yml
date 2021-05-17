@@ -58,15 +58,18 @@ collections:
         name: socialLinks
         widget: object
         fields :
-          - {label: Email, name: email, widget: string}
+          - { label: Email, name: email, widget: string}
             
           - label: 'Social Items'
             name: socialItems
             widget: list
             fields:
-              - { label: Type, name: type, widget: string }
+              - { label: Type,
+                  name: type,
+                  widget: select,
+                  options: ["facebook","instagram","linkedin","telegram","twitter"]
+                }
               - { label: Url, name: url, widget: string }
-
   - label: 'Pages'
     name: 'pages'
     files:
