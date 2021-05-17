@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -13,12 +13,24 @@ function Blogs({
     allMarkdownRemark: { edges },
   },
 }) {
-  const [recentlyBlogs, setRecentlyBlogs] = useState([]);
   const SeoData = Data.configs;
 
-  useEffect(() => {
-    prepareDate();
-  }, []);
+  const recentlyBlogs = edges.map((item) => {
+    return {
+      slug: item.node.fields.slug,
+      title: item.node.frontmatter.title,
+      image: item.node.frontmatter.featuredImage
+        ? item.node.frontmatter.featuredImage.publicURL
+        : '',
+      date: item.node.frontmatter.date,
+      tags: item.node.frontmatter.tags,
+      author: {
+        username: item.node.frontmatter.authorFull.name,
+        avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
+      },
+    };
+  });
+
   return (
     <Layout>
       <SEO
@@ -33,29 +45,6 @@ function Blogs({
       <RecentlyPosts recentlyBlogs={recentlyBlogs} />
     </Layout>
   );
-
-  function prepareDate() {
-    let recentlyBlogs = [];
-
-    edges.forEach((item) => {
-      let node = item.node;
-      recentlyBlogs.push({
-        slug: node.fields.slug,
-        title: node.frontmatter.title,
-        image: node.frontmatter.featuredImage
-          ? item.node.frontmatter.featuredImage.publicURL
-          : '',
-        date: node.frontmatter.date,
-        tags: node.frontmatter.tags,
-        author: {
-          username: node.frontmatter.authorFull.name,
-          avatar: node.frontmatter.authorFull.authorimage.publicURL,
-        },
-      });
-
-      setRecentlyBlogs(recentlyBlogs);
-    });
-  }
 }
 
 Blogs.propTypes = {
