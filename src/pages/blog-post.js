@@ -103,7 +103,7 @@ Blog.propTypes = {
         tags: PropTypes.array,
         featuredimage: PropTypes.shape({
           publicURL: PropTypes.string,
-        }),
+        }).isRequired,
         author: PropTypes.string,
       }),
     }),
