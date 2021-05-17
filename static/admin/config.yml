@@ -22,36 +22,40 @@ collections:
           default: 'blog-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: "Author", name: "author", widget: "relation", 
-          collection: "authors", 
-          value_field: "name", 
-          display_fields: [ "name" ], 
-          search_fields: [ "name", "email" ] }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'authors',
+          value_field: 'email',
+          display_fields: ['name'],
+          search_fields: ['name', 'email'],
+        }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - {
           label: 'Featured Post',
-          name: 'featuredpost',
+          name: 'featuredPost',
           widget: 'boolean',
           required: false,
         }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
+      - { label: 'Featured Image', name: 'featuredImage', widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
   - name: authors
     label: Authors
-    folder: src/pages/blog/_authors/
+    folder: data/pages/blog/_authors/
     media_folder: ''
     public_folder: ''
     format: json
     create: true
-    slug: "{{name}}"
+    slug: '{{name}}'
     fields:
       - { label: Name, name: name, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Email, name: email, widget: string }
-      - { label: Shortbio, name: shortbio, widget: text }
-      - { label: Image, name: authorimage, widget: image }
+      - { label: 'Short bio', name: shortBio, widget: text }
+      - { label: Image, name: image, widget: image }
   - name: settings
     label: Settings
     files:
@@ -102,9 +106,9 @@ collections:
             name: aboutSection
             widget: object
             fields:
-              - {label: Title, name: title, widget: string}
-              - {label: Content, name: content, widget: string}
-              - {label: Image, name: image, widget: image}
+              - { label: Title, name: title, widget: string }
+              - { label: Content, name: content, widget: string }
+              - { label: Image, name: image, widget: image }
           - label: 'Join Section'
             name: joinSection
             widget: object
