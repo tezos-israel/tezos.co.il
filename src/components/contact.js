@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
 import InputField from './shared/inputField';
 import Button from './shared/button';
@@ -13,7 +12,9 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-function Contact({ email, socialList }) {
+import socialData from '../../data/settings/socials.yml';
+
+function Contact() {
   return (
     <div className="max-w-7xl mx-auto pt-7">
       <div className="flex justify-between sm:flex-row flex-col">
@@ -54,13 +55,13 @@ function Contact({ email, socialList }) {
           />
           <div className="sm:text-left sm:pl-16 sm:w-full w-2/3 mx-auto">
             <div className="text-tezos-blue flex items-center sm:justify-start justify-center">
-              <FaEnvelope className="mr-2 text-xl" /> {email}
+              <FaEnvelope className="mr-2 text-xl" /> {socialData.email}
             </div>
             <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
-              {socialList.map((item, index) => {
+              {socialData.socialItems.map((item, index) => {
                 return (
                   <a key={index} href={item.url}>
-                    {item.type === 'fb' && <FaFacebookF />}
+                    {item.type === 'facebook' && <FaFacebookF />}
                     {item.type === 'linkedin' && <FaLinkedinIn />}
                     {item.type === 'instagram' && <FaInstagram />}
                     {item.type === 'telegram' && <FaTelegramPlane />}
@@ -75,15 +76,5 @@ function Contact({ email, socialList }) {
     </div>
   );
 }
-
-Contact.propTypes = {
-  email: PropTypes.string,
-  socialList: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string,
-      type: PropTypes.string,
-    })
-  ),
-};
 
 export default Contact;

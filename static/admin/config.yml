@@ -76,6 +76,23 @@ collections:
         fields:
           - { label: HeaderLogo, name: headerLogo, widget: image }
           - { label: FooterLogo, name: footerLogo, widget: image }
+      - file: data/settings/socials.yml
+        label: 'Social Links'
+        name: socialLinks
+        widget: object
+        fields :
+          - { label: Email, name: email, widget: string}
+            
+          - label: 'Social Items'
+            name: socialItems
+            widget: list
+            fields:
+              - { label: Type,
+                  name: type,
+                  widget: select,
+                  options: ["facebook","instagram","linkedin","telegram","twitter"]
+                }
+              - { label: Url, name: url, widget: string }
   - label: 'Pages'
     name: 'pages'
     files:
