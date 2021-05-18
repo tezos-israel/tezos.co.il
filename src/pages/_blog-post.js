@@ -73,10 +73,10 @@ function BlogPost({ data }) {
                 </a>
               </div>
             </div>
-            <div className="lg:h-96 sm:h-96 h-48 rounded-md  overflow-hidden">
+            <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
               <img
                 src={post.frontmatter.featuredImage.publicURL}
-                className="rounded-md"
+                className="rounded-md margin-auto w-full"
               />
             </div>
           </div>
