@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-
+import { format } from 'date-fns';
 import classnames from 'classnames';
 
 function MostPopularItem({
@@ -9,7 +9,8 @@ function MostPopularItem({
   image,
   date,
   author,
-  type,
+  tags,
+  slug,
   layout = 'col',
   rowItems,
   size,
@@ -24,7 +25,7 @@ function MostPopularItem({
       })}
     >
       <Link
-        to="/blog"
+        to={slug}
         className={classnames('lg:p-4 lg:mt-0 md:mt-4 mt-4 flex flex-wrap', {
           'flex-col': layout === 'col',
           'flex-row': layout === 'row',
@@ -88,13 +89,22 @@ function MostPopularItem({
               </div>
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>
-                <div className="text-black text-opacity-50">{date}</div>
+                <div className="text-black text-opacity-50">
+                  {format(new Date(date), 'MM-dd-yyyy')}
+                </div>
               </div>
             </div>
             <div className="mt-1">
-              <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize ">
-                {type}
-              </span>
+              {tags.map((item) => {
+                return (
+                  <span
+                    key={item}
+                    className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
+                  >
+                    {item}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -104,6 +114,7 @@ function MostPopularItem({
 }
 
 MostPopularItem.propTypes = {
+  slug: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
   date: PropTypes.string,
@@ -111,7 +122,7 @@ MostPopularItem.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  type: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),

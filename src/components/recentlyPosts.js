@@ -19,7 +19,9 @@ function RecentlyPost({ recentlyBlogs }) {
                 image={item.image}
                 date={item.date}
                 author={item.author}
-                type={item.type}
+                authorImage={item.authorImage}
+                tags={item.tags}
+                slug={item.slug}
                 layout="row"
                 rowItems={2}
               />
@@ -32,7 +34,7 @@ function RecentlyPost({ recentlyBlogs }) {
 }
 
 RecentlyPost.propTypes = {
-  recentlyBlogs: PropTypes.array,
+  recentlyBlogs: PropTypes.array.isRequired,
 };
 
 export default RecentlyPost;

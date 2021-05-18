@@ -28,6 +28,12 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: 'gatsby-transformer-json',
+      options: {
+        path: `${__dirname}/data/pages/blog`,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
