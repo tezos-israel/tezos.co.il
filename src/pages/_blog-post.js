@@ -12,9 +12,10 @@ import RelatedPosts from '../components/relatedPosts';
 import Data from '../data/data.json';
 
 function BlogPost({ data }) {
-  const post = data.markdownRemark;
+  const post = data.post;
   const SeoData = Data.configs;
-  const recentlyBlogs = data.allMarkdownRemark.edges.map((item) => {
+
+  const recentPosts = data.recentPosts.edges.map((item) => {
     return {
       slug: item.node.fields.slug,
       title: item.node.frontmatter.title,
@@ -30,30 +31,7 @@ function BlogPost({ data }) {
     };
   });
 
-  let relatedBlogs = [];
-
-  data.allMarkdownRemark.edges.forEach((item) => {
-    if (
-      post.frontmatter.tags.some((i) =>
-        item.node.frontmatter.tags.includes(i)
-      ) &&
-      item.node.frontmatter.title !== post.frontmatter.title
-    ) {
-      relatedBlogs.push({
-        slug: item.node.fields.slug,
-        title: item.node.frontmatter.title,
-        image: item.node.frontmatter.featuredImage
-          ? item.node.frontmatter.featuredImage.publicURL
-          : '',
-        date: item.node.frontmatter.date,
-        tags: item.node.frontmatter.tags,
-        author: {
-          username: item.node.frontmatter.authorFull.name,
-          avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
-        },
-      });
-    }
-  });
+  const relatedBlogs = [];
 
   return (
     <Layout>
@@ -129,14 +107,14 @@ function BlogPost({ data }) {
         </div>
       </div>
 
-      <RecentlyPosts recentlyBlogs={recentlyBlogs} limit={3} />
+      <RecentlyPosts recentlyBlogs={recentPosts} limit={3} />
     </Layout>
   );
 }
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
+    post: PropTypes.shape({
       html: PropTypes.string,
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
@@ -153,7 +131,7 @@ BlogPost.propTypes = {
         }).isRequired,
       }),
     }),
-    allMarkdownRemark: PropTypes.shape({
+    recentPosts: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }).isRequired,
@@ -161,7 +139,7 @@ BlogPost.propTypes = {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
@@ -178,8 +156,10 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    recentPosts: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
     ) {
       edges {
         node {
