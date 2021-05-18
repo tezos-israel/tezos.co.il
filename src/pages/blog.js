@@ -16,17 +16,16 @@ function Blogs({
   const SeoData = Data.configs;
 
   const recentlyBlogs = edges.map((item) => {
+    console.log(item.node);
     return {
       slug: item.node.fields.slug,
       title: item.node.frontmatter.title,
-      image: item.node.frontmatter.featuredImage
-        ? item.node.frontmatter.featuredImage.publicURL
-        : '',
+      image: item.node.frontmatter.featuredImage.publicURL,
       date: item.node.frontmatter.date,
       tags: item.node.frontmatter.tags,
       author: {
         username: item.node.frontmatter.authorFull.name,
-        avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
+        avatar: item.node.frontmatter.authorFull.image.publicURL,
       },
     };
   });
@@ -79,7 +78,7 @@ export const pageQuery = graphql`
             tags
             authorFull {
               name
-              authorimage {
+              image {
                 publicURL
               }
             }

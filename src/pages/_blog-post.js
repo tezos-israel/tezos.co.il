@@ -19,14 +19,12 @@ function BlogPost({ data }) {
     return {
       slug: item.node.fields.slug,
       title: item.node.frontmatter.title,
-      image: item.node.frontmatter.featuredImage
-        ? item.node.frontmatter.featuredImage.publicURL
-        : '',
+      image: item.node.frontmatter.featuredImage.publicURL,
       date: item.node.frontmatter.date,
       tags: item.node.frontmatter.tags,
       author: {
         username: item.node.frontmatter.authorFull.name,
-        avatar: item.node.frontmatter.authorFull.authorimage.publicURL,
+        avatar: item.node.frontmatter.authorFull.image.publicURL,
       },
     };
   });
@@ -61,7 +59,7 @@ function BlogPost({ data }) {
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img src={post.frontmatter.authorFull.authorimage.publicURL} />
+                <img src={post.frontmatter.authorFull.image.publicURL} />
               </div>
             </div>
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
@@ -125,7 +123,7 @@ BlogPost.propTypes = {
         }).isRequired,
         authorFull: PropTypes.shape({
           name: PropTypes.string,
-          authorimage: PropTypes.shape({
+          image: PropTypes.shape({
             publicURL: PropTypes.string,
           }),
         }).isRequired,
@@ -150,14 +148,17 @@ export const query = graphql`
         tags
         authorFull {
           name
-          authorimage {
+          image {
             publicURL
           }
         }
       }
     }
     recentPosts: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
+      filter: {
+        frontmatter: { templateKey: { eq: "_blog-post" } }
+        fields: { slug: { ne: $slug } }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {
@@ -176,7 +177,7 @@ export const query = graphql`
             tags
             authorFull {
               name
-              authorimage {
+              image {
                 publicURL
               }
             }
