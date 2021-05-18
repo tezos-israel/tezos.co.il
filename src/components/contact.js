@@ -44,7 +44,7 @@ function Contact() {
             </div>
           </div>
         </div>
-        <div className="sm:w-1/2 w-full sm:text-right text-center">
+        <div className="sm:w-1/2 w-full sm:text-right text-center sm:my-0 my-5">
           <StaticImage
             src="../images/social_icons.svg"
             width={300}

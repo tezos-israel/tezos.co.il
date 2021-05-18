@@ -8,10 +8,10 @@ function About({ title, content, image }) {
           {title}
         </h2>
         <div className="flex items-center">
-          <div className="sm:text-xl text-md  xl:w-2/3 lg:w-3/5 w-3/4 leading-normal">
+          <div className="sm:text-xl text-md  xl:w-2/3 lg:w-3/5 w-full leading-normal relative z-10">
             {content}
           </div>
-          <div className="text-right xl:w-1/3 lg:w-2/5 w-1/4">
+          <div className="text-right xl:w-1/3 lg:w-2/5 w-1/4 sm:opacity-100 opacity-30 sm:relative absolute right-4">
             <img
               src={image.publicURL}
               width="200"

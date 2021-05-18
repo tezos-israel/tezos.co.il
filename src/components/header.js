@@ -7,7 +7,7 @@ import Button from './shared/button';
 function Header({ menu, logo }) {
   const [menuOpened, setMenuOpened] = useState(false);
   return (
-    <header className="fixed top-0 right-0 left-0 bg-white z-10 xl:px-0 xs:px-4 px-4">
+    <header className="fixed top-0 right-0 left-0 bg-white z-10 xl:px-0 xs:px-4 px-4 border-b border-gray-100">
       <div className="max-w-auto sm:max-w-7xl mx-auto flex justify-between items-center py-4 relative font-museo">
         <div className="flex items-center sm:hidden">
           <button

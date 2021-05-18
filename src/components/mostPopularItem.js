@@ -26,7 +26,7 @@ function MostPopularItem({
     >
       <Link
         to={slug}
-        className={classnames('lg:p-4 lg:mt-0 md:mt-4 mt-4 flex flex-wrap', {
+        className={classnames('lg:p-4 lg:mt-0 mt-4 flex flex-wrap', {
           'flex-col': layout === 'col',
           'flex-row': layout === 'row',
         })}
@@ -47,17 +47,10 @@ function MostPopularItem({
         >
           <img
             src={image}
-            className={classnames(
-              'rounded-md',
-              {
-                'w-full': layout === 'col',
-                ' w-auto': layout === 'row',
-              },
-              {
-                'h-24': size === 'small',
-                'lg:h-full md:h-full h-28': size !== 'small' || !size,
-              }
-            )}
+            className={classnames('rounded-md w-full', {
+              'h-24': size === 'small',
+              'lg:h-full md:h-full h-28': size !== 'small' || !size,
+            })}
           />
         </div>
         <div

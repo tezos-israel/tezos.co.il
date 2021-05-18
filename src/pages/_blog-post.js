@@ -29,7 +29,7 @@ function BlogPost({ data }) {
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
-        <div className="max-w-7xl mx-auto xl:px-0 px-7">
+        <div className="max-w-7xl mx-auto xl:px-3 px-7">
           <div className="text-center  ">
             <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize">
               {post.frontmatter.tags}
