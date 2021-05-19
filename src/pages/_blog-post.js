@@ -24,12 +24,10 @@ function BlogPost({ data }) {
   const recentPosts = transformPosts(data.recentPosts.nodes);
 
   const relatedBlogs = transformPosts(post.related);
-  console.log(data.post);
-  const url = location.href;
+  const url = typeof window !== 'undefined' ? window.location.href : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
   const twitterHandle = '_MsLinda';
-  console.log(url);
 
   return (
     <Layout>
