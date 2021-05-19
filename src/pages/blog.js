@@ -6,15 +6,11 @@ import { graphql } from 'gatsby';
 
 import RecentPosts from '../components/recentPosts';
 
-import Data from '../data/data.json';
-
 function Blogs({
   data: {
     allMarkdownRemark: { edges },
   },
 }) {
-  const SeoData = Data.configs;
-
   const recentPosts = edges.map((item) => {
     return {
       slug: item.node.fields.slug,
@@ -31,12 +27,7 @@ function Blogs({
 
   return (
     <Layout>
-      <SEO
-        title="Blog"
-        description={SeoData.description}
-        lang={SeoData.lang}
-        meta={SeoData.meta}
-      />
+      <SEO title="Blog" />
 
       {/* <MostPopular popularBlogs={data.popularBlogs} /> */}
 

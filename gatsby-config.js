@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Tezos Isreal`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Tezos Israel is an innovation lab that serves the Israeli ecosystem in educating, training, and onboarding blockchain technology.`,
+    author: `@tezos-isreal`,
+    lang: `en-US`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
