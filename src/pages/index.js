@@ -8,7 +8,7 @@ import HeaderBanner from '../components/headerBanner';
 import Section from '../components/section';
 import Services from '../components/services';
 import About from '../components/about';
-import Map from '../components/map';
+// import Map from '../components/map';
 import JoinUs from '../components/joinUs';
 import Partners from '../components/partners';
 
@@ -37,9 +37,9 @@ export default function IndexPage({
         content={frontmatter.aboutSection.content}
         image={frontmatter.aboutSection.image}
       />
-      <Section title="Tezos around the world">
+      {/* <Section title="Tezos around the world">
         <Map />
-      </Section>
+      </Section> */}
       <Section
         title={frontmatter.joinSection.title}
         className="bg-tezos-dark"
