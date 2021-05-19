@@ -31,5 +31,5 @@ If needed, here is the link to the full smart contract: [here](https://smartpy.
 Anyway, let’s kick things off by adding our first line of code, which is importing the library SmartPy.
 
 ```javascript
-impor smartpy as sp
+import smartpy as sp
 ```
