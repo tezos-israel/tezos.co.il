@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from 'react-share';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -19,6 +24,12 @@ function BlogPost({ data }) {
   const recentPosts = transformPosts(data.recentPosts.nodes);
 
   const relatedBlogs = transformPosts(post.related);
+  console.log(data.post);
+  const url = location.href;
+  const title = `Read ${data.post.frontmatter.title} `;
+  const tags = data.post.frontmatter.tags;
+  const twitterHandle = '_MsLinda';
+  console.log(url);
 
   return (
     <Layout>
@@ -54,14 +65,41 @@ function BlogPost({ data }) {
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
               <div className="mr-3">Share post on</div>
               <div className="flex">
-                <a
+                <FacebookShareButton url={url}>
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
+                    <FaFacebookF />
+                  </span>
+                </FacebookShareButton>
+
+                <TwitterShareButton
+                  url={url}
+                  title={title}
+                  via={twitterHandle}
+                  hashtags={tags}
+                >
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
+                    <FaTwitter />
+                  </span>
+                </TwitterShareButton>
+
+                <LinkedinShareButton url={url}>
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center">
+                    <FaLinkedinIn />
+                  </span>
+                </LinkedinShareButton>
+
+                {/* <a
                   href=""
+                  target="_blank"
                   className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
                 >
                   <FaTwitter />
                 </a>
                 <a
-                  href=""
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://mariohernandez.io${
+                    location.href
+                  }`}
+                  target="_blank"
                   className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mx-2"
                 >
                   <FaFacebookF />
@@ -71,7 +109,7 @@ function BlogPost({ data }) {
                   className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
                 >
                   <FaLinkedinIn />
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
@@ -129,6 +167,9 @@ export const query = graphql`
   query($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date
