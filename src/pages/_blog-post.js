@@ -90,29 +90,6 @@ function BlogPost({ data }) {
                     <FaLinkedinIn />
                   </span>
                 </LinkedinShareButton>
-
-                {/* <a
-                  href=""
-                  target="_blank"
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https://mariohernandez.io${
-                    location.href
-                  }`}
-                  target="_blank"
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mx-2"
-                >
-                  <FaFacebookF />
-                </a>
-                <a
-                  href=""
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
-                >
-                  <FaLinkedinIn />
-                </a> */}
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
