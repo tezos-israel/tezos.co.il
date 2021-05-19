@@ -8,7 +8,6 @@ description: >-
   
   As you can most likely guess from the name, it is based on Python, which is, let’s be honest, not the hardest coding language to learn. Great news, right? It helps us developing Tezos smart contracts in an easier way.
 
-
 featuredImage: /assets/python-new_.jpeg
 tags:
   - devs
@@ -31,4 +30,6 @@ If needed, here is the link to the full smart contract: [here](https://smartpy.
 
 Anyway, let’s kick things off by adding our first line of code, which is importing the library SmartPy.
 
-> `import` `smartpy as sp`
+```javascript
+import smartpy as sp
+```

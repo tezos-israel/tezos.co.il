@@ -10,6 +10,7 @@ import RecentlyPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
 
 import Data from '../data/data.json';
+import '../styles/blog-post.css';
 
 function BlogPost({ data }) {
   const post = data.post;
@@ -29,7 +30,7 @@ function BlogPost({ data }) {
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
-        <div className="max-w-7xl mx-auto xl:px-0 px-7">
+        <div className="max-w-7xl mx-auto xl:px-3 px-7">
           <div className="text-center  ">
             <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize">
               {post.frontmatter.tags}
@@ -73,17 +74,17 @@ function BlogPost({ data }) {
                 </a>
               </div>
             </div>
-            <div className="lg:h-96 sm:h-96 h-48 rounded-md  overflow-hidden">
+            <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
               <img
                 src={post.frontmatter.featuredImage.publicURL}
-                className="rounded-md"
+                className="rounded-md margin-auto w-full"
               />
             </div>
           </div>
 
           <div className="flex flex-wrap mt-12">
             <div
-              className="lg:w-2/3 w-full"
+              className="blog-content lg:w-2/3 w-full"
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="lg:w-1/3 w-full xl:mt-0 lg:mt-0 mt-4">

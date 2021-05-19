@@ -20,7 +20,7 @@ function Team({
         lang={data.configs.lang}
         meta={data.configs.meta}
       />
-      <div className="bg-tezos-dark flex flex-col py-7">
+      <div className="bg-tezos-dark flex flex-col py-9">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-white text-2xl text-center font-museo capitalize">
             {frontmatter.title}
