@@ -22,7 +22,7 @@ export default function IndexPage({
   return (
     <Layout>
       <SEO
-        title="Home"
+        title="Tezos Isreal"
         description={data.configs.description}
         lang={data.configs.lang}
         meta={data.configs.meta}

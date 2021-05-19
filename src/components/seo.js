@@ -34,7 +34,11 @@ function SEO({ description, lang, meta, title, cardUrl }) {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={
+        defaultTitle && defaultTitle !== title
+          ? `%s | ${defaultTitle}`
+          : `${title}`
+      }
       meta={[
         {
           name: 'description',

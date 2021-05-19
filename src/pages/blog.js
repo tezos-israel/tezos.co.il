@@ -32,7 +32,7 @@ function Blogs({
   return (
     <Layout>
       <SEO
-        title="Blogs"
+        title="Blog"
         description={SeoData.description}
         lang={SeoData.lang}
         meta={SeoData.meta}
