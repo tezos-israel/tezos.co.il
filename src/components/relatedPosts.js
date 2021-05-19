@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MostPopularItem from './mostPopularItem';
 
-function RelatedPost({ recentlyBlogs }) {
+function RelatedPost({ posts }) {
   return (
     <div className="">
       <div className="max-w-7xl mx-auto lg:border-l border-gray-300 lg:ml-5">
@@ -11,10 +11,10 @@ function RelatedPost({ recentlyBlogs }) {
           Related posted
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap">
-          {recentlyBlogs.map((item, index) => {
+          {posts.map((item) => {
             return (
               <MostPopularItem
-                key={index}
+                key={item.slug}
                 title={item.title}
                 image={item.image}
                 date={item.date}
@@ -35,7 +35,7 @@ function RelatedPost({ recentlyBlogs }) {
 }
 
 RelatedPost.propTypes = {
-  recentlyBlogs: PropTypes.array,
+  posts: PropTypes.array.isRequired,
 };
 
 export default RelatedPost;

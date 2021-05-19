@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 
-import RecentlyPosts from '../components/recentlyPosts';
+import RecentPosts from '../components/recentPosts';
 
 import Data from '../data/data.json';
 
@@ -15,8 +15,7 @@ function Blogs({
 }) {
   const SeoData = Data.configs;
 
-  const recentlyBlogs = edges.map((item) => {
-    console.log(item.node);
+  const recentPosts = edges.map((item) => {
     return {
       slug: item.node.fields.slug,
       title: item.node.frontmatter.title,
@@ -41,7 +40,7 @@ function Blogs({
 
       {/* <MostPopular popularBlogs={data.popularBlogs} /> */}
 
-      <RecentlyPosts recentlyBlogs={recentlyBlogs} />
+      <RecentPosts posts={recentPosts} />
     </Layout>
   );
 }

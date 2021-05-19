@@ -6,7 +6,7 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import RecentlyPosts from '../components/recentlyPosts';
+import RecentlyPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
 
 import Data from '../data/data.json';
@@ -15,21 +15,9 @@ function BlogPost({ data }) {
   const post = data.post;
   const SeoData = Data.configs;
 
-  const recentPosts = data.recentPosts.edges.map((item) => {
-    return {
-      slug: item.node.fields.slug,
-      title: item.node.frontmatter.title,
-      image: item.node.frontmatter.featuredImage.publicURL,
-      date: item.node.frontmatter.date,
-      tags: item.node.frontmatter.tags,
-      author: {
-        username: item.node.frontmatter.authorFull.name,
-        avatar: item.node.frontmatter.authorFull.image.publicURL,
-      },
-    };
-  });
+  const recentPosts = transformPosts(data.recentPosts.nodes);
 
-  const relatedBlogs = [];
+  const relatedBlogs = transformPosts(post.related);
 
   return (
     <Layout>
@@ -99,13 +87,13 @@ function BlogPost({ data }) {
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="lg:w-1/3 w-full xl:mt-0 lg:mt-0 mt-4">
-              <RelatedPosts recentlyBlogs={relatedBlogs} />
+              <RelatedPosts posts={relatedBlogs} />
             </div>
           </div>
         </div>
       </div>
 
-      <RecentlyPosts recentlyBlogs={recentPosts} limit={3} />
+      <RecentlyPosts posts={recentPosts} limit={3} />
     </Layout>
   );
 }
@@ -128,10 +116,11 @@ BlogPost.propTypes = {
           }),
         }).isRequired,
       }),
+      related: PropTypes.array.isRequired,
     }),
     recentPosts: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
+      nodes: PropTypes.array.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
@@ -153,6 +142,25 @@ export const query = graphql`
           }
         }
       }
+      related {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          featuredImage {
+            publicURL
+          }
+          tags
+          authorFull {
+            name
+            image {
+              publicURL
+            }
+          }
+        }
+      }
     }
     recentPosts: allMarkdownRemark(
       filter: {
@@ -162,24 +170,21 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          featuredImage {
+            publicURL
           }
-          frontmatter {
-            title
-            date
-            featuredImage {
+          tags
+          authorFull {
+            name
+            image {
               publicURL
-            }
-            tags
-            authorFull {
-              name
-              image {
-                publicURL
-              }
             }
           }
         }
@@ -189,3 +194,19 @@ export const query = graphql`
 `;
 
 export default BlogPost;
+
+function transformPosts(posts) {
+  return posts.map((post) => {
+    return {
+      slug: post.fields.slug,
+      title: post.frontmatter.title,
+      image: post.frontmatter.featuredImage.publicURL,
+      date: post.frontmatter.date,
+      tags: post.frontmatter.tags,
+      author: {
+        username: post.frontmatter.authorFull.name,
+        avatar: post.frontmatter.authorFull.image.publicURL,
+      },
+    };
+  });
+}
