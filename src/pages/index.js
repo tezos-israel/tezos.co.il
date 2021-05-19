@@ -66,7 +66,9 @@ IndexPage.propTypes = {
         aboutSection: PropTypes.shape({
           title: PropTypes.string.isRequired,
           content: PropTypes.string.isRequired,
-          image: PropTypes.string,
+          image: PropTypes.shape({
+            publicURL: PropTypes.string,
+          }),
         }),
         joinSection: PropTypes.shape({
           title: PropTypes.string.isRequired,
