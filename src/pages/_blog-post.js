@@ -10,6 +10,7 @@ import RecentlyPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
 
 import Data from '../data/data.json';
+import '../styles/blog-post.css';
 
 function BlogPost({ data }) {
   const post = data.post;

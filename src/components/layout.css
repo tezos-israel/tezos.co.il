@@ -2,7 +2,3 @@
   font-family: 'museo-500';
   src: local('museo-500'), url(../fonts/museo-500.otf) format('truetype');
 }
-
-p a {
-  color: #2c7df7;
-}
