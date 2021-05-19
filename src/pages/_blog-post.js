@@ -29,7 +29,7 @@ function BlogPost({ data }) {
         meta={SeoData.meta}
       />
 
-      <div className="blog-content border-t border-gray-100 mt-2 py-6">
+      <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">
           <div className="text-center  ">
             <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize">
@@ -84,7 +84,7 @@ function BlogPost({ data }) {
 
           <div className="flex flex-wrap mt-12">
             <div
-              className="lg:w-2/3 w-full"
+              className="blog-content lg:w-2/3 w-full"
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="lg:w-1/3 w-full xl:mt-0 lg:mt-0 mt-4">
