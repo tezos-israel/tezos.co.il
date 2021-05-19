@@ -36,6 +36,7 @@ function BlogPost({ data }) {
         description={SeoData.description}
         lang={SeoData.lang}
         meta={SeoData.meta}
+        cardUrl={post.frontmatter.featuredImage.publicURL}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -57,7 +58,10 @@ function BlogPost({ data }) {
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img src={post.frontmatter.authorFull.image.publicURL} />
+                <img
+                  src={post.frontmatter.authorFull.image.publicURL}
+                  alt={post.frontmatter.authorFull.name}
+                />
               </div>
             </div>
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
@@ -114,6 +118,7 @@ function BlogPost({ data }) {
               <img
                 src={post.frontmatter.featuredImage.publicURL}
                 className="rounded-md margin-auto w-full"
+                alt={post.frontmatter.title}
               />
             </div>
           </div>
