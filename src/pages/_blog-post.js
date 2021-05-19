@@ -24,7 +24,8 @@ function BlogPost({ data }) {
   const recentPosts = transformPosts(data.recentPosts.nodes);
 
   const relatedBlogs = transformPosts(post.related);
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  const postUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
   const twitterHandle = '_MsLinda';
@@ -36,7 +37,7 @@ function BlogPost({ data }) {
         description={SeoData.description}
         lang={SeoData.lang}
         meta={SeoData.meta}
-        cardUrl={post.frontmatter.featuredImage.publicURL}
+        cardUrl={`${siteUrl}${post.frontmatter.featuredImage.publicURL}`}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -67,14 +68,14 @@ function BlogPost({ data }) {
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
               <div className="mr-3">Share post on</div>
               <div className="flex">
-                <FacebookShareButton url={url}>
+                <FacebookShareButton url={postUrl}>
                   <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
                     <FaFacebookF />
                   </span>
                 </FacebookShareButton>
 
                 <TwitterShareButton
-                  url={url}
+                  url={postUrl}
                   title={title}
                   via={twitterHandle}
                   hashtags={tags}
@@ -84,7 +85,7 @@ function BlogPost({ data }) {
                   </span>
                 </TwitterShareButton>
 
-                <LinkedinShareButton url={url}>
+                <LinkedinShareButton url={postUrl}>
                   <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center">
                     <FaLinkedinIn />
                   </span>
