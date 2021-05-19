@@ -32,7 +32,7 @@ function BlogPost({ data }) {
   return (
     <Layout>
       <SEO
-        title="Blog title"
+        title={post.frontmatter.title}
         description={SeoData.description}
         lang={SeoData.lang}
         meta={SeoData.meta}
