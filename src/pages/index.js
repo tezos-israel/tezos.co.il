@@ -19,7 +19,7 @@ export default function IndexPage({
 }) {
   return (
     <Layout>
-      <SEO title="Tezos Isreal" />
+      <SEO />
       <HeaderBanner bannerText={frontmatter.title} />
       <Services
         title={frontmatter.servicesSection.title}

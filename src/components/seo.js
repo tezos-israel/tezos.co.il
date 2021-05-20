@@ -35,12 +35,8 @@ function SEO({ description, meta, title, cardUrl }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={
-        defaultTitle && defaultTitle !== title
-          ? `%s | ${defaultTitle}`
-          : `${title}`
-      }
+      title={title ? title : defaultTitle}
+      titleTemplate={defaultTitle && title ? `%s | ${defaultTitle}` : null}
       meta={[
         {
           name: 'description',
@@ -93,7 +89,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   cardUrl: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;
