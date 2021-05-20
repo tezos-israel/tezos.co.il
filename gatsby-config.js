@@ -90,38 +90,60 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                const url = `${siteUrl}/${edge.node.fields.slug}`;
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
+              return allMarkdownRemark.nodes.map((node) => {
+                const url = `${siteUrl}/${node.fields.slug}`;
+                const author = node.frontmatter.authorFull;
+
+                return {
+                  ...node.frontmatter,
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  author: `${author.name} (@${author.mediumHandle})`,
                   url,
                   guid: url,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
+                  custom_elements: [
+                    { 'content:encoded': node.html },
+                    { tags: node.frontmatter.tags.join(',') },
+                    { author: `${author.name} (@${author.mediumHandle})` },
+                    {
+                      featuredImage: `${siteUrl}/${node.frontmatter.featuredImage.childImageSharp.fixed.src}`,
+                    },
+                  ],
+                };
               });
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: {
-                    frontmatter: { templateKey: { eq: "_blog-post" } }
+              allMarkdownRemark(
+                filter: {frontmatter: {templateKey: {eq: "_blog-post"}}}
+                sort: {order: DESC, fields: [frontmatter___date]}
+              ) {
+                nodes {
+                  excerpt
+                  html
+                  fields {
+                    slug
                   }
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
+                  frontmatter {
+                    title
+                    date
+                    tags
+                    authorFull {
+                      name
+                      email
+                      mediumHandle
+                    }
+                    featuredImage {
+                      childImageSharp {
+                        fixed {
+                          src
+                        }
                       }
                     }
                   }
                 }
               }
+            }
             `,
             output: '/rss.xml',
             title: "Tezos Israel's RSS Feed",
