@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import data from '../data/data.json';
 import Layout from '../components/layout';
 import TeamMember from '../components/TeamMember';
 import SEO from '../components/seo';
@@ -14,13 +13,8 @@ function Team({
 }) {
   return (
     <Layout>
-      <SEO
-        title="Team"
-        description={data.configs.description}
-        lang={data.configs.lang}
-        meta={data.configs.meta}
-      />
-      <div className="bg-tezos-dark flex flex-col py-9">
+      <SEO title="Team" />
+      <div className="bg-tezos-dark flex flex-col py-7">
         <div className="max-w-7xl mx-auto w-full">
           <h2 className="text-white text-2xl text-center font-museo capitalize">
             {frontmatter.title}

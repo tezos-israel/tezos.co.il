@@ -13,13 +13,9 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import RecentlyPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
-
-import Data from '../data/data.json';
 import '../styles/blog-post.css';
-
 function BlogPost({ data }) {
   const post = data.post;
-  const SeoData = Data.configs;
 
   const recentPosts = transformPosts(data.recentPosts.nodes);
 
@@ -31,13 +27,7 @@ function BlogPost({ data }) {
 
   return (
     <Layout>
-      <SEO
-        title="Blog title"
-        description={SeoData.description}
-        lang={SeoData.lang}
-        meta={SeoData.meta}
-        cardUrl={`${siteUrl}${post.frontmatter.featuredImage.publicURL}`}
-      />
+      <SEO title={post.frontmatter.title} />
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">

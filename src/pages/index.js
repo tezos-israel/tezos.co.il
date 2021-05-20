@@ -12,8 +12,6 @@ import About from '../components/about';
 import JoinUs from '../components/joinUs';
 import Partners from '../components/partners';
 
-import data from '../data/data.json';
-
 export default function IndexPage({
   data: {
     markdownRemark: { frontmatter },
@@ -21,12 +19,7 @@ export default function IndexPage({
 }) {
   return (
     <Layout>
-      <SEO
-        title="Home"
-        description={data.configs.description}
-        lang={data.configs.lang}
-        meta={data.configs.meta}
-      />
+      <SEO />
       <HeaderBanner bannerText={frontmatter.title} />
       <Services
         title={frontmatter.servicesSection.title}

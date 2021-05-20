@@ -4,17 +4,10 @@ import SEO from '../components/seo';
 import { FaGlobeAmericas, FaCodeBranch } from 'react-icons/fa';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import data from '../data/data.json';
-
 function Blog() {
   return (
     <Layout>
-      <SEO
-        title="Dev Tools"
-        description={data.configs.description}
-        lang={data.configs.lang}
-        meta={data.configs.meta}
-      />
+      <SEO title="Dev Tools" />
       <div className="bg-tezos-dark py-7">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-white text-2xl text-center font-museo">
