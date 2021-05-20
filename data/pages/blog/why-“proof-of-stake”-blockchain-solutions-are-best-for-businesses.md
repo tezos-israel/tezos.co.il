@@ -7,6 +7,14 @@ description: While the Proof of Work (PoW) consensus mechanism was implemented i
 featuredImage: /assets/why-proof-of-stake-blockchain-solutions-are-best-for-businesses_cover.png
 tags:
   - BUSINESS & INNOVATION
+mediumContent: |-
+  This is just a short medium article
+
+  ```js
+
+  Here some code
+
+  ```
 ---
 
 While the Proof of Work (PoW) consensus mechanism was implemented in the first successful blockchain, the system suffers from a myriad of issues when applying the technology for commercial business use. Designed specifically for business use cases, the next generation of blockchains called Proof of Stake (PoS) is now available and ready for deployment. But what is PoS, and why is it better for businesses than PoW?

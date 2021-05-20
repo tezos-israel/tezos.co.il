@@ -1,13 +1,21 @@
+const siteUrl = 'https://tezos.co.il';
+
 module.exports = {
   siteMetadata: {
     title: `Tezos Israel`,
     description: `Tezos Israel is an innovation lab that serves the Israeli ecosystem in educating, training, and onboarding blockchain technology.`,
     author: `@TezosIsrael`,
-    siteUrl: 'https://tezos.co.il/',
+    siteUrl,
     lang: `en-US`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl,
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -79,52 +87,69 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
+            serialize: ({ query: { allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                const url = `${siteUrl}${node.fields.slug}`;
+                const author = node.frontmatter.authorFull;
+
+                return {
+                  ...node.frontmatter,
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  author: `${author.name} (@${author.mediumHandle})`,
+                  url,
+                  guid: url,
+                  custom_elements: [
+                    {
+                      'content:encoded': `${
+                        node.frontmatter.mediumContent || node.html
+                      } 
+                      <p>Read more in our <a href="${url}">blog</a></p>`,
+                    },
+                    { tags: node.frontmatter.tags.join(',') },
+                    { author: `${author.name} (@${author.mediumHandle})` },
+                    {
+                      featuredImage: `${siteUrl}/${node.frontmatter.featuredImage.childImageSharp.fixed.src}`,
+                    },
+                  ],
+                };
               });
             },
             query: `
               {
-                allMarkdownRemark(
-                  filter: {
-                    frontmatter: { templateKey: { eq: "_blog-post" } }
+              allMarkdownRemark(
+                filter: {frontmatter: {templateKey: {eq: "_blog-post"}}}
+                sort: {order: DESC, fields: [frontmatter___date]}
+              ) {
+                nodes {
+                  excerpt
+                  html
+                  fields {
+                    slug
                   }
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
+                  frontmatter {
+                    title
+                    date
+                    tags
+                    mediumContent
+                    authorFull {
+                      name
+                      email
+                      mediumHandle
+                    }
+                    featuredImage {
+                      childImageSharp {
+                        fixed {
+                          src
+                        }
                       }
                     }
                   }
                 }
               }
+            }
             `,
             output: '/rss.xml',
             title: "Tezos Israel's RSS Feed",
