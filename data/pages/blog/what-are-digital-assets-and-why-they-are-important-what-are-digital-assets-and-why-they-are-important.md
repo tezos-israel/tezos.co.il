@@ -6,6 +6,12 @@ date: 2021-05-08T22:58:25.874Z
 description: Life as we know it has undergone a technological transformation from physical formats to more efficient digital formats. Photographs that used to take hours to develop only take seconds to send across the world today.
 featuredPost: true
 featuredImage: /assets/workstation-405768_1280.jpeg
+mediumContent: |-
+  This is just a short medium article
+
+  ```javascript
+  Here some code
+  ```
 tags:
   - devs
 ---

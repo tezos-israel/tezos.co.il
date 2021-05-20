@@ -102,7 +102,12 @@ module.exports = {
                   url,
                   guid: url,
                   custom_elements: [
-                    { 'content:encoded': node.html },
+                    {
+                      'content:encoded': `${
+                        node.frontmatter.mediumContent || node.html
+                      } 
+                      <p>Read more in our <a href="${url}">blog</a></p>`,
+                    },
                     { tags: node.frontmatter.tags.join(',') },
                     { author: `${author.name} (@${author.mediumHandle})` },
                     {
@@ -128,6 +133,7 @@ module.exports = {
                     title
                     date
                     tags
+                    mediumContent
                     authorFull {
                       name
                       email

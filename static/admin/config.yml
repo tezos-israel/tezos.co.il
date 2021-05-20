@@ -41,6 +41,12 @@ collections:
         }
       - { label: 'Featured Image', name: 'featuredImage', widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Medium Content',
+          name: 'mediumContent',
+          widget: 'markdown',
+          required: false,
+        }
       - { label: 'Tags', name: 'tags', widget: 'list' }
   - name: authors
     label: Authors
@@ -81,17 +87,25 @@ collections:
         label: 'Social Links'
         name: socialLinks
         widget: object
-        fields :
-          - { label: Email, name: email, widget: string}
-            
+        fields:
+          - { label: Email, name: email, widget: string }
+
           - label: 'Social Items'
             name: socialItems
             widget: list
             fields:
-              - { label: Type,
+              - {
+                  label: Type,
                   name: type,
                   widget: select,
-                  options: ["facebook","instagram","linkedin","telegram","twitter"]
+                  options:
+                    [
+                      'facebook',
+                      'instagram',
+                      'linkedin',
+                      'telegram',
+                      'twitter',
+                    ],
                 }
               - { label: Url, name: url, widget: string }
   - label: 'Pages'
@@ -169,13 +183,13 @@ collections:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
               - label: 'Social Links'
-                name : socialLinks
+                name: socialLinks
                 widget: list
-                fields :
-                  - { label: 'Social Network',
+                fields:
+                  - {
+                      label: 'Social Network',
                       name: socialNetwork,
                       widget: select,
-                      options: ["twitter","linkedin","telegram"]
+                      options: ['twitter', 'linkedin', 'telegram'],
                     }
                   - { label: Url, name: url, widget: string }
-              
