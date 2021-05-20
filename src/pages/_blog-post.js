@@ -24,10 +24,11 @@ function BlogPost({ data }) {
   const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
+  const cardUrl = `${siteUrl}${post.frontmatter.authorFull.image.publicURL}`;
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={post.frontmatter.title} cardUrl={cardUrl} />
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">
