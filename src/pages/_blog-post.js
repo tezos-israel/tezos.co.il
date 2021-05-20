@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { format } from 'date-fns';
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from 'react-share';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -19,6 +24,10 @@ function BlogPost({ data }) {
   const recentPosts = transformPosts(data.recentPosts.nodes);
 
   const relatedBlogs = transformPosts(post.related);
+  const postUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
+  const title = `Read ${data.post.frontmatter.title} `;
+  const tags = data.post.frontmatter.tags;
 
   return (
     <Layout>
@@ -27,6 +36,7 @@ function BlogPost({ data }) {
         description={SeoData.description}
         lang={SeoData.lang}
         meta={SeoData.meta}
+        cardUrl={`${siteUrl}${post.frontmatter.featuredImage.publicURL}`}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -48,36 +58,39 @@ function BlogPost({ data }) {
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img src={post.frontmatter.authorFull.image.publicURL} />
+                <img
+                  src={post.frontmatter.authorFull.image.publicURL}
+                  alt={post.frontmatter.authorFull.name}
+                />
               </div>
             </div>
             <div className="absolute right-0 lg:-top-10 lg:bottom-auto sm:-top-10 sm:bottom-auto -bottom-10 flex items-center text-sm">
               <div className="mr-3">Share post on</div>
               <div className="flex">
-                <a
-                  href=""
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href=""
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mx-2"
-                >
-                  <FaFacebookF />
-                </a>
-                <a
-                  href=""
-                  className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center"
-                >
-                  <FaLinkedinIn />
-                </a>
+                <FacebookShareButton url={postUrl}>
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
+                    <FaFacebookF />
+                  </span>
+                </FacebookShareButton>
+
+                <TwitterShareButton url={postUrl} title={title} hashtags={tags}>
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
+                    <FaTwitter />
+                  </span>
+                </TwitterShareButton>
+
+                <LinkedinShareButton url={postUrl}>
+                  <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center">
+                    <FaLinkedinIn />
+                  </span>
+                </LinkedinShareButton>
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
               <img
                 src={post.frontmatter.featuredImage.publicURL}
                 className="rounded-md margin-auto w-full"
+                alt={post.frontmatter.title}
               />
             </div>
           </div>
@@ -129,6 +142,9 @@ export const query = graphql`
   query($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date
