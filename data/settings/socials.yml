@@ -10,3 +10,5 @@ socialItems:
     url: https://www.facebook.com/TezosIsrael
   - type: twitter
     url: https://www.facebook.com/TezosIsrael
+  - type: rss
+    url: /rss.xml

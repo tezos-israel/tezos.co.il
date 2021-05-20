@@ -10,6 +10,7 @@ import {
   FaInstagram,
   FaTelegramPlane,
   FaTwitter,
+  FaRss,
 } from 'react-icons/fa';
 
 import socialData from '../../data/settings/socials.yml';
@@ -66,6 +67,7 @@ function Contact() {
                     {item.type === 'instagram' && <FaInstagram />}
                     {item.type === 'telegram' && <FaTelegramPlane />}
                     {item.type === 'twitter' && <FaTwitter />}
+                    {item.type === 'rss' && <FaRss />}
                   </a>
                 );
               })}
