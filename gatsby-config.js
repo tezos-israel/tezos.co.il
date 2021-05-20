@@ -91,7 +91,7 @@ module.exports = {
           {
             serialize: ({ query: { allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map((node) => {
-                const url = `${siteUrl}/${node.fields.slug}`;
+                const url = `${siteUrl}${node.fields.slug}`;
                 const author = node.frontmatter.authorFull;
 
                 return {
