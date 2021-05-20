@@ -1,13 +1,21 @@
+const siteUrl = 'https://tezos.co.il';
+
 module.exports = {
   siteMetadata: {
     title: `Tezos Israel`,
     description: `Tezos Israel is an innovation lab that serves the Israeli ecosystem in educating, training, and onboarding blockchain technology.`,
     author: `@TezosIsrael`,
-    siteUrl: 'https://tezos.co.il/',
+    siteUrl,
     lang: `en-US`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl,
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -79,27 +87,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map((edge) => {
+                const url = `${siteUrl}/${edge.node.fields.slug}`;
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  url,
+                  guid: url,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
