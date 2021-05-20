@@ -24,7 +24,7 @@ function BlogPost({ data }) {
   const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
-  const cardUrl = `${siteUrl}${post.frontmatter.authorFull.image.publicURL}`;
+  const cardUrl = `${siteUrl}${post.frontmatter.featuredImage.publicURL}`;
 
   return (
     <Layout>
