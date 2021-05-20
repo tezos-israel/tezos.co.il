@@ -28,7 +28,6 @@ function BlogPost({ data }) {
   const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
-  const twitterHandle = '_MsLinda';
 
   return (
     <Layout>
@@ -74,12 +73,7 @@ function BlogPost({ data }) {
                   </span>
                 </FacebookShareButton>
 
-                <TwitterShareButton
-                  url={postUrl}
-                  title={title}
-                  via={twitterHandle}
-                  hashtags={tags}
-                >
+                <TwitterShareButton url={postUrl} title={title} hashtags={tags}>
                   <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
                     <FaTwitter />
                   </span>
