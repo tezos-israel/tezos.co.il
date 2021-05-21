@@ -27,7 +27,7 @@ function Team({
                   social={item.socialLinks}
                   name={item.name}
                   role={item.role}
-                  image={item.image.publicURL}
+                  image={item.image}
                 />
               );
             })}
@@ -48,7 +48,9 @@ Team.propTypes = {
             name: PropTypes.string.isRequired,
             role: PropTypes.string.isRequired,
             image: PropTypes.shape({
-              publicURL: PropTypes.string.isRequired,
+              childImageSharp: PropTypes.shape({
+                gatsbyImageData: PropTypes.object,
+              }),
             }).isRequired,
             socialLinks: PropTypes.arrayOf(
               PropTypes.shape({
@@ -76,7 +78,9 @@ export const pageQuery = graphql`
             url
           }
           image {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
         }
       }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './shared/button';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Services({ title, list }) {
   return (
@@ -30,15 +31,11 @@ Services.propTypes = {
 export default Services;
 
 function ServiceItem({ image, title, description }) {
+  console.log(image);
   return (
     <div className="shadow-3xl shadwo-tezos-blue bg-white p-10 rounded-xl lg:m-5 sm:m-1 w-full sm:mt-0 mt-4">
       <div className="text-center">
-        <img
-          src={image.publicURL}
-          width="100"
-          className="mx-auto"
-          alt={title}
-        />
+        <GatsbyImage image={getImage(image)} alt={title} className="mx-auto" />
         <h4 className="font-semibold sm:text-xl text-lg text-tezos-blue mt-5">
           {title}
         </h4>
@@ -54,7 +51,9 @@ function ServiceItem({ image, title, description }) {
 ServiceItem.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    publicURL: PropTypes.string,
+    childImageSharp: PropTypes.shape({
+      gatsbyImageData: PropTypes.object,
+    }),
   }).isRequired,
   title: PropTypes.string.isRequired,
 };

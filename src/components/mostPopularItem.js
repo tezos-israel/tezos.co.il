@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { format } from 'date-fns';
 import classnames from 'classnames';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function MostPopularItem({
   title,
@@ -45,8 +46,9 @@ function MostPopularItem({
             }
           )}
         >
-          <img
-            src={image}
+          <GatsbyImage
+            image={getImage(image)}
+            alt={title}
             className={classnames('rounded-md w-full', {
               'h-24': size === 'small',
               'lg:h-full md:h-full h-28': size !== 'small' || !size,
@@ -78,7 +80,10 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={author.avatar} alt={author.username} />
+                <GatsbyImage
+                  image={getImage(author.avatar)}
+                  alt={author.username}
+                />
               </div>
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>

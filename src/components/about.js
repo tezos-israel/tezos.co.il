@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
 function About({ title, content, image }) {
   return (
     <div className="sm:py-20 py-10 xl:px-0 px-7 bg-tezos-blue text-white">
@@ -12,11 +14,11 @@ function About({ title, content, image }) {
             {content}
           </div>
           <div className="text-right xl:w-1/3 lg:w-2/5 w-1/4 sm:opacity-100 opacity-30 sm:relative absolute right-4">
-            <img
-              src={image.publicURL}
-              width="200"
-              className="max-w-full float-right"
+            <GatsbyImage
+              image={getImage(image)}
               alt={title}
+              width={200}
+              className="max-w-full float-right"
             />
           </div>
         </div>
@@ -29,7 +31,9 @@ About.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   image: PropTypes.shape({
-    publicURL: PropTypes.string,
+    childImageSharp: PropTypes.shape({
+      gatsbyImageData: PropTypes.object,
+    }),
   }),
 };
 

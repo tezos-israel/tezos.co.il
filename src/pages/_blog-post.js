@@ -8,6 +8,7 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
 } from 'react-share';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -41,7 +42,7 @@ function BlogPost({ data }) {
             </h2>
           </div>
           <div className="relative mt-24">
-            <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto">
+            <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto z-10">
               <div className="text-sm mb-3">
                 <h4>{post.frontmatter.authorFull.name}</h4>
                 <div className="text-black text-opacity-50">
@@ -49,8 +50,8 @@ function BlogPost({ data }) {
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">
-                <img
-                  src={post.frontmatter.authorFull.image.publicURL}
+                <GatsbyImage
+                  image={getImage(post.frontmatter.authorFull.image)}
                   alt={post.frontmatter.authorFull.name}
                 />
               </div>
@@ -78,10 +79,10 @@ function BlogPost({ data }) {
               </div>
             </div>
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
-              <img
-                src={post.frontmatter.featuredImage.publicURL}
-                className="rounded-md margin-auto w-full"
+              <GatsbyImage
+                image={getImage(post.frontmatter.featuredImage)}
                 alt={post.frontmatter.title}
+                className="rounded-md margin-auto w-full"
               />
             </div>
           </div>
@@ -141,12 +142,17 @@ export const query = graphql`
         date
         featuredImage {
           publicURL
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
         }
         tags
         authorFull {
           name
           image {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
         }
       }
@@ -159,12 +165,20 @@ export const query = graphql`
           date
           featuredImage {
             publicURL
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
           tags
           authorFull {
             name
             image {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
         }
@@ -186,13 +200,20 @@ export const query = graphql`
           title
           date
           featuredImage {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
           tags
           authorFull {
             name
             image {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
         }
@@ -208,12 +229,12 @@ function transformPosts(posts) {
     return {
       slug: post.fields.slug,
       title: post.frontmatter.title,
-      image: post.frontmatter.featuredImage.publicURL,
+      image: post.frontmatter.featuredImage,
       date: post.frontmatter.date,
       tags: post.frontmatter.tags,
       author: {
         username: post.frontmatter.authorFull.name,
-        avatar: post.frontmatter.authorFull.image.publicURL,
+        avatar: post.frontmatter.authorFull.image,
       },
     };
   });
