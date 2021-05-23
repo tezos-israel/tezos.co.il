@@ -7,7 +7,6 @@ function Partners({ partnersList }) {
     <div className="text-center max-w-7xl mx-auto pt-7">
       <div className="flex justify-center items-center">
         {partnersList.map((item, index) => {
-          console.log(item);
           return (
             <a href={item.url} key={index} target="_blank" rel="noreferrer">
               <GatsbyImage image={getImage(item.partnerImage)} alt={item.url} />

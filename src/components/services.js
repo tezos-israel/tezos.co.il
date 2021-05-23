@@ -31,7 +31,6 @@ Services.propTypes = {
 export default Services;
 
 function ServiceItem({ image, title, description }) {
-  console.log(image);
   return (
     <div className="shadow-3xl shadwo-tezos-blue bg-white p-10 rounded-xl lg:m-5 sm:m-1 w-full sm:mt-0 mt-4">
       <div className="text-center">
