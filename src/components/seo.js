@@ -30,8 +30,24 @@ function SEO({ description, meta, title, image }) {
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
   const lang = site.siteMetadata?.lang;
-
   const ogImageUrl = site.siteMetadata?.siteUrl + image;
+
+  const imageMetaTags = image
+    ? [
+        {
+          property: 'image',
+          content: ogImageUrl,
+        },
+        {
+          property: 'og:image',
+          content: ogImageUrl,
+        },
+        {
+          property: 'twitter:image',
+          content: ogImageUrl,
+        },
+      ]
+    : [];
 
   return (
     <Helmet
@@ -73,26 +89,16 @@ function SEO({ description, meta, title, image }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-        {
-          property: 'image',
-          content: ogImageUrl,
-        },
-        {
-          property: 'og:image',
-          content: ogImageUrl,
-        },
-        {
-          property: 'twitter:image',
-          content: ogImageUrl,
-        },
-      ].concat(meta)}
+      ]
+        .concat(imageMetaTags)
+        .concat(meta)}
     />
   );
 }
 
 SEO.defaultProps = {
   description: '',
-  image: '',
+  image: null,
   meta: [],
 };
 
