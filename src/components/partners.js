@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Partners({ partnersList }) {
   return (
@@ -8,11 +9,7 @@ function Partners({ partnersList }) {
         {partnersList.map((item, index) => {
           return (
             <a href={item.url} key={index} target="_blank" rel="noreferrer">
-              <img
-                src={item.partnerImage.publicURL}
-                width="300"
-                alt={item.url}
-              />
+              <GatsbyImage image={getImage(item.partnerImage)} alt={item.url} />
             </a>
           );
         })}
@@ -26,7 +23,9 @@ Partners.propTypes = {
     PropTypes.shape({
       url: PropTypes.string,
       partnerImage: PropTypes.shape({
-        publicURL: PropTypes.string,
+        childImageSharp: PropTypes.shape({
+          gatsbyImageData: PropTypes.object,
+        }),
       }),
     })
   ),

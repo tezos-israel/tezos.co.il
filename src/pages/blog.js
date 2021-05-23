@@ -15,12 +15,12 @@ function Blogs({
     return {
       slug: item.node.fields.slug,
       title: item.node.frontmatter.title,
-      image: item.node.frontmatter.featuredImage.publicURL,
+      image: item.node.frontmatter.featuredImage,
       date: item.node.frontmatter.date,
       tags: item.node.frontmatter.tags,
       author: {
         username: item.node.frontmatter.authorFull.name,
-        avatar: item.node.frontmatter.authorFull.image.publicURL,
+        avatar: item.node.frontmatter.authorFull.image,
       },
     };
   });
@@ -63,13 +63,23 @@ export const pageQuery = graphql`
             title
             date
             featuredImage {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
             tags
             authorFull {
               name
               image {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
               }
             }
           }

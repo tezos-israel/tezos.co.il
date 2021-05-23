@@ -87,7 +87,13 @@ export const pageQuery = graphql`
             title
             description
             image {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  width: 100
+                )
+              }
             }
           }
         }
@@ -95,7 +101,13 @@ export const pageQuery = graphql`
           title
           content
           image {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                width: 200
+              )
+            }
           }
         }
         joinSection {
@@ -110,7 +122,13 @@ export const pageQuery = graphql`
           title
           partnersList {
             partnerImage {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  width: 300
+                )
+              }
             }
             url
           }
