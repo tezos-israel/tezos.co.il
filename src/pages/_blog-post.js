@@ -21,14 +21,13 @@ function BlogPost({ data }) {
 
   const relatedBlogs = transformPosts(post.related);
   const postUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const siteUrl = typeof window !== 'undefined' ? window.location.host : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
-  const cardUrl = `${siteUrl}${post.frontmatter.featuredImage.publicURL}`;
+  const image = `${post.frontmatter.featuredImage.publicURL}`;
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} cardUrl={cardUrl} />
+      <SEO title={post.frontmatter.title} image={image} />
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">
