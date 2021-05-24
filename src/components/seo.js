@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, meta, title, cardUrl }) {
+function SEO({ description, meta, title, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,6 +20,7 @@ function SEO({ description, meta, title, cardUrl }) {
             description
             author
             lang
+            siteUrl
           }
         }
       }
@@ -29,6 +30,24 @@ function SEO({ description, meta, title, cardUrl }) {
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
   const lang = site.siteMetadata?.lang;
+  const ogImageUrl = site.siteMetadata?.siteUrl + image;
+
+  const imageMetaTags = image
+    ? [
+        {
+          property: 'image',
+          content: ogImageUrl,
+        },
+        {
+          property: 'og:image',
+          content: ogImageUrl,
+        },
+        {
+          property: 'twitter:image',
+          content: ogImageUrl,
+        },
+      ]
+    : [];
 
   return (
     <Helmet
@@ -70,24 +89,22 @@ function SEO({ description, meta, title, cardUrl }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-        {
-          property: 'og:image',
-          content: cardUrl,
-        },
-      ].concat(meta)}
+      ]
+        .concat(imageMetaTags)
+        .concat(meta)}
     />
   );
 }
 
 SEO.defaultProps = {
   description: '',
-  cardUrl: '',
+  image: null,
   meta: [],
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
-  cardUrl: PropTypes.string,
+  image: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
 };
