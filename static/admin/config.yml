@@ -23,6 +23,12 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
+          label: 'Published',
+          name: 'published',
+          widget: 'boolean',
+          required: false,
+        }
+      - {
           label: 'Author',
           name: 'author',
           widget: 'relation',

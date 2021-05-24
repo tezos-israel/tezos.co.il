@@ -49,7 +49,12 @@ export default Blogs;
 export const pageQuery = graphql`
   query PostsTemplate {
     allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
+      filter: {
+        frontmatter: {
+          templateKey: { eq: "_blog-post" }
+          published: { eq: true }
+        }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 1000
     ) {

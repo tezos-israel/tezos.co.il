@@ -1,6 +1,7 @@
 ---
 templateKey: _blog-post
 title: Playing with SmartPy Smart Contracts (Part 1)
+published: false
 author: ameed.jadallah@gmail.com
 date: 2021-05-17T13:43:24.675Z
 description: >-

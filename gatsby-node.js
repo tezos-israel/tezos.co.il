@@ -104,6 +104,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                   frontmatter: {
                     tags: { in: tags },
                     templateKey: { eq: '_blog-post' },
+                    published: { eq: true },
                   },
                   id: { ne: source.id },
                 },
