@@ -188,7 +188,7 @@ export const query = graphql`
       filter: {
         frontmatter: {
           templateKey: { eq: "_blog-post" }
-          publishedPost: { eq: true }
+          published: { eq: true }
         }
         fields: { slug: { ne: $slug } }
       }
