@@ -1,7 +1,9 @@
 backend:
   name: git-gateway
   repo: tezos-israel/gatsby-website
-  branch: master-posted
+  branch: master
+  squash_merges: true
+  publish_mode: editorial_workflow
 
 local_backend: true
 
