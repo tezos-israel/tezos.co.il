@@ -3,12 +3,10 @@ socialItems:
   - type: facebook
     url: https://www.facebook.com/TezosIsrael
   - type: linkedin
-    url: https://www.facebook.com/TezosIsrael
-  - type: instagram
-    url: https://www.facebook.com/TezosIsrael
+    url: https://www.linkedin.com/company/tezos-israel/
   - type: telegram
-    url: https://www.facebook.com/TezosIsrael
+    url: https://t.me/tezosisrael
   - type: twitter
-    url: https://www.facebook.com/TezosIsrael
+    url: https://twitter.com/TezosIsrael
   - type: rss
     url: /rss.xml
