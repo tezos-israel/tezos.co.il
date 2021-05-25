@@ -8,7 +8,7 @@ import Contact from '../components/contact';
 
 import './layout.css';
 
-import data from '../data/data.json';
+import social from '../../data/settings/socials.yml';
 import navigation from '../../data/settings/navigation.yml';
 import logos from '../../data/settings/logos.yml';
 
@@ -19,10 +19,7 @@ function Layout({ children }) {
       <div className="overflow-x-hidden mt-20">
         <main>{children}</main>
         <Section title="Contact Us" className="text-left" direction="left">
-          <Contact
-            email={data.contact.email}
-            socialList={data.contact.socialList}
-          />
+          <Contact email={social.email} socialList={social.socialLink} />
         </Section>
       </div>
       <Footer logo={logos.footerLogo} />
