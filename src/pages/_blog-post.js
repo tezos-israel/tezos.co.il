@@ -185,7 +185,10 @@ export const query = graphql`
     }
     recentPosts: allMarkdownRemark(
       filter: {
-        frontmatter: { templateKey: { eq: "_blog-post" } }
+        frontmatter: {
+          templateKey: { eq: "_blog-post" }
+          published: { eq: true }
+        }
         fields: { slug: { ne: $slug } }
       }
       sort: { fields: frontmatter___date, order: DESC }

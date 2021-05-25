@@ -94,6 +94,7 @@ module.exports = {
               return allMarkdownRemark.nodes.map((node) => {
                 const url = `${siteUrl}${node.fields.slug}`;
                 const author = node.frontmatter.authorFull;
+                const mediumHandle = `@${author.mediumHandle}`;
 
                 return {
                   ...node.frontmatter,
@@ -104,10 +105,13 @@ module.exports = {
                   guid: url,
                   custom_elements: [
                     {
-                      'content:encoded': `${
-                        node.frontmatter.mediumContent || node.html
-                      } 
-                      <p>Read more in our <a href="${url}">blog</a></p>`,
+                      'content:encoded': `
+                      <p>This post was originally publish on our <a href="${url}">blog</a> by ${
+                        author.mediumHandle ? mediumHandle : author.name
+                      }</p>
+                      
+                      ${node.frontmatter.mediumContent || node.html}
+                      `,
                     },
                     { tags: node.frontmatter.tags.join(',') },
                     { author: `${author.name} (@${author.mediumHandle})` },
