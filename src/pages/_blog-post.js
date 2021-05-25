@@ -24,11 +24,13 @@ function BlogPost({ data }) {
   const postUrl = typeof window !== 'undefined' ? window.location.href : '';
   const title = `Read ${data.post.frontmatter.title} `;
   const tags = data.post.frontmatter.tags;
-  const image = `${post.frontmatter.featuredImage.publicURL}`;
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} image={image} />
+      <SEO
+        title={post.frontmatter.title}
+        image={post.frontmatter.featuredImage.publicURL}
+      />
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">
