@@ -47,7 +47,7 @@ function BlogPost({ data }) {
               <div className="text-sm mb-3">
                 <h4>{post.frontmatter.authorFull.name}</h4>
                 <div className="text-black text-opacity-50">
-                  {format(new Date(post.frontmatter.date), 'MM-dd-yyyy')}
+                  {format(new Date(post.frontmatter.date), 'yyyy-MM-dd')}
                 </div>
               </div>
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto border-white border-5 shadow-lg">

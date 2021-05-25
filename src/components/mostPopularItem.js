@@ -88,7 +88,7 @@ function MostPopularItem({
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>
                 <div className="text-black text-opacity-50">
-                  {format(new Date(date), 'MM-dd-yyyy')}
+                  {format(new Date(date), 'yyyy-MM-dd')}
                 </div>
               </div>
             </div>
