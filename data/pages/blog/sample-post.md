@@ -1,7 +1,7 @@
 ---
 templateKey: _blog-post
 title: Playing with SmartPy Smart Contracts (Part 1)
-author: ameed.jadallah@gmail.com
+author: email@tezos.co.il
 date: 2021-05-17T13:43:24.675Z
 description: >-
   SmartPy was designed for lowering the barrier of entry for smart contract development.
