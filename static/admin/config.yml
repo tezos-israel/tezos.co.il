@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: tezos-israel/gatsby-website
-  branch: netlify
+  branch: master-posted
 
 local_backend: true
 
