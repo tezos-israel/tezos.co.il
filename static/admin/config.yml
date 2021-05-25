@@ -3,6 +3,13 @@ backend:
   repo: tezos-israel/gatsby-website
   branch: master
   squash_merges: true
+  commit_messages:
+    create: 'feat({{collection}}): create “{{slug}}”'
+    update: 'feat({{collection}}): update “{{slug}}”'
+    delete: 'feat({{collection}}): delete “{{slug}}”'
+    uploadMedia: 'feat: Upload “{{path}}”'
+    deleteMedia: 'feat: Delete “{{path}}”'
+    openAuthoring: '{{message}}'
 
 publish_mode: editorial_workflow
 
