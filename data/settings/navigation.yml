@@ -1,0 +1,5 @@
+navItems:
+  - label: Blog
+    path: /blog
+  - label: Team
+    path: /team

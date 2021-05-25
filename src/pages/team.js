@@ -1,33 +1,33 @@
 import React from 'react';
-import TeamMember from '../components/TeamMember';
-import data from '../data/data.json';
-import teamData from '../data/teamData.json';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+
 import Layout from '../components/layout';
+import TeamMember from '../components/TeamMember';
 import SEO from '../components/seo';
 
-function Team() {
+function Team({
+  data: {
+    markdownRemark: { frontmatter },
+  },
+}) {
   return (
     <Layout>
-      <SEO
-        title="Team"
-        description={data.configs.description}
-        lang={data.configs.lang}
-        meta={data.configs.meta}
-      />
+      <SEO title="Team" />
       <div className="bg-tezos-dark flex flex-col py-7">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-white text-2xl text-center font-museo">
-            Our Team
+        <div className="max-w-7xl mx-auto w-full">
+          <h2 className="text-white text-2xl text-center font-museo capitalize">
+            {frontmatter.title}
           </h2>
           <div className="flex flex-wrap  items-center justify-center">
-            {teamData.map((item, index) => {
+            {frontmatter.teamMember.map((item, index) => {
               return (
                 <TeamMember
                   key={index}
-                  social={item.social}
+                  social={item.socialLinks}
                   name={item.name}
                   role={item.role}
-                  email={item.email}
+                  image={item.image}
                 />
               );
             })}
@@ -37,4 +37,54 @@ function Team() {
     </Layout>
   );
 }
+
+Team.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        teamMember: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            role: PropTypes.string.isRequired,
+            image: PropTypes.shape({
+              childImageSharp: PropTypes.shape({
+                gatsbyImageData: PropTypes.object,
+              }),
+            }).isRequired,
+            socialLinks: PropTypes.arrayOf(
+              PropTypes.shape({
+                socialNetwork: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+              })
+            ),
+          })
+        ),
+      }),
+    }),
+  }).isRequired,
+};
+
+export const pageQuery = graphql`
+  query TeamPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "team" } }) {
+      frontmatter {
+        title
+        teamMember {
+          name
+          role
+          socialLinks {
+            socialNetwork
+            url
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 export default Team;

@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-
+import { format } from 'date-fns';
 import classnames from 'classnames';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function MostPopularItem({
   title,
   image,
   date,
   author,
-  type,
+  tags,
+  slug,
   layout = 'col',
   rowItems,
   size,
@@ -24,8 +26,8 @@ function MostPopularItem({
       })}
     >
       <Link
-        to="/blog"
-        className={classnames('lg:p-4 lg:mt-0 md:mt-4 mt-4 flex flex-wrap', {
+        to={slug}
+        className={classnames('lg:p-4 lg:mt-0 mt-4 flex flex-wrap', {
           'flex-col': layout === 'col',
           'flex-row': layout === 'row',
         })}
@@ -44,19 +46,13 @@ function MostPopularItem({
             }
           )}
         >
-          <img
-            src={image}
-            className={classnames(
-              'rounded-md',
-              {
-                'w-full': layout === 'col',
-                ' w-auto': layout === 'row',
-              },
-              {
-                'h-24': size === 'small',
-                'lg:h-full md:h-full h-28': size !== 'small' || !size,
-              }
-            )}
+          <GatsbyImage
+            image={getImage(image)}
+            alt={title}
+            className={classnames('rounded-md w-full', {
+              'h-24': size === 'small',
+              'lg:h-full md:h-full h-28': size !== 'small' || !size,
+            })}
           />
         </div>
         <div
@@ -84,17 +80,29 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={author.avatar} alt={author.username} />
+                <GatsbyImage
+                  image={getImage(author.avatar)}
+                  alt={author.username}
+                />
               </div>
               <div className="text-sm ml-3">
                 <h4>{author.username}</h4>
-                <div className="text-black text-opacity-50">{date}</div>
+                <div className="text-black text-opacity-50">
+                  {format(new Date(date), 'yyyy-MM-dd')}
+                </div>
               </div>
             </div>
             <div className="mt-1">
-              <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize ">
-                {type}
-              </span>
+              {tags.map((item) => {
+                return (
+                  <span
+                    key={item}
+                    className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
+                  >
+                    {item}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -104,6 +112,7 @@ function MostPopularItem({
 }
 
 MostPopularItem.propTypes = {
+  slug: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
   date: PropTypes.string,
@@ -111,7 +120,7 @@ MostPopularItem.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  type: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),

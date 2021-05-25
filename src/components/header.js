@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
-
+import { Link } from 'gatsby';
 import NavLink from './navLink';
 import Button from './shared/button';
 
-function Header({ menu }) {
+function Header({ menu, logo }) {
   const [menuOpened, setMenuOpened] = useState(false);
   return (
-    <header className="fixed top-0 right-0 left-0 bg-white z-10 xl:px-0 xs:px-4 px-4">
+    <header className="fixed top-0 right-0 left-0 bg-white z-10 xl:px-0 xs:px-4 px-4 border-b border-gray-100">
       <div className="max-w-auto sm:max-w-7xl mx-auto flex justify-between items-center py-4 relative font-museo">
         <div className="flex items-center sm:hidden">
           <button
@@ -56,23 +55,18 @@ function Header({ menu }) {
           </button>
         </div>
         <div className="text-center sm:text-left">
-          <StaticImage
-            src="../images/horizontal_logo_blue.svg"
-            width={120.87}
-            quality={95}
-            formats={['AUTO', 'WEBP', 'AVIF']}
-            alt="Tezos Logo"
-          />
+          <Link to="/">
+            <img src={logo} width={120.87} alt="Tezos Logo" />
+          </Link>
         </div>
 
         <div className="items-center">
           <div className="hidden sm:inline-block">
-            {menu &&
-              menu.map((item, index) => {
-                return (
-                  <NavLink key={index} title={item.title} path={item.path} />
-                );
-              })}
+            {menu.map((item, index) => {
+              return (
+                <NavLink key={index} title={item.label} path={item.path} />
+              );
+            })}
           </div>
 
           <Button
@@ -87,17 +81,16 @@ function Header({ menu }) {
             id="mobile-menu"
           >
             <div className="px-2 py-3 space-y-1">
-              {menu &&
-                menu.map((item, index) => {
-                  return (
-                    <NavLink
-                      key={index}
-                      title={item.title}
-                      path={item.path}
-                      className="block text-lg py-3 text-tezos-dark"
-                    />
-                  );
-                })}
+              {menu.map((item, index) => {
+                return (
+                  <NavLink
+                    key={index}
+                    title={item.label}
+                    path={item.path}
+                    className="block text-lg py-3 text-tezos-dark"
+                  />
+                );
+              })}
             </div>
           </div>
         )}
@@ -108,9 +101,10 @@ function Header({ menu }) {
 Header.propTypes = {
   menu: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
+      label: PropTypes.string,
       path: PropTypes.string,
     }).isRequired
   ),
+  logo: PropTypes.string,
 };
 export default Header;

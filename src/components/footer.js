@@ -1,16 +1,10 @@
 import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import PropTypes from 'prop-types';
 
-function Footer() {
+function Footer({ logo }) {
   return (
     <footer className="bg-tezos-dark text-white text-center py-8">
-      <StaticImage
-        src="../images/logo_blue.svg"
-        width={57.87}
-        quality={95}
-        formats={['AUTO', 'WEBP', 'AVIF']}
-        alt="Tezos Logo"
-      />
+      <img src={logo} width={57.87} alt="Tezos Logo" className="inline-block" />
       <div className="mt-5 text-sm">
         © Copyright {new Date().getFullYear()}, Tezos Isreal - All Rights
         Reserved
@@ -18,5 +12,9 @@ function Footer() {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  logo: PropTypes.string,
+};
 
 export default Footer;

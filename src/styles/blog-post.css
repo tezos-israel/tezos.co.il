@@ -1,0 +1,15 @@
+.blog-content p {
+  margin-bottom: 1em;
+}
+
+.blog-content p a {
+  color: #2c7df7;
+}
+
+.blog-content pre {
+  background: #011627;
+  color: #fff;
+  border-radius: 0.3em;
+  padding: 0.2em 0.5em;
+  font-size: 14px;
+}

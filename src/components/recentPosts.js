@@ -3,23 +3,25 @@ import PropTypes from 'prop-types';
 
 import MostPopularItem from './mostPopularItem';
 
-function RecentlyPost({ recentlyBlogs }) {
+function RecentPosts({ posts }) {
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto py-7">
-        <h2 className="xl:text-xl sm:text-lg font-museo px-4">
+    <div className="bg-gray-100">
+      <div className="max-w-7xl mx-auto py-9">
+        <h2 className="xl:text-xl text-lg font-museo px-4 mb-4 sm:text-left text-center capitalize">
           Recently posted
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap xl:px-0 lg:px-0 px-4">
-          {recentlyBlogs.map((item, index) => {
+          {posts.map((item) => {
             return (
               <MostPopularItem
-                key={index}
+                key={item.slug}
                 title={item.title}
                 image={item.image}
                 date={item.date}
                 author={item.author}
-                type={item.type}
+                authorImage={item.authorImage}
+                tags={item.tags}
+                slug={item.slug}
                 layout="row"
                 rowItems={2}
               />
@@ -31,8 +33,8 @@ function RecentlyPost({ recentlyBlogs }) {
   );
 }
 
-RecentlyPost.propTypes = {
-  recentlyBlogs: PropTypes.array,
+RecentPosts.propTypes = {
+  posts: PropTypes.array.isRequired,
 };
 
-export default RecentlyPost;
+export default RecentPosts;

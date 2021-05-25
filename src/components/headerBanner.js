@@ -8,7 +8,7 @@ import './headerBanner.css';
 
 function HeaderBanner({ bannerText }) {
   return (
-    <div className="main-header flex justify-between items-center lg:min-h-screen sm:min-h-half">
+    <div className="main-header flex justify-between items-center lg:min-h-screen sm:min-h-half my-9">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center xl:px-0 sm:px-10">
         <div className="sm:w-2/3 w-full sm:text-left sm:px-0 px-3 text-center">
           <h1 className="text-tezos-dark font-semibold xl:text-5xl lg:text-4xl sm:text-3xl text-2xl xl:leading-normal lg:leading-normal mb-8 font-museo">

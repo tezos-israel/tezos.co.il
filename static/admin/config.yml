@@ -1,0 +1,203 @@
+backend:
+  name: git-gateway
+  repo: tezos-israel/gatsby-website
+  branch: master
+  squash_merges: true
+  publish_mode: editorial_workflow
+
+local_backend: true
+
+media_folder: static/assets
+public_folder: /assets
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: data/pages/blog
+    create: true
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: '_blog-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Published',
+          name: 'published',
+          widget: 'boolean',
+          required: false,
+        }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'authors',
+          value_field: 'email',
+          display_fields: ['name'],
+          search_fields: ['name', 'email'],
+        }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - {
+          label: 'Featured Post',
+          name: 'featuredPost',
+          widget: 'boolean',
+          required: false,
+        }
+      - { label: 'Featured Image', name: 'featuredImage', widget: image }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Medium Content',
+          name: 'mediumContent',
+          widget: 'markdown',
+          required: false,
+        }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+  - name: authors
+    label: Authors
+    folder: data/pages/blog/_authors/
+    media_folder: ''
+    public_folder: ''
+    format: json
+    create: true
+    slug: '{{name}}'
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Email, name: email, widget: string }
+      - { label: 'Short bio', name: shortBio, widget: text }
+      - { label: Image, name: image, widget: image }
+      - { label: 'Medium Handle', name: mediumHandle, widget: string }
+  - name: settings
+    label: Settings
+    files:
+      - file: data/settings/navigation.yml
+        label: Navigation
+        name: navigation
+        fields:
+          - label: Navigation
+            name: navItems
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+      - file: data/settings/logos.yml
+        label: Logos
+        name: logos
+        widget: list
+        fields:
+          - { label: HeaderLogo, name: headerLogo, widget: image }
+          - { label: FooterLogo, name: footerLogo, widget: image }
+      - file: data/settings/socials.yml
+        label: 'Social Links'
+        name: socialLinks
+        widget: object
+        fields:
+          - { label: Email, name: email, widget: string }
+
+          - label: 'Social Items'
+            name: socialItems
+            widget: list
+            fields:
+              - {
+                  label: Type,
+                  name: type,
+                  widget: select,
+                  options:
+                    [
+                      'facebook',
+                      'instagram',
+                      'linkedin',
+                      'telegram',
+                      'twitter',
+                    ],
+                }
+              - { label: Url, name: url, widget: string }
+  - label: 'Pages'
+    name: 'pages'
+    files:
+      - label: 'Landing page'
+        name: 'home'
+        file: 'data/pages/home.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'index',
+            }
+          - { label: Title, name: title, widget: string }
+          - label: 'Services Section'
+            name: servicesSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Services
+                name: services
+                widget: list
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: string }
+          - label: 'About Section'
+            name: aboutSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Content, name: content, widget: string }
+              - { label: Image, name: image, widget: image }
+          - label: 'Join Section'
+            name: joinSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: 'Join List'
+                name: joinList
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: string }
+                  - { label: Url, name: url, widget: string }
+          - label: 'Partners Section'
+            name: partnersSection
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: 'Partners List'
+                name: partnersList
+                widget: list
+                fields:
+                  - { label: PartnerImage, name: partnerImage, widget: image }
+                  - { label: Url, name: url, widget: string }
+      - label: 'Team Page'
+        name: 'team'
+        file: 'data/pages/team.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'team',
+            }
+          - { label: Title, name: title, widget: string }
+          - label: 'Team Member'
+            name: teamMember
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - label: 'Social Links'
+                name: socialLinks
+                widget: list
+                fields:
+                  - {
+                      label: 'Social Network',
+                      name: socialNetwork,
+                      widget: select,
+                      options: ['twitter', 'linkedin', 'telegram'],
+                    }
+                  - { label: Url, name: url, widget: string }
