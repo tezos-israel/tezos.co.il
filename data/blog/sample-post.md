@@ -1,6 +1,7 @@
 ---
 templateKey: _blog-post
 title: Playing with SmartPy Smart Contracts (Part 1)
+published: true
 author: email@tezos.co.il
 date: 2021-05-17T13:43:24.675Z
 description: >-
@@ -8,9 +9,7 @@ description: >-
   
   As you can most likely guess from the name, it is based on Python, which is, let’s be honest, not the hardest coding language to learn. Great news, right? It helps us developing Tezos smart contracts in an easier way.
 
-
 featuredImage: /assets/python-new_.jpeg
-published: true
 mediumContent: |-
   This is just a short medium article
   ```js
@@ -19,6 +18,7 @@ mediumContent: |-
 tags:
   - devs
   - hey
+category: development
 ---
 
 SmartPy was designed for lowering the barrier of entry for smart contract development.

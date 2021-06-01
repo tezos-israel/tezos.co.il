@@ -131,7 +131,7 @@ BlogPost.propTypes = {
   }).isRequired,
 };
 
-export const query = graphql`
+export const pageQuery = graphql`
   query($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html

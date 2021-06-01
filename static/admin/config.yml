@@ -22,7 +22,7 @@ collections:
   - name: posts
     label: Posts
     label_singular: Post
-    folder: data/pages/blog
+    folder: data/blog
     create: true
     fields:
       - {
@@ -64,6 +64,7 @@ collections:
           required: false,
         }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Category', name: 'category', widget: 'string' }
   - name: authors
     label: Authors
     folder: data/pages/blog/_authors/

@@ -114,12 +114,12 @@ function MostPopularItem({
 MostPopularItem.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.object.isRequired,
   date: PropTypes.string,
   author: PropTypes.shape({
-    avatar: PropTypes.string,
+    avatar: PropTypes.object.isRequired,
     username: PropTypes.string,
-  }),
+  }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,

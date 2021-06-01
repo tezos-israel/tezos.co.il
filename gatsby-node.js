@@ -1,62 +1,94 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
-
-  return graphql(`
+exports.createPages = async function createPages({
+  actions: { createPage },
+  graphql,
+  reporter,
+}) {
+  const result = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      pages: allMarkdownRemark(
+        limit: 1000
+        filter: { frontmatter: { templateKey: { ne: "_blog-post" } } }
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            templateKey
+          }
+        }
+      }
+      posts: allMarkdownRemark(
+        limit: 1000
+        filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
+      ) {
         edges {
           node {
             id
             fields {
               slug
             }
-            frontmatter {
-              templateKey
-            }
           }
         }
       }
     }
-  `).then((result) => {
-    if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()));
-      return Promise.reject(result.errors);
-    }
+  `);
 
-    const posts = result.data.allMarkdownRemark.edges;
+  if (result.errors) {
+    result.errors.forEach((e) => console.error(e.toString()));
+    return reporter.panic(result.errors);
+  }
 
-    posts.forEach((edge) => {
-      const id = edge.node.id;
-      const slug = edge.node.fields.slug;
-      createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/pages/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-          slug,
-        },
-      });
+  // // create pages
+  // result.data.pages.forEach((node) => {
+  //   const id = node.id;
+  //   const slug = node.fields.slug;
+  //   createPage({
+  //     path: slug,
+  //     component: path.resolve(
+  //       `src/pages/${String(node.frontmatter.templateKey)}.js`
+  //     ),
+  //     // additional data can be passed via context
+  //     context: {
+  //       id,
+  //       slug,
+  //     },
+  //   });
+  // });
+  // create posts
+  result.data.posts.edges.forEach(({ node }) => {
+    const { id } = node;
+    const slug = node.fields.slug;
+    createPage({
+      path: slug,
+      component: path.resolve('src/templates/blog-post.js'),
+      // additional data can be passed via context
+      context: {
+        id,
+        slug,
+      },
     });
-
-    // Tag pages:
-    // createTagPages(posts, createPage);
   });
+  // Tag pages:
+  // createTagPages(posts, createPage);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+  if (
+    node.internal.type === 'MarkdownRemark' &&
+    node.frontmatter.templateKey === '_blog-post'
+  ) {
+    const slug = createFilePath({ node, getNode });
+    const value = `/blog/${node.frontmatter.category}${slug}`;
+
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
     });

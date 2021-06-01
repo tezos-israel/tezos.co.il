@@ -41,6 +41,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/data/blog`,
+        name: 'posts',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/images`,
         name: 'images',
       },
@@ -48,7 +55,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        path: `${__dirname}/data/pages/blog`,
+        path: `${__dirname}/data/blog/_authors`,
       },
     },
     'gatsby-plugin-sharp',

@@ -36,7 +36,7 @@ function TeamMember({ social, name, role, image }) {
 TeamMember.propTypes = {
   name: PropTypes.string,
   role: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.object.isRequired,
   social: PropTypes.arrayOf(
     PropTypes.shape({
       socialNetwork: PropTypes.string.isRequired,
