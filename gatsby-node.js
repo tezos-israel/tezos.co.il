@@ -1,5 +1,6 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { kebabCase } = require('lodash');
 
 exports.createPages = async function createPages({
   actions: { createPage },
@@ -8,20 +9,6 @@ exports.createPages = async function createPages({
 }) {
   const result = await graphql(`
     {
-      pages: allMarkdownRemark(
-        limit: 1000
-        filter: { frontmatter: { templateKey: { ne: "_blog-post" } } }
-      ) {
-        nodes {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            templateKey
-          }
-        }
-      }
       posts: allMarkdownRemark(
         limit: 1000
         filter: { frontmatter: { templateKey: { eq: "_blog-post" } } }
@@ -43,22 +30,6 @@ exports.createPages = async function createPages({
     return reporter.panic(result.errors);
   }
 
-  // // create pages
-  // result.data.pages.forEach((node) => {
-  //   const id = node.id;
-  //   const slug = node.fields.slug;
-  //   createPage({
-  //     path: slug,
-  //     component: path.resolve(
-  //       `src/pages/${String(node.frontmatter.templateKey)}.js`
-  //     ),
-  //     // additional data can be passed via context
-  //     context: {
-  //       id,
-  //       slug,
-  //     },
-  //   });
-  // });
   // create posts
   result.data.posts.edges.forEach(({ node }) => {
     const { id } = node;
@@ -84,8 +55,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     node.internal.type === 'MarkdownRemark' &&
     node.frontmatter.templateKey === '_blog-post'
   ) {
-    const slug = createFilePath({ node, getNode });
-    const value = `/blog/${node.frontmatter.category}${slug}`;
+    const filePath = createFilePath({ node, getNode });
+    const value = `/blog/${kebabCase(node.frontmatter.category)}${filePath}`;
 
     createNodeField({
       name: 'slug',
