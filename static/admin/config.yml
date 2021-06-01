@@ -32,6 +32,8 @@ collections:
           default: '_blog-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Category', name: 'category', widget: 'string' }
       - {
           label: 'Published',
           name: 'published',
@@ -56,15 +58,14 @@ collections:
           required: false,
         }
       - { label: 'Featured Image', name: 'featuredImage', widget: image }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
           label: 'Medium Content',
           name: 'mediumContent',
           widget: 'markdown',
           required: false,
         }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
   - name: authors
     label: Authors
     folder: data/pages/blog/_authors/
