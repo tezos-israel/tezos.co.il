@@ -19,10 +19,10 @@ function RelatedPost({ posts }) {
                 image={item.image}
                 date={item.date}
                 author={item.author}
-                authorImage={item.authorImage}
                 tags={item.tags}
                 slug={item.slug}
-                layout="row"
+                category={item.category}
+                layout="col"
                 rowItems={1}
                 size="small"
               />

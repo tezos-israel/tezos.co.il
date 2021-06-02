@@ -24,6 +24,7 @@ export default function PostsByTagPage({
         username: item.node.frontmatter.authorFull.name,
         avatar: item.node.frontmatter.authorFull.image,
       },
+      category: item.node.frontmatter.category,
     };
   });
 
@@ -69,6 +70,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            category
             title
             date
             featuredImage {

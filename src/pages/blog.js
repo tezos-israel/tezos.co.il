@@ -22,6 +22,7 @@ function Blogs({
         username: item.node.frontmatter.authorFull.name,
         avatar: item.node.frontmatter.authorFull.image,
       },
+      category: item.node.frontmatter.category,
     };
   });
 
@@ -67,6 +68,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            category
             featuredImage {
               childImageSharp {
                 gatsbyImageData(
