@@ -1,6 +1,6 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const { kebabCase } = require('lodash');
+const _ = require('lodash');
 
 exports.createPages = async function createPages({
   actions: { createPage },
@@ -19,6 +19,9 @@ exports.createPages = async function createPages({
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -30,8 +33,12 @@ exports.createPages = async function createPages({
     return reporter.panic(result.errors);
   }
 
+  const {
+    posts: { edges: posts },
+  } = result.data;
+
   // create posts
-  result.data.posts.edges.forEach(({ node }) => {
+  posts.forEach(({ node }) => {
     const { id } = node;
     const slug = node.fields.slug;
     createPage({
@@ -45,7 +52,7 @@ exports.createPages = async function createPages({
     });
   });
   // Tag pages:
-  // createTagPages(posts, createPage);
+  createTagPages(posts, createPage);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -56,7 +63,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     node.frontmatter.templateKey === '_blog-post'
   ) {
     const filePath = createFilePath({ node, getNode });
-    const value = `/blog/${kebabCase(node.frontmatter.category)}${filePath}`;
+    const value = `/blog/${_.kebabCase(node.frontmatter.category)}${filePath}`;
 
     createNodeField({
       name: 'slug',
@@ -122,27 +129,25 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   createTypes(typeDefs);
 };
 
-// function createTagPages(posts, createPage) {
-//   let tags = [];
-//   // Iterate through each post, putting all found tags into `tags`
-//   posts.forEach((edge) => {
-//     if (_.get(edge, `node.frontmatter.tags`)) {
-//       tags = tags.concat(edge.node.frontmatter.tags);
-//     }
-//   });
-//   // Eliminate duplicate tags
-//   tags = _.uniq(tags);
+function createTagPages(posts, createPage) {
+  const tags = _.uniq(
+    _.compact(
+      posts.flatMap((edge) => {
+        return _.get(edge, `node.frontmatter.tags`);
+      })
+    )
+  );
 
-//   // Make tag pages
-//   tags.forEach((tag) => {
-//     const tagPath = `/tags/${_.kebabCase(tag)}/`;
+  // Make tag pages
+  tags.forEach((tag) => {
+    const tagPath = `/blog/tags/${_.kebabCase(tag)}`;
 
-//     createPage({
-//       path: tagPath,
-//       component: path.resolve(`src/templates/tags.js`),
-//       context: {
-//         tag,
-//       },
-//     });
-//   });
-// }
+    createPage({
+      path: tagPath,
+      component: path.resolve(`src/templates/tags.js`),
+      context: {
+        tag,
+      },
+    });
+  });
+}
