@@ -139,6 +139,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
+        category
         title
         date
         featuredImage {
@@ -162,6 +163,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          category
           title
           date
           featuredImage {
@@ -201,6 +203,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          category
           title
           date
           featuredImage {
@@ -240,6 +243,7 @@ function transformPosts(posts) {
         username: post.frontmatter.authorFull.name,
         avatar: post.frontmatter.authorFull.image,
       },
+      category: post.frontmatter.category,
     };
   });
 }

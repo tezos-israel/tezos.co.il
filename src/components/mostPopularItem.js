@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+import classnames from 'classnames';
 import { Link } from 'gatsby';
 import { format } from 'date-fns';
-import classnames from 'classnames';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function MostPopularItem({
@@ -11,6 +12,7 @@ function MostPopularItem({
   date,
   author,
   tags,
+  category,
   slug,
   layout = 'col',
   rowItems,
@@ -94,7 +96,14 @@ function MostPopularItem({
                 </div>
               </div>
             </div>
+            <div></div>
             <div className="mt-1 space-x-3">
+              <Link
+                to={`/blog/${_.kebabCase(category)}`}
+                className="bg-indigo-400 bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-md"
+              >
+                {category}
+              </Link>
               {tags.map((tag) => {
                 return (
                   <Link
@@ -127,6 +136,7 @@ MostPopularItem.propTypes = {
   layout: PropTypes.oneOf(['col', 'row']),
   rowItems: PropTypes.number,
   size: PropTypes.oneOf(['normal', 'small']),
+  category: PropTypes.string.isRequired,
 };
 
 export default MostPopularItem;

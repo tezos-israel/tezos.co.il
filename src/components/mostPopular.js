@@ -20,6 +20,7 @@ function MostPopular({ popularBlogs }) {
                 date={item.date}
                 author={item.author}
                 type={item.type}
+                category={item.category}
               />
             );
           })}
