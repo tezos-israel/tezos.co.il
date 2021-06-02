@@ -21,6 +21,7 @@ exports.createPages = async function createPages({
             }
             frontmatter {
               tags
+              category
             }
           }
         }
@@ -51,8 +52,9 @@ exports.createPages = async function createPages({
       },
     });
   });
-  // Tag pages:
+
   createTagPages(posts, createPage);
+  createCategoryPages(posts, createPage);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -133,20 +135,38 @@ function createTagPages(posts, createPage) {
   const tags = _.uniq(
     _.compact(
       posts.flatMap((edge) => {
-        return _.get(edge, `node.frontmatter.tags`);
+        return _.get(edge, 'node.frontmatter.tags');
       })
     )
   );
 
   // Make tag pages
   tags.forEach((tag) => {
-    const tagPath = `/blog/tags/${_.kebabCase(tag)}`;
-
     createPage({
-      path: tagPath,
-      component: path.resolve(`src/templates/tags.js`),
+      path: `/blog/tags/${_.kebabCase(tag)}`,
+      component: path.resolve('src/templates/tags.js'),
       context: {
         tag,
+      },
+    });
+  });
+}
+
+function createCategoryPages(posts, createPage) {
+  const categories = _.uniq(
+    _.compact(
+      posts.flatMap((edge) => {
+        return _.get(edge, 'node.frontmatter.category');
+      })
+    )
+  );
+
+  categories.forEach((category) => {
+    createPage({
+      path: `/blog/${_.kebabCase(category)}`,
+      component: path.resolve(`src/templates/category.js`),
+      context: {
+        category,
       },
     });
   });
