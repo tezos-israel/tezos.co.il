@@ -33,7 +33,12 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
-      - { label: 'Category', name: 'category', widget: 'string' }
+      - label: 'Category'
+        name: 'category'
+        widget: 'relation'
+        collection: 'postCategories'
+        value_field: 'title'
+        search_fields: ['title']
       - {
           label: 'Published',
           name: 'published',
@@ -65,10 +70,9 @@ collections:
           required: false,
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-
   - name: authors
     label: Authors
-    folder: data/pages/blog/_authors/
+    folder: data/blog/_authors/
     media_folder: ''
     public_folder: ''
     format: json
@@ -81,6 +85,15 @@ collections:
       - { label: 'Short bio', name: shortBio, widget: text }
       - { label: Image, name: image, widget: image }
       - { label: 'Medium Handle', name: mediumHandle, widget: string }
+  - name: postCategories
+    label: 'Post Categories'
+    folder: data/blog/_categories
+    label_singular: Category
+    create: true
+    fields:
+      - label: Name
+        name: title
+        widget: string
   - name: settings
     label: Settings
     files:
