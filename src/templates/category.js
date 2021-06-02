@@ -11,7 +11,7 @@ export default function PostsByTagPage({
   data: {
     allMarkdownRemark: { edges },
   },
-  pageContext: { tag },
+  pageContext: { category },
 }) {
   const recentPosts = edges.map((item) => {
     return {
@@ -28,8 +28,8 @@ export default function PostsByTagPage({
   });
 
   return (
-    <BlogLayout title={`Posts for tag "${tag}"`}>
-      <SEO title={`${tag} | Blog`} />
+    <BlogLayout title={`Posts for category "${category}"`}>
+      <SEO title={`${category} | Blog`} />
 
       {/* <MostPopular posts={recentPosts} /> */}
 
@@ -45,18 +45,18 @@ PostsByTagPage.propTypes = {
     }),
   }).isRequired,
   pageContext: PropTypes.shape({
-    tag: PropTypes.string,
+    category: PropTypes.string,
   }),
 };
 
 export const pageQuery = graphql`
-  query TagPosts($tag: String!) {
+  query CategoryPosts($category: String!) {
     allMarkdownRemark(
       filter: {
         frontmatter: {
           templateKey: { eq: "_blog-post" }
           published: { eq: true }
-          tags: { eq: $tag }
+          category: { eq: $category }
         }
       }
       sort: { fields: frontmatter___date, order: DESC }
