@@ -25,16 +25,16 @@ function MostPopularItem({
         'w-full': rowItems === 1 || !rowItems,
       })}
     >
-      <Link
-        to={slug}
+      <div
         className={classnames('lg:p-4 lg:mt-0 mt-4 flex flex-wrap', {
           'flex-col': layout === 'col',
           'flex-row': layout === 'row',
         })}
       >
-        <div
+        <Link
+          to={slug}
           className={classnames(
-            'block  overflow-hidden rounded-md',
+            'block overflow-hidden rounded-md',
             {
               'w-full mb-4': layout === 'col',
               'w-1/3': layout === 'row',
@@ -54,24 +54,26 @@ function MostPopularItem({
               'lg:h-full md:h-full h-28': size !== 'small' || !size,
             })}
           />
-        </div>
+        </Link>
         <div
           className={classnames('', {
             'w-full': layout === 'col',
             'w-2/3 pl-4': layout === 'row',
           })}
         >
-          <h3
-            title={title}
-            className={classnames(
-              'font-museo mb-3 block  w-full overflow-hidden whitespace-nowrap overflow-ellipsis line-clamp-2',
-              {
-                'text-sm': size === 'small',
-              }
-            )}
-          >
-            {title}
-          </h3>
+          <Link to={slug}>
+            <h3
+              title={title}
+              className={classnames(
+                'font-museo mb-3 block  w-full overflow-hidden whitespace-nowrap overflow-ellipsis line-clamp-2',
+                {
+                  'text-sm': size === 'small',
+                }
+              )}
+            >
+              {title}
+            </h3>
+          </Link>
           <div
             className={classnames('flex justify-between', {
               'flex-row items-center': layout === 'col',
@@ -92,21 +94,22 @@ function MostPopularItem({
                 </div>
               </div>
             </div>
-            <div className="mt-1">
-              {tags.map((item) => {
+            <div className="mt-1 space-x-3">
+              {tags.map((tag) => {
                 return (
-                  <span
-                    key={item}
-                    className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize "
+                  <Link
+                    key={tag}
+                    to={`/blog/tags/${tag}`}
+                    className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs"
                   >
-                    {item}
-                  </span>
+                    {tag}
+                  </Link>
                 );
               })}
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }
