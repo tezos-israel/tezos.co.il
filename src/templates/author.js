@@ -7,11 +7,11 @@ import SEO from '../components/seo';
 import PostsList from '../components/recentPosts';
 // import MostPopular from '../components/mostPopular';
 
-export default function PostsByTagPage({
+export default function AuthorPage({
   data: {
     allMarkdownRemark: { edges },
   },
-  pageContext: { tag },
+  pageContext: { author },
 }) {
   const recentPosts = edges.map(
     ({
@@ -28,8 +28,8 @@ export default function PostsByTagPage({
   );
 
   return (
-    <BlogLayout title={`Posts for tag "${tag}"`}>
-      <SEO title={`${tag} | Blog`} />
+    <BlogLayout title={`Posts for author "${author}"`}>
+      <SEO title={`${author} | Blog`} />
 
       {/* <MostPopular posts={recentPosts} /> */}
 
@@ -38,25 +38,25 @@ export default function PostsByTagPage({
   );
 }
 
-PostsByTagPage.propTypes = {
+AuthorPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }).isRequired,
   pageContext: PropTypes.shape({
-    tag: PropTypes.string,
+    author: PropTypes.string,
   }),
 };
 
 export const pageQuery = graphql`
-  query TagPosts($tag: String!) {
+  query AuthorPosts($author: String!) {
     allMarkdownRemark(
       filter: {
         frontmatter: {
           templateKey: { eq: "_blog-post" }
           published: { eq: true }
-          tags: { eq: $tag }
+          authorFull: { name: { eq: $author } }
         }
       }
       sort: { fields: frontmatter___date, order: DESC }
