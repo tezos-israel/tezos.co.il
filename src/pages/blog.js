@@ -11,20 +11,19 @@ function Blogs({
     allMarkdownRemark: { edges },
   },
 }) {
-  const recentPosts = edges.map((item) => {
-    return {
-      slug: item.node.fields.slug,
-      title: item.node.frontmatter.title,
-      image: item.node.frontmatter.featuredImage,
-      date: item.node.frontmatter.date,
-      tags: item.node.frontmatter.tags,
-      author: {
-        username: item.node.frontmatter.authorFull.name,
-        avatar: item.node.frontmatter.authorFull.image,
+  const recentPosts = edges.map(
+    ({
+      node: {
+        fields: { slug },
+        frontmatter,
       },
-      category: item.node.frontmatter.category,
-    };
-  });
+    }) => {
+      return {
+        slug,
+        ...frontmatter,
+      };
+    }
+  );
 
   return (
     <Layout>
@@ -66,10 +65,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            category
             title
             date
-            category
-            featuredImage {
+            image: featuredImage {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
@@ -78,8 +77,9 @@ export const pageQuery = graphql`
               }
             }
             tags
-            authorFull {
+            author: authorFull {
               name
+              email
               image {
                 childImageSharp {
                   gatsbyImageData(

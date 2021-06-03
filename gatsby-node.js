@@ -22,6 +22,9 @@ exports.createPages = async function createPages({
             frontmatter {
               tags
               category
+              authorFull {
+                email
+              }
             }
           }
         }
@@ -55,6 +58,7 @@ exports.createPages = async function createPages({
 
   createTagPages(posts, createPage);
   createCategoryPages(posts, createPage);
+  createAuthorPages(posts, createPage);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -167,6 +171,26 @@ function createCategoryPages(posts, createPage) {
       component: path.resolve(`src/templates/category.js`),
       context: {
         category,
+      },
+    });
+  });
+}
+
+function createAuthorPages(posts, createPage) {
+  const authors = _.uniq(
+    _.compact(
+      posts.flatMap((edge) => {
+        return _.get(edge, 'node.frontmatter.authorFull.email');
+      })
+    )
+  );
+
+  authors.forEach((email) => {
+    createPage({
+      path: `/blog/authors/${email}`,
+      component: path.resolve(`src/templates/author.js`),
+      context: {
+        author: email,
       },
     });
   });

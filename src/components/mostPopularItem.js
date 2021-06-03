@@ -84,13 +84,12 @@ function MostPopularItem({
           >
             <div className="flex">
               <div className="w-10 h-10 rounded-full overflow-hidden">
-                <GatsbyImage
-                  image={getImage(author.avatar)}
-                  alt={author.username}
-                />
+                <GatsbyImage image={getImage(author.image)} alt={author.name} />
               </div>
               <div className="text-sm ml-3">
-                <h4>{author.username}</h4>
+                <Link to={`/blog/authors/${author.email}`}>
+                  <h4>{author.name}</h4>
+                </Link>
                 <div className="text-black text-opacity-50">
                   {format(new Date(date), 'yyyy-MM-dd')}
                 </div>
@@ -129,8 +128,9 @@ MostPopularItem.propTypes = {
   image: PropTypes.object.isRequired,
   date: PropTypes.string,
   author: PropTypes.shape({
-    avatar: PropTypes.object.isRequired,
-    username: PropTypes.string,
+    image: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
   }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf(['col', 'row']),
