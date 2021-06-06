@@ -88,5 +88,7 @@ module.exports = {
       },
     },
     rssFeedConfig(siteUrl),
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-sitemap',
   ],
 };
