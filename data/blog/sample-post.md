@@ -25,7 +25,7 @@ SmartPy was designed for lowering the barrier of entry for smart contract develo
 As you can most likely guess from the name, it is based on Python, which is, let’s be honest, not the hardest coding language to learn. Great news, right? It helps us developing Tezos smart contracts in an easier way.
 
 \
-In this article, we’re going to start using SmartPy.io to create a smart contract and play around with it. For this, we will be using their online editor, as it is very clean and gives you access to a lot of different features, which makes it easy to develop and interact with a smart contract
+In this article, we’re going to start using SmartPy.io to create a smart contract and play around with it. For this, we will be using their online editor, as it is very clean and gives you access to a lot of different features, which makes it easy to develop and interact with a smart contract...
 
 ### Coding Our First Smart Contract!
 
