@@ -3,3 +3,5 @@ navItems:
     path: /blog
   - label: Team
     path: /team
+  - label: Dev
+    path: /dev
