@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: tezos-israel/gatsby-website
+  repo: tezos-israel/tezos.co.il
   branch: master
   squash_merges: true
   commit_messages:
