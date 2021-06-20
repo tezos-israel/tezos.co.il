@@ -13,7 +13,9 @@ description: >-
   
   As you can most likely guess from the name, it is based on Python, which is, let’s be honest, not the hardest coding language to learn. Great news, right? It helps us developing Tezos smart contracts in an easier way.
 
+
 featuredImage: /assets/python-new_.jpeg
+featuredImageAlt: python
 mediumContent: |-
   This is just a short medium article
   ```js

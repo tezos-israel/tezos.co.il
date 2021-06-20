@@ -64,6 +64,11 @@ collections:
         }
       - { label: 'Featured Image', name: 'featuredImage', widget: image }
       - {
+          label: 'Featured Image Alternative Text',
+          name: 'featuredImageAlt',
+          widget: 'text',
+        }
+      - {
           label: 'Medium Content',
           name: 'mediumContent',
           widget: 'markdown',

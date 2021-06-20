@@ -58,6 +58,10 @@ function SEO({ description, meta, title, image }) {
       titleTemplate={defaultTitle && title ? `%s | ${defaultTitle}` : null}
       meta={[
         {
+          property: 'title',
+          content: title,
+        },
+        {
           name: 'description',
           content: metaDescription,
         },

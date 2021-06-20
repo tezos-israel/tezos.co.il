@@ -30,6 +30,7 @@ function BlogPost({ data }) {
       <SEO
         title={post.frontmatter.title}
         image={post.frontmatter.featuredImage.publicURL}
+        description={post.frontmatter.description}
       />
 
       <div className="border-t border-gray-100 mt-2 py-6">
@@ -82,7 +83,7 @@ function BlogPost({ data }) {
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
               <GatsbyImage
                 image={getImage(post.frontmatter.featuredImage)}
-                alt={post.frontmatter.title}
+                alt={post.frontmatter.featuredImageAlt}
                 className="rounded-md margin-auto w-full"
               />
             </div>
@@ -113,9 +114,11 @@ BlogPost.propTypes = {
         title: PropTypes.string,
         date: PropTypes.string,
         tags: PropTypes.array,
+        featuredImageAlt: PropTypes.string.isRequired,
         featuredImage: PropTypes.shape({
           publicURL: PropTypes.string,
         }).isRequired,
+        description: PropTypes.string.isRequired,
         authorFull: PropTypes.shape({
           name: PropTypes.string,
           image: PropTypes.shape({
@@ -142,6 +145,7 @@ export const pageQuery = graphql`
         category
         title
         date
+        featuredImageAlt
         featuredImage {
           publicURL
           childImageSharp {
@@ -157,6 +161,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        description
       }
       related {
         fields {
