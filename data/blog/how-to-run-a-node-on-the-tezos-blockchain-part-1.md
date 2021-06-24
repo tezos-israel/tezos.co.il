@@ -1,12 +1,7 @@
 ---
-templateKey: _blog-post
-title: How to Run a Node on the Tezos Blockchain (Part 1)
-category: Devs
-published: true
-author: contact@tezos.co.il
-date: 2020-02-16T11:54:22.631Z
-description: How to Run a Node on the Tezos Blockchain (Part 1)
-featuredImage: https://tezos.co.il/wp-content/uploads/2020/04/how-to-run-a-node-part1_cover.png
+
+templateKey: \_blog-post title: How to Run a Node on the Tezos Blockchain (Part 1) category: Devs published: true author: contact@tezos.co.il date: 2020-02-16T11:54:22.631Z description: How to Run a Node on the Tezos Blockchain (Part 1) featuredImage: https://tezos.co.il/wp-content/uploads/2020/04/how-to-run-a-node-part1_cover.png
+
 ---
 
 <h4><span style="text-decoration: underline;"><strong>Note: This is *Part 1* of  “How to Run a Node on the Tezos Blockchain” Series</strong></span></h4>
