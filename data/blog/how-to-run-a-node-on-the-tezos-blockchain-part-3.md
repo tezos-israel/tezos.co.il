@@ -11,15 +11,15 @@ description: How to Run a Node on the Tezos Blockchain (Part 3)
 featuredImage: /assets/how-to-run-a-node-part3_cover-300x90.png
 ---
 
-#### <span style="text-decoration: underline;">**Note: This is Part 3 of  "How to Run a Node on the Tezos Blockchain" Series**</span>
+#### **Note: This is Part 3 of  "How to Run a Node on the Tezos Blockchain" Series**
 
 To run a node using Docker, please read **[part 1](https://tezos.co.il/how-to-run-a-node-on-the-tezos-blockchain/)**
 
-To run a node building from sources, please read <span style="text-decoration: underline;">**[part 2](https://tezos.co.il/701-2/)**</span>
+To run a node building from sources, please read **[part 2](https://tezos.co.il/701-2/)**
 
 Ever wondered how to run a Tezos node? Or why should you run one yourself? If yes, you’re on the right series of articles. In this third part, we’re going to run a node, using Snapshots.
 
-## <span style="text-decoration: underline;">**Running a node using Snapshots**</span>
+## **Running a node using Snapshots**
 
 #### Why would a business runs its own node?
 

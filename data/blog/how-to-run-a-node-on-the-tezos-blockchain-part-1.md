@@ -11,13 +11,13 @@ description: How to Run a Node on the Tezos Blockchain (Part 1)
 featuredImage: /assets/how-to-run-a-node-part1_cover-300x90.png
 ---
 
-#### <span style="text-decoration: underline;">**Note: This is _Part 1_ of  “How to Run a Node on the Tezos Blockchain” Series**</span>
+#### **Note: This is _Part 1_ of  “How to Run a Node on the Tezos Blockchain” Series**
 
 To run a node building from sources, please read [part 2](https://tezos.co.il/701-2/)
 
-To run a node using a snapshot, please read[ part 3](https://tezos.co.il/719-2/)
+To run a node using a snapshot, please read [part 3](https://tezos.co.il/719-2/)
 
-Ever wondered how to run a Tezos node? Or why should you run one yourself? If yes, you’re on the right series of articles. In this first part, we’re going to run a node using Docker.</span>
+Ever wondered how to run a Tezos node? Or why should you run one yourself? If yes, you’re on the right series of articles. In this first part, we’re going to run a node using Docker.
 
 ## How to Run a Node on Tezos Using Docker
 
@@ -103,8 +103,6 @@ After starting again the Mainnet script, here is what we get:
 
 ![Up-to-date Mainnet](https://miro.medium.com/max/2752/1*kzzSYFG3JwMU7EKl7s8GIw.png)  
 _Up-to-date Mainnet_
-
-<img src="" alt="" />
 
 Your node should be running. Here is how to check:
 
