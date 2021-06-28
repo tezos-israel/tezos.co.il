@@ -22,7 +22,7 @@ In their effort to combat fraud, financial institutions have set up well funded 
 
 ### **The Answer: Blockchain**
 
-![http://www.mnazureusergroup.com/wp-content/uploads/2018/07/f4bfd768-4990-4855-8abd-a7497678f415-300x225.jpg](https://tezos.co.il/wp-content/uploads/2020/01/anti-fraud.jpeg)  
+![Blockchain Anti-Fraud](https://tezos.co.il/wp-content/uploads/2020/01/anti-fraud.jpeg)  
 _Blockchain Anti-Fraud_
 
 Bank ledgers are traditionally built on a centralized database, which is susceptible to hacking and cyber attacks as all of the information is stored in one place. Blockchain technology stores data in a decentralized manner, with copies of the information stored in multiple locations (nodes), with each location having equal access to read and verify to the data. Try to illegitimately change the data, and the network of nodes will detect & override the breach. This type of network is  dramatically more secure against data manipulation such as hacks or cyber-attacks. While blockchain technology has many applications within the banking and finance sectors, let’s take a deeper look into how blockchain can reduce fraud (and thereby costs) for financial institutions.
