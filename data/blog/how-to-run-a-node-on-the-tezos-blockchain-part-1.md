@@ -1,8 +1,7 @@
 ---
 templateKey: _blog-post
 title: How to Run a Node on the Tezos Blockchain (Part 1)
-tags:
-  - tezos
+tags: []
 category: Devs
 published: true
 author: contact@tezos.co.il

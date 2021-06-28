@@ -2,12 +2,10 @@
 templateKey: _blog-post
 title: 'Writing Smart Contracts in Tezos: Existing Languages'
 tags:
-  - blockchain
   - ligo
   - michelson
   - smart-contracts
   - smartpy
-  - tezos
 category: Devs
 published: true
 author: contact@tezos.co.il

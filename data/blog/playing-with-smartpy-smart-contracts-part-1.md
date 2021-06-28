@@ -1,8 +1,7 @@
 ---
 templateKey: _blog-post
 title: Playing with SmartPy Smart Contracts (Part 1)
-tags:
-  - tezos
+tags: []
 category: Devs
 published: true
 author: contact@tezos.co.il
