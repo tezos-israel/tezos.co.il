@@ -1,8 +1,7 @@
 ---
 templateKey: _blog-post
 title: What Are Digital Assets and Why They Are Important
-tags:
-  - tezos
+tags: []
 category: Business & Innovation
 published: true
 author: alex@tezos.co.il
