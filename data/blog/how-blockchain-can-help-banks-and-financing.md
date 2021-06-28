@@ -1,12 +1,7 @@
 ---
 templateKey: _blog-post
 title: How Blockchain Can Help Banks and Financing
-<<<<<<< HEAD
-tags:
-  - tezos
-=======
 tags: []
->>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Business & Innovation
 published: true
 author: contact@tezos.co.il

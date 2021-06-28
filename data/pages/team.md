@@ -23,7 +23,13 @@ teamMember:
   - image: /assets/chaim.jpeg
     name: Chaim Lev-Ari
     role: Head of R&D
-    socialLinks: []
+    socialLinks:
+      - socialNetwork: twitter
+        url: https://www.twitter.com/chiptus
+      - socialNetwork: linkedin
+        url: https://https://linkedin.com/in/chiptus
+      - socialNetwork: telegram
+        url: https://t.me/chiptus
   - image: /assets/alex.jpg
     name: Alex Davis
     role: CIO
@@ -35,5 +41,9 @@ teamMember:
   - image: /assets/aharon.jpeg
     name: Aharon Lando
     role: Blockchain Developer
-    socialLinks: []
+    socialLinks:
+      - socialNetwork: twitter
+        url: https://www.twitter.com/LandoAharon
+      - socialNetwork: linkedin
+        url: https://https://linkedin.com/in/aharon-lando
 ---

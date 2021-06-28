@@ -1,12 +1,7 @@
 ---
 templateKey: _blog-post
 title: Why are *Liquid* Proof of Stake Blockchains better than PoS for Businesses?
-<<<<<<< HEAD
-tags:
-  - tezos
-=======
 tags: []
->>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Business & Innovation
 published: true
 author: alex@tezos.co.il

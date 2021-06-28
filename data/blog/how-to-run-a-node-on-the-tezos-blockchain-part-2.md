@@ -1,12 +1,7 @@
 ---
 templateKey: _blog-post
 title: How to Run a Node on the Tezos Blockchain (Part 2)
-<<<<<<< HEAD
-tags:
-  - tezos
-=======
 tags: []
->>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Devs
 published: true
 author: contact@tezos.co.il
