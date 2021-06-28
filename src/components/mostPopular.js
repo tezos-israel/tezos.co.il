@@ -21,6 +21,7 @@ function MostPopular({ popularBlogs }) {
                 author={item.author}
                 type={item.type}
                 category={item.category}
+                tags={item.tags}
               />
             );
           })}
