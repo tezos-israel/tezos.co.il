@@ -9,6 +9,7 @@ author: contact@tezos.co.il
 date: 2020-08-24T20:09:49.636Z
 description: Playing with SmartPy Smart Contracts (Part 1)
 featuredImage: /assets/python-new_.jpeg
+mediumContent: ''
 ---
 
 SmartPy was designed for lowering the barrier of entry for smart contract development.

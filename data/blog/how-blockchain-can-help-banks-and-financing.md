@@ -9,6 +9,7 @@ author: contact@tezos.co.il
 date: 2020-01-27T13:01:16.259Z
 description: How Blockchain Can Help Banks and Financing
 featuredImage: /assets/how-blockchain-can-help-banks-and-financing_cover-300x90.png
+mediumContent: ''
 ---
 
 In 2005, having a digital presence meant having an email address and _maybe_ a Myspace account, which in 2006 surpassed Google to be the [most visited website](https://mashable.com/2006/07/11/myspace-americas-number-one/) in the United States.

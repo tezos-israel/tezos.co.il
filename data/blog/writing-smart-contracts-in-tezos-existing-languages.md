@@ -14,6 +14,7 @@ author: contact@tezos.co.il
 date: 2020-06-23T07:29:10.473Z
 description: 'Writing Smart Contracts in Tezos: Existing Languages'
 featuredImage: /assets/writing-smart-contracts-in-tezos.jpeg
+mediumContent: ''
 ---
 
 ### Tezos' programming languages are growing with time. Indeed, we are seeing very interesting new ones that are created to make our developer life better and easier. This article below will consist of a short but clear summary of SOME of the current available languages that any developer can use to create Smart Contracts in Tezos.

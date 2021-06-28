@@ -9,6 +9,7 @@ author: alex@tezos.co.il
 date: 2020-04-06T09:00:03.721Z
 description: Why are *Liquid* Proof of Stake Blockchains better than PoS for Businesses?
 featuredImage: /assets/why-are-liquid-proof-of-stake-blockchains-better-than-pos-for-businesses-cover-300x90.png
+mediumContent: ''
 ---
 
 In our last article, we discussed the benefits of Proof of Stake (PoS) networks over Proof of Work (PoW) for business applications. However, there are several different types of PoS networks currently operating, each with their own pros & cons. One may think of PoS and it’s [different variations](https://medium.com/@topstaking/different-types-of-proof-of-stake-and-staking-e2a718a0084c) as similar to ice cream. There are many different unique flavors of ice cream, but all of them are simply different variations of the same dessert. In this article we’re going to take a look at why a particular flavor of PoS called Liquid Proof of Stake (LPoS) is the one best suited for businesses.

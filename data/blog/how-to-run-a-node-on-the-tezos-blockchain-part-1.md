@@ -9,6 +9,7 @@ author: contact@tezos.co.il
 date: 2020-02-16T11:54:28.076Z
 description: How to Run a Node on the Tezos Blockchain (Part 1)
 featuredImage: /assets/how-to-run-a-node-part1_cover-300x90.png
+mediumContent: ''
 ---
 
 #### **Note: This is _Part 1_ of  “How to Run a Node on the Tezos Blockchain” Series**

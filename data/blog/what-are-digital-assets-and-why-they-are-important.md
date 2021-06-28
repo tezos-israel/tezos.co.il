@@ -9,6 +9,7 @@ author: alex@tezos.co.il
 date: 2020-04-23T09:26:32.349Z
 description: What Are Digital Assets and Why They Are Important
 featuredImage: /assets/what-are-digital-assets-and-why-are-they-important-thumbnail-300x150.png
+mediumContent: ''
 ---
 
 Life as we know it has undergone a technological transformation from physical formats to more efficient digital formats. Photographs that used to take hours to develop only take seconds to send across the world today. This digital transformation has revolutionized virtually everything we interact with in the modern world, yet seemingly have left private equity behind.
