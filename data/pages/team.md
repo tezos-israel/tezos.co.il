@@ -15,61 +15,25 @@ teamMember:
   - image: /assets/elie.jpg
     name: Elie Terdjman
     role: Founder
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
   - image: /assets/igal.jpeg
     name: Igal Nevo
     role: COO
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
   - image: /assets/chaim.jpeg
     name: Chaim Lev-Ari
     role: Head of R&D
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
   - image: /assets/alex.jpg
     name: Alex Davis
     role: CIO
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
   - image: /assets/adam.jpeg
     name: Adam Shinder
     role: Analyst, Dev
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
   - image: /assets/aharon.jpeg
     name: Aharon Lando
     role: Blockchain Developer
-    socialLinks:
-      - socialNetwork: twitter
-        url: ''
-      - socialNetwork: linkedin
-        url: ''
-      - socialNetwork: telegram
-        url: ''
+    socialLinks: []
 ---
