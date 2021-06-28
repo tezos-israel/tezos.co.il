@@ -1,8 +1,12 @@
 ---
 templateKey: _blog-post
 title: Playing with SmartPy Smart Contracts (Part 1)
+<<<<<<< HEAD
 tags:
   - tezos
+=======
+tags: []
+>>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Devs
 published: true
 author: contact@tezos.co.il

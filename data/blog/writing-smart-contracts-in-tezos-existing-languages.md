@@ -2,12 +2,18 @@
 templateKey: _blog-post
 title: 'Writing Smart Contracts in Tezos: Existing Languages'
 tags:
+<<<<<<< HEAD
   - blockchain
+=======
+>>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
   - ligo
   - michelson
   - smart-contracts
   - smartpy
+<<<<<<< HEAD
   - tezos
+=======
+>>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Devs
 published: true
 author: contact@tezos.co.il

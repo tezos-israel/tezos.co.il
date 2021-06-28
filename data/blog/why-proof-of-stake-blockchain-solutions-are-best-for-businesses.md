@@ -1,8 +1,12 @@
 ---
 templateKey: _blog-post
 title: Why "Proof of Stake" Blockchain Solutions Are Best for Businesses
+<<<<<<< HEAD
 tags:
   - tezos
+=======
+tags: []
+>>>>>>> 8cd5dcd... feat(team-page): replace tags with empty arrays
 category: Business & Innovation
 published: true
 author: alex@tezos.co.il
