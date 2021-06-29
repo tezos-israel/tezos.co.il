@@ -24,7 +24,6 @@ function Blogs({
       };
     }
   );
-  console.log(`posts: ${recentPosts}`);
 
   return (
     <Layout>
