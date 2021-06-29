@@ -12,7 +12,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import RecentlyPosts from '../components/recentPosts';
+import RecentPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
 import '../styles/blog-post.css';
 function BlogPost({ data }) {
@@ -101,7 +101,7 @@ function BlogPost({ data }) {
         </div>
       </div>
 
-      <RecentlyPosts posts={recentPosts} limit={3} />
+      <RecentPosts posts={recentPosts} limit={3} />
     </Layout>
   );
 }
@@ -124,6 +124,7 @@ BlogPost.propTypes = {
           image: PropTypes.shape({
             publicURL: PropTypes.string,
           }),
+          email: PropTypes.string,
         }).isRequired,
       }),
       related: PropTypes.array.isRequired,
@@ -160,6 +161,7 @@ export const pageQuery = graphql`
               gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
+          email
         }
         description
       }
@@ -227,6 +229,7 @@ export const pageQuery = graphql`
                 )
               }
             }
+            email
           }
         }
       }
@@ -245,8 +248,9 @@ function transformPosts(posts) {
       date: post.frontmatter.date,
       tags: post.frontmatter.tags,
       author: {
-        username: post.frontmatter.authorFull.name,
-        avatar: post.frontmatter.authorFull.image,
+        name: post.frontmatter.authorFull.name,
+        image: post.frontmatter.authorFull.image,
+        email: post.frontmatter.authorFull.email,
       },
       category: post.frontmatter.category,
     };
