@@ -16,7 +16,6 @@ import RecentPosts from '../components/recentPosts';
 import RelatedPosts from '../components/relatedPosts';
 import '../styles/blog-post.css';
 function BlogPost({ data }) {
-  console.log(data);
   const post = data.post;
 
   const recentPosts = transformPosts(data.recentPosts.nodes);
