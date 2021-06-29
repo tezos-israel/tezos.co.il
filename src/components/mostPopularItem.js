@@ -87,7 +87,7 @@ function MostPopularItem({
                 <GatsbyImage image={getImage(author.image)} alt={author.name} />
               </div>
               <div className="text-sm ml-3">
-                <Link to={`/blog/authors/${author.email}`}>
+                <Link to={`../../authors/${author.email}`}>
                   <h4>{author.name}</h4>
                 </Link>
                 <div className="text-black text-opacity-50">
