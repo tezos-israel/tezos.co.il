@@ -107,10 +107,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           //(note that might slow down your build time a bit)
           //You could even query an external API if you needed
           resolve: (source, args, context) => {
-            const tags = source.frontmatter.tags;
+            const category = source.frontmatter.category;
 
             //If this post has no categories, return an empty array
-            if (!tags || !tags.length) {
+            if (!category || !category.length) {
               return [];
             }
 
@@ -118,7 +118,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
               query: {
                 filter: {
                   frontmatter: {
-                    tags: { in: tags },
+                    category: { eq: category },
                     templateKey: { eq: '_blog-post' },
                     published: { eq: true },
                   },
