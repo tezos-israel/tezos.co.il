@@ -83,7 +83,7 @@ function BlogPost({ data }) {
               <GatsbyImage
                 image={getImage(post.frontmatter.featuredImage)}
                 alt={post.frontmatter.title}
-                className="rounded-md margin-auto w-full"
+                className="rounded-md margin-auto w-full h-full"
               />
             </div>
           </div>
