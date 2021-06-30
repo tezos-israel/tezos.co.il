@@ -83,8 +83,8 @@ function BlogPost({ data }) {
             <div className="lg:h-96 sm:h-96 h-48 rounded-md overflow-hidden">
               <GatsbyImage
                 image={getImage(post.frontmatter.featuredImage)}
-                alt={post.frontmatter.featuredImageAlt}
-                className="rounded-md margin-auto w-full"
+                alt={post.frontmatter.title}
+                className="rounded-md margin-auto w-full h-full"
               />
             </div>
           </div>
