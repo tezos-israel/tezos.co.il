@@ -177,6 +177,7 @@ export const pageQuery = graphql`
           tags
           authorFull {
             name
+            email
             image {
               childImageSharp {
                 gatsbyImageData(
