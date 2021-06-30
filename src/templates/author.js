@@ -26,6 +26,7 @@ export default function AuthorPage({
       };
     }
   );
+  console.log({ edges });
 
   return (
     <BlogLayout title={`Posts for author "${author}"`}>
@@ -56,7 +57,7 @@ export const pageQuery = graphql`
         frontmatter: {
           templateKey: { eq: "_blog-post" }
           published: { eq: true }
-          authorFull: { name: { eq: $author } }
+          authorFull: { email: { eq: $author } }
         }
       }
       sort: { fields: frontmatter___date, order: DESC }
