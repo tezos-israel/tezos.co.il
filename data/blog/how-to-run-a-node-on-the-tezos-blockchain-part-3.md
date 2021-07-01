@@ -36,7 +36,7 @@ _- Another very good reason is that by running your own node, you will be automa
 
 First thing first, here is the environment I will be using for this tutorial:
 
-![Environment used](https://miro.medium.com/max/988/1*cH5X8EzSAjlkJAlBUDc4Aw.png)  
+![Environment used](/assets/env-used.png)  
 _Environment used_
 
 In this third part, I will cover how to run a Tezos node using Snapshots.
@@ -63,7 +63,7 @@ Anyway, let’s get started! Use your `tezos-sources/tezos` folder from the pr
 
 Now that you’re inside, you actually need a Snapshot. Snapshots are provided by Tezos’ community. There are several places to get one, but here is the one we will use for this tutorial: [https://tezosshots.com/](https://tezosshots.com/)
 
-![tezosshots.com snapshots](https://miro.medium.com/max/3332/1*TT1g9iKdy1oK3tz_iUQhSg.png)_tezosshots.com snapshots_
+![tezosshots.com snapshots](/assets/tezosshots-snapshots.png)_tezosshots.com snapshots_
 
 As you can see, they currently provide a `Full` node and a `Rolling` node. For this article, let’s use the `Rolling` one, as it is lighter and therefore faster to download.
 
@@ -79,7 +79,7 @@ I am going to verify it by using a trusted [Tezos Block Explorer](https://tzsta
 
 We’re searching for the block (from the hash given by [https://tezosshots.com/](https://tezosshots.com/)) to make sure it exists, and here is what we get:
 
-![Block BLLkh7[…]SWjdTX8p on tzstats.com](https://miro.medium.com/max/3660/1*LL3ZAJGqvlG6ft9gNb5eIQ.png)  
+![Block BLLkh7[…]SWjdTX8p on tzstats.com](/assets/block-tzstats.png)  
 _Block BLLkh7[…]SWjdTX8p on tzstats.com_
 
 Let’s now use the snapshot! By now you should be in your `tezos-sources/tezos` folder containing Tezos files AND the freshly downloaded `.rolling` file. Use this command to import the snapshot:
@@ -90,18 +90,18 @@ In our case: `BLLkH7kvQV1XUE9x93qtJV9A9ZmvcZ2LUzaSWjdTX8pXr2kZAVL.rolling`
 
 **Potential issue**
 
-![](https://miro.medium.com/max/2804/1*qjtMz3Eu57uGJ33d82KmjA.png)
+![potential issue](/assets/potential-issue.png)
 
 If you see this error, it is because you already ran a node before. As written, you need to remove the specified files. Go to your home folder and remove them, like this:
 
-![Removing previous node data](https://miro.medium.com/max/1120/1*ZIo6v4hK8ii1gF6IT_U-gw.png)  
+![Removing previous node data](/assets/removing-previous-node-data.png)  
 _Removing previous node data_
 
 Let’s do the command again!
 
 `$ ./tezos-node snapshot import FILE.rolling`
 
-![Successfully imported the snapshot](https://miro.medium.com/max/3712/1*tMI2aZpmQ4ixCIPgW3UESA.png)  
+![Successfully imported the snapshot](/assets/successfully-imported-snapshot.png)  
 _Successfully imported the snapshot_
 
 Here are the logs after importing our snapshot. It seems like everything went fine. Let’s now try to run our node, as we did in the previous part:
@@ -110,7 +110,7 @@ Here are the logs after importing our snapshot. It seems like everything went fi
 
 And our node is now running!
 
-![Node is starting](https://miro.medium.com/max/1772/1*EEilge_Y9C0jq6YFVoubTQ.png)  
+![Node is starting](/assets/node-starting.png)  
 _Node is starting_
 
 You can now open a new terminal and, in the same folder, run:
@@ -121,7 +121,7 @@ You can now open a new terminal and, in the same folder, run:
 
 And you should see something similar to:
 
-![Boostrapping](https://miro.medium.com/max/1888/1*y4-vBvXsjuSMZAi9ta08DA.png)  
+![Boostrapping](/assets/bootstrapping.png)  
 _Boostrapping_
 
 As you can see, we’re currently synchronizing blocks from January 27th, 2020, which is the point from which our snapshot was generated (actually, our snapshot was from January 26th, but it synced and went to 27th quickly).

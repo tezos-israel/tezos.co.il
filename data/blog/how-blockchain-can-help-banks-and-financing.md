@@ -21,8 +21,7 @@ In their effort to combat fraud, financial institutions have set up well funded 
 
 ### **The Answer: Blockchain**
 
-![Blockchain Anti-Fraud](https://tezos.co.il/wp-content/uploads/2020/01/anti-fraud.jpeg)  
-_Blockchain Anti-Fraud_
+![Blockchain Anti-Fraud](/assets/anti-fraud.jpeg) _Blockchain Anti-Fraud_
 
 Bank ledgers are traditionally built on a centralized database, which is susceptible to hacking and cyber attacks as all of the information is stored in one place. Blockchain technology stores data in a decentralized manner, with copies of the information stored in multiple locations (nodes), with each location having equal access to read and verify to the data. Try to illegitimately change the data, and the network of nodes will detect & override the breach. This type of network is  dramatically more secure against data manipulation such as hacks or cyber-attacks. While blockchain technology has many applications within the banking and finance sectors, let’s take a deeper look into how blockchain can reduce fraud (and thereby costs) for financial institutions.
 
@@ -32,7 +31,7 @@ A blockchain based identification system will enable customers to create a digit
 
 Additionally, as a copy of your KYC compliant documents are stored on a blockchain, the information would be secure, transparent, and decentralized. The decentralized nature is key, as when a bank or financial institution needs to verify a customers identity, they would simply need to be given permission from the client to access the data. Think of it as personally owning your bank verification data, and whitelisting which financial institutions may access it. As the blockchain stores identical copies of your data, this means that everyone with access will view the same exact information, leading to increased efficiency and increased customer experience for clients. Clients will be able to update their personal accounts across all platforms at once by signing with their digital signatures, and every institution would seamlessly be updated. In practicality, this means clients won’t have to contact each financial institution they do business with (banks, credit cards, loans, etc) to update them, and each institution won’t have to conduct their own redundant & costly KYC/AML checks.
 
-![KYC: Know Your Customer](https://tezos.co.il/wp-content/uploads/2020/01/hand-shake-meeting-300x196.jpg)  
+![KYC: Know Your Customer](/assets/know-your-customer.jpeg)  
 _KYC: Know Your Customer_
 
 ### **_“When used in combination with other technologies, a blockchain KYC utility demonstrates strong potential to help financial institutions reduce the time and cost associated with KYC processes, while providing greater visibility to regulators and better customer experience.”_** [-KPMG](https://home.kpmg/xx/en/home/insights/2018/02/blockchain-kyc-utility-fs.html)
@@ -43,7 +42,7 @@ KPMG Singapore & Bluzelle Networks developed a blockchain based KYC proof of con
 
 Money laundering has a different cost on financial institutions, one not measured in fiscal losses due to fraud, but rather through the loss of reputation & status in the eyes of the public and regulators. Regulatory fines then further compound the pain. [According to a PWC survey](https://www.pwc.com/gx/en/financial-services/publications/assets/pwc-gecs-2014-threats-to-the-financial-services-sector.pdf), money laundering is five times more likely to occur with a financial institution, with 50% of respondents highlighting that money laundering is their biggest risk in doing business globally, and 29% felt that money laundering has a “severe impact” on their businesses reputation. A blockchain based KYC/AML will be able to automatically run compliance & background checks against existing AM & anti-terrorism lists, reducing the amount of human labor that financial institutions must invest.
 
-![Getting Banks Approval](https://tezos.co.il/wp-content/uploads/2020/01/validation-1614001_1920-300x300.png)  
+![Getting Banks Approval](/assets/getting-banks-approval.png)  
 _Getting Bank's Approval_
 
 With a blockchain kosher stamp of approval, it’s clear that financial institutions will be able to reduce costs, improve customer experience, and enhance their reputations. However, there is a long way to go towards adoption as questions linger about the technology and its implementation. New privacy laws need to be taken into account when building a digital identity system on an immutable network. Heavy up-front capital costs hinder banks from building new shared network systems and obsoleting their legacy independent systems. Customers must agree to perform additional authentication steps during onboarding. Liability issues remain such as if Bank A completes the KYC onboarding, is Bank B responsible if fraud occurs on their account?
