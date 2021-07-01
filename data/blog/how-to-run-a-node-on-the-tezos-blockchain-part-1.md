@@ -37,7 +37,7 @@ _- Another very good reason is that by running your own node, you will be automa
 
 _First thing first, here is the environment I will be using for this tutorial:_
 
-![Environment Used](https://miro.medium.com/max/988/1*cH5X8EzSAjlkJAlBUDc4Aw.png) _Environment Used_
+![Environment Used](/assets/env-used.png) _Environment Used_
 
 _In this first part, I will cover how to run a Tezos node using Docker._
 
@@ -49,13 +49,13 @@ To run an up-to-date node, using Docker is probably the easiest way. You can set
 
 First, make sure you have **Docker** and **docker-compose** installed on your computer. You can check by opening your terminal and entering the following commands:
 
-![Checking that Docker is installed](https://miro.medium.com/max/2276/1*2HVH312aQFyvuYN-wsuqlg.png) _Checking that Docker is installed_
+![Checking that Docker is installed](/assets/checking-docker-installed.png) _Checking that Docker is installed_
 
 If you don’t have Docker installed, please install it **[here](https://www.docker.com/get-started)**. Once it’s done, come back and check with the commands above.
 
 To make sure Docker is working well, we can run the simple [hello-world](https://hub.docker.com/_/hello-world/) image from [Docker’s official documentation](https://docs.docker.com/):
 
-![Checking that Docker is working](https://miro.medium.com/max/2620/1*K51bO9txk7c_PXaFwEyn0A.png) _Checking that Docker is working_
+![Checking that Docker is working](/assets/checking-docker-working.png) _Checking that Docker is working_
 
 **If you see this, it means that Docker is working well and we are ready to go.**
 
@@ -77,7 +77,7 @@ _(Note: you see `alphanet.sh` at the end of the url, which is normal. It is the 
 
 **_Here is what you should see if everything went well:_**
 
-![](https://miro.medium.com/max/2608/1*QN3CHzLXflR8UcFWFsCEtg.png)  
+![](assets/result.png)  
 _Result_
 
 **We’re almost there!**
@@ -88,7 +88,7 @@ Running the `mainnet.sh` script will download the mainnet docker image and launc
 
 Here is our result:
 
-![Running the Mainscript](https://miro.medium.com/max/2296/1*bWjJKmUokpRyt_LlCN79cQ.png)  
+![Running the Mainscript](/assets/running-mainscript.png)  
 _Running the Mainscript_
 
 We see a warning, let’s synchronize as advised:
@@ -101,14 +101,14 @@ You should see **“The script has been updated”**. However, you may have to g
 
 After starting again the Mainnet script, here is what we get:
 
-![Up-to-date Mainnet](https://miro.medium.com/max/2752/1*kzzSYFG3JwMU7EKl7s8GIw.png)  
+![Up-to-date Mainnet](/assets/up-to-date-mainnet.png)  
 _Up-to-date Mainnet_
 
 Your node should be running. Here is how to check:
 
 `$ ./mainnet.sh node status`
 
-![Node is Running!](https://miro.medium.com/max/1148/1*T0DXbref6on-PMMZ4SzTPw.png)  
+![Node is Running!](/assets/node-running.png)  
 _Node is Running!_
 
 **Boom! Our node is running ;)**
@@ -127,7 +127,7 @@ Alternatively, if you want to stop running all the services, run this:
 
 `$ ./mainnet.sh stop`
 
-![Stopping the services (node, baker, endorser, …)](https://miro.medium.com/max/1592/1*1O05Ki8OEE_B3oZyIalXBw.png)  
+![Stopping the services (node, baker, endorser, …)](/assets/stopping-services.png)  
 _Stopping the services (node, baker, endorser, …)_
 
 Feel free to use the following command to check what you can do with the script:
