@@ -22,8 +22,8 @@ function BlogPost({ data }) {
 
   const relatedBlogs = transformPosts(post.related);
   const postUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const title = `Read ${data.post.frontmatter.title} `;
-  const tags = data.post.frontmatter.tags;
+  const title = `Read ${post.frontmatter.title} `;
+  const tags = post.frontmatter.tags;
 
   return (
     <Layout>
@@ -34,10 +34,17 @@ function BlogPost({ data }) {
 
       <div className="border-t border-gray-100 mt-2 py-6">
         <div className="max-w-7xl mx-auto xl:px-3 px-7">
-          <div className="text-center  ">
-            <span className="bg-tezos-blue bg-opacity-20 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize">
-              {post.frontmatter.tags}
-            </span>
+          <div className="text-center">
+            {tags.map((item, index) => {
+              return (
+                <span
+                  key={index}
+                  className="bg-tezos-blue bg-opacity-20 mx-2 py-1 px-2 rounded-full text-tezos-blue text-xs capitalize"
+                >
+                  {item}
+                </span>
+              );
+            })}
             <h2 className="font-museo text-xl xl:w-3/4 lg:w-2/3 md:w-3/4 mx-auto my-4">
               {post.frontmatter.title}
             </h2>
