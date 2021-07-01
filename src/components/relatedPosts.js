@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MostPopularItem from './mostPopularItem';
 
-function RelatedPost({ posts }) {
+function RelatedPost({ posts, limit }) {
   return (
     <div className="">
       <div className="max-w-7xl mx-auto lg:border-l border-gray-300 lg:ml-5">
@@ -11,22 +11,25 @@ function RelatedPost({ posts }) {
           Related posts
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap">
-          {posts.map((item) => {
-            return (
-              <MostPopularItem
-                key={item.slug}
-                title={item.title}
-                image={item.image}
-                date={item.date}
-                author={item.author}
-                tags={item.tags}
-                slug={item.slug}
-                category={item.category}
-                layout="col"
-                rowItems={1}
-                size="small"
-              />
-            );
+          {posts.map((item, i = 0) => {
+            if (i < limit) {
+              i++;
+              return (
+                <MostPopularItem
+                  key={i}
+                  title={item.title}
+                  image={item.image}
+                  date={item.date}
+                  author={item.author}
+                  tags={item.tags}
+                  slug={item.slug}
+                  category={item.category}
+                  layout="col"
+                  rowItems={1}
+                  size="small"
+                />
+              );
+            }
           })}
         </div>
       </div>
@@ -36,6 +39,7 @@ function RelatedPost({ posts }) {
 
 RelatedPost.propTypes = {
   posts: PropTypes.array.isRequired,
+  limit: PropTypes.number.isRequired,
 };
 
 export default RelatedPost;
