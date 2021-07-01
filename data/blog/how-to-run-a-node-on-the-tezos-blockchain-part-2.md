@@ -37,7 +37,7 @@ _- Another very good reason is that by running your own node, you will be automa
 
 First thing first, here is the environment I will be using for this tutorial:
 
-![Environment used](https://miro.medium.com/max/988/1*cH5X8EzSAjlkJAlBUDc4Aw.png)  
+![Environment used](/assets/env-used.png)  
 _Environment used_
 
 In this second part, I will cover how to run a Tezos node, building it from sources.  
@@ -61,7 +61,7 @@ Next, we need to get the sources of Tezos by, first, cloning Tezos’ repo, then
 `$ cd tezos`  
 `$ git checkout mainnet`
 
-![Getting sources of Tezos](https://miro.medium.com/max/2748/1*gGZpqf1j0-VYyfHu3zhzeQ.png)  
+![Getting sources of Tezos](/assets/getting-sources-of-tezos.png)  
 _Getting sources of Tezos_
 
 Everything is going great so far. To continue, we need OPAM, the OCaml Package Manager. We already installed it with `brew` above, but let’s continue the setup.
@@ -70,7 +70,7 @@ Run this, and answer “y” if you need:
 
 `$ opam init --bare`
 
-![Initializing OPAM](https://miro.medium.com/max/2720/1*E4MiBBuxMr_Z0-jSPZ5Wnw.png)  
+![Initializing OPAM](/assets/initializing-opam.png)  
 _Initializing OPAM_
 
 Then, we need to install the OCaml Compiler as well as extra libraries Tezos will need. Run the following command:  
@@ -114,7 +114,7 @@ In order to run our node, we first need to generate an identity, which will be u
 
 It may takes up to a few seconds/minutes. After waiting for a bit, you should see the new identity you just generated, right after the Generating message.
 
-![Generating a new identity…](https://miro.medium.com/max/1524/1*qKHf6GkpywQEUWo4Y58a7A.png)  
+![Generating a new identity…](/assets/generating-new-id.png)  
 _Generating a new identity…_
 
 Let’s now start our node! Running a node is as easy as running this command:
@@ -135,14 +135,14 @@ If you want to make sure your node is running AND, at the same time, know at whi
 
 Be sure to be in the `tezos` folder. `-A` allows to put the IP address of the node (which we set when we started running our node), and `bootstrapped` waits for the node to be bootstrapped/synced. If it’s not, you can see how the synchronization is going.
 
-![Waiting for the node to be bootstrapped](https://miro.medium.com/max/2544/1*o0HlVwhupqikauHQZpiQRA.png)  
+![Waiting for the node to be bootstrapped](/assets/waiting-node-bootstrapped.png)  
 _Waiting for the node to be bootstrapped_
 
 Our node seems to be running fine. As you can see with the `timestamp`, we’re currently synchronizing July 7th, 2018 and it will take more time to catch up until today.
 
 If our node was not running, here is what would’ve happened when we ran the `bootstrapped` command:`
 
-![Node is not running](https://miro.medium.com/max/1924/1*thSeb2n1NYtokcAtd3cyjQ.png)  
+![Node is not running](/assets/node-not-running.png)  
 _Node is not running_
 
 ---
