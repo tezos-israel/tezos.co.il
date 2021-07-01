@@ -25,7 +25,7 @@ Simply taking a certificate and issuing a digital file in its place creates a pl
 
 ### So What Are Digital Assets?
 
-![](https://tezos.co.il/wp-content/uploads/2020/04/3453-300x200.jpg)
+![what are digital assets](/assets/what-are-digital-assets.jpeg)
 
 #### Simply put, digital assets are a digital representation of any security whose digital authenticity is made possible by a distributed ledger network.
 
@@ -39,7 +39,7 @@ The digital wrapper brings transformative benefits not previously possible and f
 
 ### The Benefits of Digital Assets
 
-![](https://tezos.co.il/wp-content/uploads/2020/04/OGMT7S0-300x200.jpg)
+![](/assets/benefits-of-digital-assets.jpeg)
 
 #### Tapping Private Markets
 
