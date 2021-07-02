@@ -22,7 +22,6 @@ function BlogPost({ data }) {
 
   const relatedBlogs = transformPosts(post.related);
   const postUrl = typeof window !== 'undefined' ? window.location.href : '';
-  // const title = `Read ${post.frontmatter.title} `;
   const tags = post.frontmatter.tags;
 
   return (
