@@ -22,7 +22,7 @@ function BlogPost({ data }) {
 
   const relatedBlogs = transformPosts(post.related);
   const postUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const title = `Read ${post.frontmatter.title} `;
+  // const title = `Read ${post.frontmatter.title} `;
   const tags = post.frontmatter.tags;
 
   return (
@@ -73,7 +73,11 @@ function BlogPost({ data }) {
                   </span>
                 </FacebookShareButton>
 
-                <TwitterShareButton url={postUrl} title={title} hashtags={tags}>
+                <TwitterShareButton
+                  url={postUrl}
+                  title={`Read ${post.frontmatter.title} `}
+                  hashtags={tags || 'tezos'}
+                >
                   <span className="bg-gray-300 text-tezos-blue hover:text-tezos-dark w-7 h-7 rounded-full flex justify-center items-center mr-2">
                     <FaTwitter />
                   </span>
