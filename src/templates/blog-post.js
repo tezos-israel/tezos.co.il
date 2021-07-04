@@ -105,7 +105,7 @@ function BlogPost({ data }) {
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="lg:w-1/3 w-full xl:mt-0 lg:mt-0 mt-4">
-              <RelatedPosts posts={relatedBlogs} />
+              <RelatedPosts posts={relatedBlogs} limit={3} />
             </div>
           </div>
         </div>
