@@ -16,7 +16,7 @@ function HeaderBanner({ bannerText }) {
           </h1>
           <Button
             title="Sign up"
-            className="bg-tezos-blue text-white px-8 py-3"
+            className="bg-tezos-blue text-white px-8 py-3 hidden"
           />
         </div>
         <div className="lg:block sm:block hidden sm:w-1/3 sm:mt-5">

@@ -71,7 +71,7 @@ function Header({ menu, logo }) {
 
           <Button
             title="Sign up"
-            className="bg-tezos-blue text-white hover:bg-tezos-dark hover:text-white"
+            className="bg-tezos-blue text-white hover:bg-tezos-dark hover:text-white hidden"
           />
         </div>
 
