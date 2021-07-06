@@ -27,7 +27,7 @@ function Blog() {
                 The Official Tezos Developer Portal.
               </p>
               <a
-                href=""
+                href="https://developers.tezos.com/"
                 className="inline-block bg-tezos-blue text-white rounded-full lg:py-3 lg:px-8 md:py-3 md:px-8 py-2 px-6 text-sm"
               >
                 View Details
@@ -44,10 +44,10 @@ function Blog() {
               />
               <h3 className="font-museo text-xl mt-5"> Deep Dive on Tezos</h3>
               <p className="text-gray-100 opacity-70 text-sm my-5">
-                THere you will learn more about the Tezos Project
+                Here you will learn more about the Tezos Project
               </p>
               <a
-                href=""
+                href="https://wiki.tezosagora.org/"
                 className="inline-block bg-tezos-blue text-white rounded-full lg:py-3 lg:px-8 md:py-3 md:px-8 py-2 px-6 text-sm"
               >
                 View Details
@@ -57,7 +57,7 @@ function Blog() {
 
           <div className="text-center">
             <a
-              href=""
+              href="https://www.tezos.help/#libraries"
               className="inline-block bg-tezos-blue text-white rounded-full py-3 px-8 text-sm"
             >
               Learn more
@@ -72,14 +72,14 @@ function Blog() {
             </p>
             <div className="flex lg:flex-row md:flex-row flex-col justify-center items-center">
               <a
-                href=""
+                href="http://edu.tezos.co.il/"
                 className="inline-flex w-60 text-center my-auto items-center justify-center bg-tezos-blue text-white rounded-full py-3 px-8 text-sm lg:mr-6 md:mr-4 lg:mb-0 md:mb-0 mb-5"
               >
                 <FaGlobeAmericas className="mr-2 text-xl" /> Visit our edu
                 website
               </a>
               <a
-                href=""
+                href="https://gitlab.com/tezosisrael/smart-contracts-examples"
                 className="inline-flex w-60 text-center my-auto items-center justify-center bg-white bg-opacity-20 text-white rounded-full py-3 px-8 text-sm"
               >
                 <FaCodeBranch className="mr-2 text-xl" /> Check our Repo
