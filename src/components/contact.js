@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import InputField from './shared/inputField';
-import Button from './shared/button';
+
+import { ContactUsForm } from './contact-form';
 
 import {
   FaEnvelope,
@@ -17,34 +17,13 @@ import socialData from '../../data/settings/socials.yml';
 
 function Contact() {
   return (
-    <div className="max-w-7xl mx-auto pt-7">
+    <div className="max-w-7xl mx-auto">
+      <p className="mb-3">
+        For inquiries regarding events, projects, collaborations, or general
+        information.
+      </p>
       <div className="flex justify-between sm:flex-row flex-col">
-        <div className="sm:w-1/2 w-full">
-          <p>
-            For inquiries regarding events, projects, collaborations, or general
-            information.
-          </p>
-          <div className="flex flex-wrap justify-between mt-4">
-            <div className="w-1/2">
-              <InputField label="Name" className="mr-5" id="name" />
-            </div>
-            <div className="w-1/2">
-              <InputField label="Email" id="email" />
-            </div>
-            <div className="w-full mt-4">
-              <InputField label="Company" id="company" />
-            </div>
-            <div className="w-full mt-4">
-              <InputField label="Message" type="textarea" id="message" />
-            </div>
-            <div className="w-full mt-4">
-              <Button
-                title="Send"
-                className="bg-tezos-blue text-white w-full sm:py-3 py-1"
-              />
-            </div>
-          </div>
-        </div>
+        <ContactUsForm />
         <div className="sm:w-1/2 w-full sm:text-right text-center sm:my-0 my-5">
           <StaticImage
             src="../images/social_icons.svg"
