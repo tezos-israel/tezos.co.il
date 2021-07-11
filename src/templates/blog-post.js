@@ -49,7 +49,7 @@ function BlogPost({ data }) {
             </h2>
           </div>
           <div className="relative mt-24">
-            <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-auto z-10">
+            <div className="absolute right-0 left-0 -top-20 mx-auto  flex-col text-center w-max z-10">
               <div className="text-sm mb-3">
                 <h4>{post.frontmatter.authorFull.name}</h4>
                 <div className="text-black text-opacity-50">
