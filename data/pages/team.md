@@ -25,7 +25,7 @@ teamMember:
       - socialNetwork: twitter
         url: https://www.twitter.com/chiptus
       - socialNetwork: linkedin
-        url: https://https://linkedin.com/in/chiptus
+        url: https://linkedin.com/in/chiptus
       - socialNetwork: telegram
         url: https://t.me/chiptus
   - image: /assets/alex.jpg
@@ -53,7 +53,7 @@ teamMember:
       - socialNetwork: twitter
         url: https://www.twitter.com/LandoAharon
       - socialNetwork: linkedin
-        url: https://https://linkedin.com/in/aharon-lando
+        url: https://linkedin.com/in/aharon-lando
   - name: Efrat Kaufmann
     socialLinks:
       - socialNetwork: linkedin
