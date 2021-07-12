@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Header from './header';
 import Footer from './footer';
-import Section from '../components/section';
 import Contact from '../components/contact';
 
 import './layout.css';
@@ -18,9 +17,7 @@ function Layout({ children }) {
       <Header menu={navigation.navItems} logo={logos.headerLogo} />
       <div className="overflow-x-hidden mt-20">
         <main>{children}</main>
-        <Section title="Contact Us" className="text-left" direction="left">
-          <Contact email={social.email} socialList={social.socialLink} />
-        </Section>
+        <Contact email={social.email} socialList={social.socialLink} />
       </div>
       <Footer logo={logos.footerLogo} />
     </>

@@ -8,6 +8,7 @@ function InputField({
   type = 'text',
   placeholder = '',
   label = null,
+  onChange,
 }) {
   return (
     <div className="flex flex-col">
@@ -28,6 +29,7 @@ function InputField({
             'rounded-3xl bg-tezos-blue bg-opacity-20 px-4 py-4 focus:outline-none',
             className
           )}
+          onChange={onChange}
         ></textarea>
       ) : (
         <input
@@ -37,6 +39,7 @@ function InputField({
             'rounded-full bg-tezos-blue bg-opacity-20 px-4 sm:py-3 py-1 focus:outline-none',
             className
           )}
+          onChange={onChange}
           placeholder={placeholder}
         />
       )}
@@ -50,6 +53,7 @@ InputField.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default InputField;
