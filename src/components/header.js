@@ -56,7 +56,7 @@ function Header({ menu, logo }) {
         </div>
         <div className="text-center sm:text-left">
           <Link to="/">
-            <img src={logo} width={120.87} alt="Tezos Logo" />
+            <img src={logo} width={150} alt="Tezos Logo" />
           </Link>
         </div>
 
