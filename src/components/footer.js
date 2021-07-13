@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Footer({ logo }) {
   return (
     <footer className="bg-tezos-dark text-white text-center py-8">
-      <img src={logo} width={57.87} alt="Tezos Logo" className="inline-block" />
+      <img src={logo} width={200} alt="Tezos Logo" className="inline-block" />
       <div className="mt-5 text-sm">
         © Copyright {new Date().getFullYear()}, Tezos Isreal - All Rights
         Reserved
