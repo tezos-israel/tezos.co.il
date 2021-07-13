@@ -17,15 +17,9 @@ aboutSection:
 joinSection:
   title: Join the Tezos Eco-system
   joinList:
-    - title: Community
-      description: Community is what was, is, and will be what makes Tezos so special. Join us, it’s free.
-      url: /community
     - title: Developers
       description: Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team.
       url: /dev
-    - title: Baking
-      description: Baking is how blocks are produced and validated on the Tezos blockchain.
-      url: /baing
 partnersSection:
   title: Our Partners
   partnersList:

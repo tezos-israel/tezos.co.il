@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import classnames from 'classnames';
 function JoinUs({ membersTypes }) {
   return (
-    <div className="text-center max-w-7xl mx-auto text-white flex justify-between sm:mt-16 sm:flex-row flex-col sm:px-0 px-7">
+    <div
+      className={classnames(
+        'text-center max-w-7xl mx-auto text-white flex sm:mt-16 sm:flex-row flex-col sm:px-0 px-7',
+        {
+          'justify-center': membersTypes.length === 1,
+          'justify-between': membersTypes.length !== 1,
+        }
+      )}
+    >
       {membersTypes.map((item, index) => {
         return (
           <div
