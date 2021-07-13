@@ -46,7 +46,12 @@ function Contact() {
               <div className="text-tezos-blue flex justify-between sm:w-1/3 text-2xl mt-6">
                 {socialData.socialItems.map((item, index) => {
                   return (
-                    <a key={index} href={item.url}>
+                    <a
+                      key={index}
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {item.type === 'facebook' && <FaFacebookF />}
                       {item.type === 'linkedin' && <FaLinkedinIn />}
                       {item.type === 'instagram' && <FaInstagram />}
