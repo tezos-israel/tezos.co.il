@@ -24,7 +24,6 @@ export function ContactUsForm() {
 function Form({ onSubmit, status, message }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
 
   const isValid = name && email && email.includes('@');
   const isLoading = status === 'sending';
@@ -41,12 +40,6 @@ function Form({ onSubmit, status, message }) {
         id="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-      />
-      <InputField
-        label="Company"
-        id="company"
-        value={company}
-        onChange={(e) => setCompany(e.target.value)}
       />
       <InputField
         label="Email"
@@ -72,7 +65,6 @@ function Form({ onSubmit, status, message }) {
     onSubmit({
       EMAIL: email,
       NAME: name,
-      COMPANY: company,
     });
   }
 }
