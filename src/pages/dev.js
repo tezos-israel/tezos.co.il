@@ -47,21 +47,12 @@ function Blog() {
                 Here you will learn more about the Tezos Project
               </p>
               <a
-                href="https://wiki.tezosagora.org/"
+                href="https://opentezos.com/"
                 className="inline-block bg-tezos-blue text-white rounded-full lg:py-3 lg:px-8 md:py-3 md:px-8 py-2 px-6 text-sm"
               >
                 View Details
               </a>
             </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://www.tezos.help/#libraries"
-              className="inline-block bg-tezos-blue text-white rounded-full py-3 px-8 text-sm"
-            >
-              Learn more
-            </a>
           </div>
 
           <div className="text-center text-white mt-12 lg:px-0 md:px-0 px-7">
