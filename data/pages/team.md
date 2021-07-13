@@ -38,14 +38,12 @@ teamMember:
         url: https://www.linkedin.com/in/alex-davis-88a848156/
       - socialNetwork: telegram
         url: https://t.me/Aidion
-  - image: /assets/adam.jpeg
-    name: Adam Shinder
-    role: Analyst, Dev
+  - name: Efrat Kaufmann
     socialLinks:
-      - socialNetwork: twitter
-        url: https://twitter.com/adshinder
       - socialNetwork: linkedin
-        url: https://www.linkedin.com/in/adshinder/
+        url: https://www.linkedin.com/in/efrat-kaufmann-47214b8/
+    role: BizDev Expert
+    image: /assets/efrat.jpeg
   - image: /assets/aharon1.jpeg
     name: Aharon Lando
     role: Blockchain Developer
@@ -54,10 +52,12 @@ teamMember:
         url: https://www.twitter.com/LandoAharon
       - socialNetwork: linkedin
         url: https://linkedin.com/in/aharon-lando
-  - name: Efrat Kaufmann
+  - image: /assets/adam.jpeg
+    name: Adam Shinder
+    role: Analyst, Dev
     socialLinks:
+      - socialNetwork: twitter
+        url: https://twitter.com/adshinder
       - socialNetwork: linkedin
-        url: https://www.linkedin.com/in/efrat-kaufmann-47214b8/
-    role: BizDev Expert
-    image: /assets/efrat.jpeg
+        url: https://www.linkedin.com/in/adshinder/
 ---
