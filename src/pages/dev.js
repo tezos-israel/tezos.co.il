@@ -29,6 +29,8 @@ function Blog() {
               <a
                 href="https://developers.tezos.com/"
                 className="inline-block bg-tezos-blue text-white rounded-full lg:py-3 lg:px-8 md:py-3 md:px-8 py-2 px-6 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 View Details
               </a>
@@ -49,6 +51,8 @@ function Blog() {
               <a
                 href="https://opentezos.com/"
                 className="inline-block bg-tezos-blue text-white rounded-full lg:py-3 lg:px-8 md:py-3 md:px-8 py-2 px-6 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 View Details
               </a>
@@ -65,6 +69,8 @@ function Blog() {
               <a
                 href="http://edu.tezos.co.il/"
                 className="inline-flex w-60 text-center my-auto items-center justify-center bg-tezos-blue text-white rounded-full py-3 px-8 text-sm lg:mr-6 md:mr-4 lg:mb-0 md:mb-0 mb-5"
+                target="_blank"
+                rel="noreferrer"
               >
                 <FaGlobeAmericas className="mr-2 text-xl" /> Visit our edu
                 website
@@ -72,6 +78,8 @@ function Blog() {
               <a
                 href="https://gitlab.com/tezosisrael/smart-contracts-examples"
                 className="inline-flex w-60 text-center my-auto items-center justify-center bg-white bg-opacity-20 text-white rounded-full py-3 px-8 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 <FaCodeBranch className="mr-2 text-xl" /> Check our Repo
               </a>
