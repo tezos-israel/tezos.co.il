@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './shared/button';
+// import Button from './shared/button';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function Services({ title, list }) {
@@ -42,7 +42,7 @@ function ServiceItem({ image, title, description }) {
           {description}
         </p>
       </div>
-      <Button title="Learn More" className="bg-tezos-blue text-white" />
+      {/* <Button title="Learn More" className="bg-tezos-blue text-white" /> */}
     </div>
   );
 }
