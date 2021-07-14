@@ -1,4 +1,5 @@
 @font-face {
-  font-family: 'museo-500';
-  src: local('museo-500'), url(../fonts/museo-500.otf) format('truetype');
+  font-family: 'roboto-mono';
+  src: local('roboto-mono'),
+    url(../fonts/RobotoMono-VariableFont_wght.ttf) format('truetype');
 }
