@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 function Services({ title, list }) {
   return (
     <div className="max-w-7xl mx-auto sm:py-20 py-10 xl:px-0 px-7 text-center">
-      <h2 className="text-tezos-blue font-semibold sm:mb-14 mb-8 xl:text-3xl lg:text-2xl text-lg xl:leading-normal font-mono">
+      <h2 className="text-tezos-blue font-semibold sm:mb-14 mb-8 xl:text-3xl lg:text-2xl text-lg xl:leading-normal font-title">
         {title}
       </h2>
 

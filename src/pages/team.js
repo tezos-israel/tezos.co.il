@@ -16,7 +16,7 @@ function Team({
       <SEO title="Team" />
       <div className="bg-tezos-dark flex flex-col py-7">
         <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-white text-2xl text-center font-mono capitalize">
+          <h2 className="text-white text-2xl text-center font-title capitalize">
             {frontmatter.title}
           </h2>
           <div className="flex flex-wrap  items-center justify-center">

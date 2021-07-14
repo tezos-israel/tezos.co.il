@@ -7,7 +7,7 @@ function MostPopular({ popularBlogs }) {
   return (
     <div className="bg-gray-100">
       <div className="max-w-7xl mx-auto py-7">
-        <h2 className="xl:text-xl sm:text-lg text-center font-mono">
+        <h2 className="xl:text-xl sm:text-lg text-center font-title">
           Most Popular
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap">

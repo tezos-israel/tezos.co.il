@@ -6,7 +6,7 @@ function About({ title, content, image }) {
   return (
     <div className="sm:py-20 py-10 xl:px-0 px-7 bg-tezos-blue text-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-center xl:text-4xl lg:text-3xl text-2xl xl:leading-normal font-semibold mb-7 font-mono">
+        <h2 className="text-center xl:text-4xl lg:text-3xl text-2xl xl:leading-normal font-semibold mb-7 font-title">
           {title}
         </h2>
         <div className="flex items-center">

@@ -44,7 +44,7 @@ function BlogPost({ data }) {
                 </span>
               );
             })}
-            <h2 className="font-mono text-xl xl:w-3/4 lg:w-2/3 md:w-3/4 mx-auto my-4">
+            <h2 className="font-title text-xl xl:w-3/4 lg:w-2/3 md:w-3/4 mx-auto my-4">
               {post.frontmatter.title}
             </h2>
           </div>
