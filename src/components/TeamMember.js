@@ -5,14 +5,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 function TeamMember({ social, name, role, image }) {
   return (
-    <div className="flex flex-col items-center text-tezos-blue museo p-1 lg:w-1/3 md:w-1/3 w-full mb-4">
+    <div className="flex flex-col items-center text-tezos-blue mono p-1 lg:w-1/3 md:w-1/3 w-full mb-4">
       <GatsbyImage
         image={getImage(image)}
         alt={name}
         className="w-48 h-48 rounded-full m-6"
       />
       <div className="text-center mb-4">
-        <p className="text-xl font-bold font-museo">{name}</p>
+        <p className="text-xl font-bold font-mono">{name}</p>
         <p className="text-xs font-light">{role}</p>
       </div>
       <div className="flex space-x-2">

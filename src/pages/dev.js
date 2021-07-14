@@ -10,7 +10,7 @@ function Blog() {
       <SEO title="Dev Tools" />
       <div className="bg-tezos-dark py-7">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-white text-2xl text-center font-museo">
+          <h2 className="text-white text-2xl text-center font-mono">
             Dev Tools
           </h2>
           <div className="lg:w-2/3 md:w-2/3 mx-auto flex lg:flex-row md:flex-row flex-col my-14 lg:px-0 md:px-0 px-8">
@@ -22,7 +22,7 @@ function Blog() {
                 formats={['AUTO', 'WEBP', 'AVIF']}
                 alt="Dev portal icon"
               />
-              <h3 className="font-museo text-xl mt-5">Dev Portal</h3>
+              <h3 className="font-mono text-xl mt-5">Dev Portal</h3>
               <p className="text-gray-100 opacity-70 text-sm my-5">
                 The Official Tezos Developer Portal.
               </p>
@@ -44,7 +44,7 @@ function Blog() {
                 formats={['AUTO', 'WEBP', 'AVIF']}
                 alt="Deep dive icon"
               />
-              <h3 className="font-museo text-xl mt-5"> Deep Dive on Tezos</h3>
+              <h3 className="font-mono text-xl mt-5"> Deep Dive on Tezos</h3>
               <p className="text-gray-100 opacity-70 text-sm my-5">
                 Here you will learn more about the Tezos Project
               </p>
@@ -60,7 +60,7 @@ function Blog() {
           </div>
 
           <div className="text-center text-white mt-12 lg:px-0 md:px-0 px-7">
-            <h2 className="text-2xl font-museo">Smart Contracts Examples </h2>
+            <h2 className="text-2xl font-mono">Smart Contracts Examples </h2>
             <p className="my-8">
               We’ve Built an edu website that has a list of smart contract
               examples with it’s source code

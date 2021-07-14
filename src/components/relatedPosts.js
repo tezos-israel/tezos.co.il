@@ -8,7 +8,7 @@ function RelatedPost({ posts, limit }) {
   return (
     <div className="">
       <div className="max-w-7xl mx-auto lg:border-l border-gray-300 lg:ml-5">
-        <h2 className="xl:text-xl sm:text-lg font-museo lg:px-4 capitalize">
+        <h2 className="xl:text-xl sm:text-lg font-mono lg:px-4 capitalize">
           Related posts
         </h2>
         <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col flex-wrap">

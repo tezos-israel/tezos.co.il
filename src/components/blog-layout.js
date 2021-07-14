@@ -7,7 +7,7 @@ export function BlogLayout({ children, title = 'Blog' }) {
     <Layout>
       <div className="bg-gray-100">
         <div className="max-w-7xl mx-auto py-9">
-          <h1 className="text-3xl text-center font-museo font-bold">{title}</h1>
+          <h1 className="text-3xl text-center font-mono font-bold">{title}</h1>
           {children}
         </div>
       </div>

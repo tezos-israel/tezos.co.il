@@ -2,9 +2,6 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      mono: 'RobotoMono-VariableFont_wght',
-    },
     extend: {
       colors: {
         tezos: {
@@ -21,7 +18,7 @@ module.exports = {
         '3xl': '0 5px 50px -15px rgba(38, 153, 251, 0.3)',
       },
       fontFamily: {
-        museo: 'museo-500',
+        mono: 'Roboto-mono',
       },
       minHeight: {
         half: '50vh',

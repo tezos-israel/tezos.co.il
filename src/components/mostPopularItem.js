@@ -67,7 +67,7 @@ function MostPopularItem({
             <h3
               title={title}
               className={classnames(
-                'font-museo mb-3 block w-full overflow-hidden whitespace-nowrap overflow-ellipsis line-clamp-2',
+                'font-mono mb-3 block w-full overflow-hidden whitespace-nowrap overflow-ellipsis line-clamp-2',
                 {
                   'text-sm': size === 'small',
                 }
