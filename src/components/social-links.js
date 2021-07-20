@@ -17,10 +17,10 @@ function SocialLinks({ role }) {
   return (
     <div
       className={classnames(
-        'sm:text-left flex flex-col space-y-2 right-8 xsm:hidden sm:inline',
+        'sm:text-left flex flex-col space-y-2 xsm:hidden sm:inline',
         {
-          fixed: role === 'header',
-          'relative self-center': role === 'footer',
+          'relative self-center right-8': role === 'footer',
+          'mx-8': role === 'header',
         }
       )}
     >

@@ -9,7 +9,7 @@ function Header({ menu, logo }) {
   const [menuOpened, setMenuOpened] = useState(false);
   return (
     <header className="fixed top-0 right-0 left-0 bg-white z-20 xl:px-0 xs:px-4 px-4 border-b border-gray-100">
-      <div className="max-w-auto sm:max-w-7xl mx-auto flex justify-between items-center py-4 relative font-museo">
+      <div className="max-w-auto sm:w-full mx-auto flex justify-between items-center py-4 relative font-museo">
         <div className="flex items-center sm:hidden">
           <button
             type="button"
@@ -55,13 +55,13 @@ function Header({ menu, logo }) {
             )}
           </button>
         </div>
-        <div className="text-center sm:text-left">
+        <div className="text-center sm:text-left ml-20">
           <Link to="/">
             <img src={logo} width={150} alt="Tezos Logo" />
           </Link>
         </div>
 
-        <div className="items-center">
+        <div className="flex items-center w-full justify-end">
           <div className="hidden sm:inline-block">
             {menu.map((item, index) => {
               return (
