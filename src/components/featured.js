@@ -6,7 +6,6 @@ import { format } from 'date-fns';
 import Button from './shared/button';
 
 function Featured({ data }) {
-  console.log(data);
   const maxLength = 1000;
   const slug = data.fields.slug;
   return (
