@@ -9,7 +9,8 @@ import Featured from '../components/featured';
 
 function Blogs({
   data: {
-    allMarkdownRemark: { edges },
+    recentPosts: { edges },
+    featuredPost: { featuredEdges },
   },
 }) {
   const recentPosts = edges.map(
@@ -25,8 +26,7 @@ function Blogs({
       };
     }
   );
-
-  console.log(recentPosts[0]);
+  const featuredPost = featuredEdges[0].node;
 
   return (
     <Layout>
@@ -34,7 +34,7 @@ function Blogs({
 
       {/* <MostPopular popularBlogs={data.popularBlogs} /> */}
 
-      <Featured />
+      <Featured data={featuredPost} />
       <RecentPosts posts={recentPosts} />
     </Layout>
   );
@@ -42,8 +42,11 @@ function Blogs({
 
 Blogs.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    recentPosts: PropTypes.shape({
       edges: PropTypes.array,
+    }),
+    featuredPost: PropTypes.shape({
+      featuredEdges: PropTypes.array,
     }),
   }).isRequired,
 };
@@ -52,7 +55,7 @@ export default Blogs;
 
 export const pageQuery = graphql`
   query PostsTemplate {
-    reacentPosts: allMarkdownRemark(
+    recentPosts: allMarkdownRemark(
       filter: {
         frontmatter: {
           templateKey: { eq: "_blog-post" }
@@ -107,7 +110,7 @@ export const pageQuery = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: 1
     ) {
-      edges {
+      featuredEdges: edges {
         node {
           id
           fields {
