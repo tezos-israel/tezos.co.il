@@ -10,7 +10,6 @@ import Featured from '../components/featured';
 function Blogs({
   data: {
     recentPosts: { edges },
-    featuredPost: { featuredEdges },
   },
 }) {
   const recentPosts = edges.map(
@@ -26,7 +25,7 @@ function Blogs({
       };
     }
   );
-  const featuredPost = featuredEdges[0].node;
+  const featuredPost = edges[0].node;
 
   return (
     <Layout>
@@ -44,9 +43,6 @@ Blogs.propTypes = {
   data: PropTypes.shape({
     recentPosts: PropTypes.shape({
       edges: PropTypes.array,
-    }),
-    featuredPost: PropTypes.shape({
-      featuredEdges: PropTypes.array,
     }),
   }).isRequired,
 };
@@ -97,52 +93,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-    featuredPost: allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          templateKey: { eq: "_blog-post" }
-          published: { eq: true }
-        }
-      }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 1
-    ) {
-      featuredEdges: edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            category
-            title
-            date
-            image: featuredImage {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
-            tags
-            author: authorFull {
-              name
-              email
-              image {
-                childImageSharp {
-                  gatsbyImageData(
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                  )
-                }
-              }
-            }
-          }
-          html
         }
       }
     }
