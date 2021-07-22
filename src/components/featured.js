@@ -11,13 +11,13 @@ function Featured({ data }) {
   const author = frontmatter.author;
   return (
     <div className="bg-gray-100">
-      <div className="sm:max-w-7xl max-w-full mx-auto py-9">
+      <div className="md:max-w-7xl max-w-full mx-auto py-9">
         <h2 className="xl:text-xl text-lg font-museo px-4 mb-4 sm:text-left text-center capitalize">
           Featured Post
         </h2>
         <div className="flex flex-col space-y-4">
-          <div className="flex sm:flex-row flex-col space-x-2 sm:rounded-md rounded-none bg-gray-300 lg:p-8 p-4 lg:shadow-md shadow-sm">
-            <div className="lg:h-56 sm:h-56 h-24 max-w-full m-auto rounded-md overflow-hidden">
+          <div className="flex md:flex-row flex-col space-x-2 sm:rounded-md rounded-none bg-gray-300 lg:p-8 p-4 lg:shadow-md shadow-sm">
+            <div className="lg:h-56 md:h-56 h-24 max-w-full m-auto rounded-md overflow-hidden">
               <GatsbyImage
                 image={getImage(frontmatter.image)}
                 alt={frontmatter.title}
