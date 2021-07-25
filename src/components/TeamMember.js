@@ -13,7 +13,7 @@ function TeamMember({ social, name, role, image }) {
       />
       <div className="text-center mb-4">
         <p className="text-xl font-bold font-museo">{name}</p>
-        <p className="text-xs font-light">{role}</p>
+        <p className="text-s">{role}</p>
       </div>
       <div className="flex space-x-2">
         {social.map((item) => (
