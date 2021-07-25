@@ -15,7 +15,7 @@ aboutSection:
   content: As the world’s fully democratic blockchain, the Tezos open-source platform, has an ever-growing community and ecosystem with to go along with it. Due to its ethical approach it is already used and supported by the French and Singaporean Governments, French Military, and over 50 startups and projects worldwide.
   image: /assets/stands.png
 joinSection:
-  title: Join the Tezos Eco-system
+  title: Join the Tezos ecosystem
   joinList:
     - title: Developers
       description: Tezos Israel is creating an R&D center and looking for talented, experienced developers to add to our team.
