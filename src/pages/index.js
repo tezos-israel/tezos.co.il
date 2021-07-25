@@ -25,6 +25,13 @@ export default function IndexPage({
         title={frontmatter.servicesSection.title}
         list={frontmatter.servicesSection.services}
       />
+      <Section
+        title={frontmatter.joinSection.title}
+        className="bg-tezos-dark"
+        titleColor="white"
+      >
+        <JoinUs membersTypes={frontmatter.joinSection.joinList} />
+      </Section>
       <About
         title={frontmatter.aboutSection.title}
         content={frontmatter.aboutSection.content}
@@ -33,13 +40,6 @@ export default function IndexPage({
       {/* <Section title="Tezos around the world">
         <Map />
       </Section> */}
-      <Section
-        title={frontmatter.joinSection.title}
-        className="bg-tezos-dark"
-        titleColor="white"
-      >
-        <JoinUs membersTypes={frontmatter.joinSection.joinList} />
-      </Section>
       <Section title={frontmatter.partnersSection.title}>
         <Partners partnersList={frontmatter.partnersSection.partnersList} />
       </Section>
