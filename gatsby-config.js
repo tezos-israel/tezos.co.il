@@ -14,7 +14,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: process.env.GOOGLE_TAGMANAGER_ID,
+        id:
+          process.env.GOOGLE_TAGMANAGER_ID ||
+          (() => {
+            throw new Error('missing google tagmanager id');
+          })(),
         includeInDevelopment: false,
       },
     },
@@ -104,5 +108,12 @@ module.exports = {
     rssFeedConfig(siteUrl),
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-sitemap',
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     // You can add multiple tracking ids and a pageview event will be fired for all of them.
+    //     trackingIds: [process.env.GOOGLE_TAGMANAGER_ID],
+    //   },
+    // },
   ],
 };
