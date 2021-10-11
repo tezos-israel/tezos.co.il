@@ -26,7 +26,6 @@ export default function AuthorPage({
       };
     }
   );
-  console.log({ edges });
 
   return (
     <BlogLayout title={`Posts for author "${author}"`}>
