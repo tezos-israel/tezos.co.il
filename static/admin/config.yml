@@ -63,11 +63,11 @@ collections:
           required: false,
         }
       - { label: 'Featured Image', name: 'featuredImage', widget: image }
-      - {
-          label: 'Featured Image Alternative Text',
-          name: 'featuredImageAlt',
-          widget: 'string',
-        }
+      # - {
+      #     label: 'Featured Image Alternative Text',
+      #     name: 'featuredImageAlt',
+      #     widget: 'string',
+      #   }
       - {
           label: 'Medium Content',
           name: 'mediumContent',

@@ -124,7 +124,6 @@ BlogPost.propTypes = {
         title: PropTypes.string,
         date: PropTypes.string,
         tags: PropTypes.array,
-        featuredImageAlt: PropTypes.string.isRequired,
         featuredImage: PropTypes.shape({
           publicURL: PropTypes.string,
         }).isRequired,
@@ -156,7 +155,6 @@ export const pageQuery = graphql`
         category
         title
         date
-        featuredImageAlt
         featuredImage {
           publicURL
           childImageSharp {
