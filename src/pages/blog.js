@@ -25,24 +25,26 @@ function Blog({
     );
   }
 
-  const recentPosts = edges.map(
-    ({
-      node: {
-        fields: { slug },
-        frontmatter,
-      },
-    }) => {
-      return {
-        slug,
-        ...frontmatter,
-      };
-    }
-  );
-
   const featuredPost =
     featuredPostQueryResult.nodes.length > 0
       ? featuredPostQueryResult.nodes[0]
       : edges[0].node;
+
+  const recentPosts = edges
+    .map(
+      ({
+        node: {
+          fields: { slug },
+          frontmatter,
+        },
+      }) => {
+        return {
+          slug,
+          ...frontmatter,
+        };
+      }
+    )
+    .filter((post) => post.slug !== featuredPost.fields.slug);
 
   return (
     <Layout>
