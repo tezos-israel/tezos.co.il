@@ -11,7 +11,7 @@ module.exports = {
     lang: `en-US`,
   },
   plugins: [
-    {
+    process.env.NODE_ENV === 'production' && {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id:
@@ -19,6 +19,7 @@ module.exports = {
           (() => {
             throw new Error('missing google tagmanager id');
           })(),
+
         includeInDevelopment: false,
       },
     },
@@ -115,5 +116,5 @@ module.exports = {
     //     trackingIds: [process.env.GOOGLE_TAGMANAGER_ID],
     //   },
     // },
-  ],
+  ].filter(Boolean),
 };
