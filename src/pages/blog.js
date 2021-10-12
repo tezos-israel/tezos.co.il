@@ -56,6 +56,8 @@ function Blog({
         author={featuredPost.frontmatter.author}
         image={featuredPost.frontmatter.image}
         date={featuredPost.frontmatter.date}
+        tags={featuredPost.frontmatter.tags}
+        category={featuredPost.frontmatter.category}
       />
       <RecentPosts posts={recentPosts} />
     </Layout>
