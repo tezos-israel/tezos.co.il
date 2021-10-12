@@ -20,12 +20,12 @@ function SocialLinks({ email, socialItems }) {
     >
       <a
         href={`mailto:${email}`}
-        className="text-tezos-blue flex items-center justify-center"
+        className="text-blue-300 flex items-center justify-center"
       >
         <FaEnvelope className="mr-2 text-xl" /> {email}
       </a>
 
-      <div className="text-tezos-blue flex justify-center sm:w-1/3 text-2xl mt-6 mx-auto space-x-4">
+      <div className="text-blue-300 flex justify-center sm:w-1/3 text-2xl mt-6 mx-auto space-x-4">
         {socialItems.map((item, index) => {
           return (
             <a key={index} href={item.url} target="_blank" rel="noreferrer">
