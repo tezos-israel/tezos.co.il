@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import NavLink from './navLink';
-import SocialLinks from './social-links';
-// import Button from './shared/button';
 
 function Header({ menu, logo }) {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -69,13 +67,7 @@ function Header({ menu, logo }) {
               );
             })}
           </div>
-
-          {/* <Button
-            title="Sign up"
-            className="bg-tezos-blue text-white hover:bg-tezos-dark hover:text-white"
-          /> */}
         </div>
-        <SocialLinks role="header" />
 
         {menuOpened && (
           <div
