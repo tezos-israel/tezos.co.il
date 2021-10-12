@@ -1,3 +1,5 @@
+const { getSrc } = require('gatsby-plugin-image');
+
 module.exports = function rssFeedConfig(siteUrl) {
   return {
     resolve: 'gatsby-plugin-feed',
@@ -30,7 +32,9 @@ module.exports = function rssFeedConfig(siteUrl) {
                   { tags: node.frontmatter.tags.join(',') },
                   { author: `${author.name} (@${author.mediumHandle})` },
                   {
-                    featuredImage: `${siteUrl}/${node.frontmatter.featuredImage.childImageSharp.fixed.src}`,
+                    featuredImage: `${siteUrl}${getSrc(
+                      node.frontmatter.featuredImage
+                    )}`,
                   },
                 ],
               };
@@ -60,9 +64,7 @@ module.exports = function rssFeedConfig(siteUrl) {
                     }
                     featuredImage {
                       childImageSharp {
-                        fixed {
-                          src
-                        }
+                        gatsbyImageData(layout: FIXED)
                       }
                     }
                   }
@@ -71,7 +73,8 @@ module.exports = function rssFeedConfig(siteUrl) {
             }
             `,
           output: '/rss.xml',
-          title: 'Tezos Israel\'s RSS Feed',
+          // eslint-disable-next-line quotes
+          title: "Tezos Israel's RSS Feed",
           // optional configuration to insert feed reference in pages:
           // if `string` is used, it will be used to create RegExp and then test if pathname of
           // current page satisfied this regular expression;
