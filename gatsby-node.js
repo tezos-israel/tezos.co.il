@@ -92,6 +92,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       date: Date! @dateformat
       description: String!
       authorFull: AuthorsJson @link(by: "email", from: "author")
+      featuredPost: Boolean
     }
 `,
     schema.buildObjectType({
