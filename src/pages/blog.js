@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../components/layout';
@@ -7,14 +8,21 @@ import { graphql } from 'gatsby';
 import RecentPosts from '../components/recentPosts';
 import FeaturedPost from '../components/FeaturedPost';
 
-function Blogs({
+function Blog({
   data: {
     recentPosts: { edges },
     featuredPost: featuredPostQueryResult,
   },
 }) {
-  if (featuredPostQueryResult.edges.length === 0) {
-    throw new Error('must define a featured post');
+  if (edges.length === 0) {
+    return (
+      <Layout>
+        <SEO title="Blog" />
+        <div className="md:max-w-7xl max-w-full mx-auto py-9 text-center">
+          No posts published yet
+        </div>
+      </Layout>
+    );
   }
 
   const recentPosts = edges.map(
@@ -31,7 +39,10 @@ function Blogs({
     }
   );
 
-  const featuredPost = featuredPostQueryResult.edges[0];
+  const featuredPost =
+    featuredPostQueryResult.nodes.length > 0
+      ? featuredPostQueryResult.nodes[0]
+      : edges[0].node;
 
   return (
     <Layout>
@@ -51,14 +62,17 @@ function Blogs({
   );
 }
 
-Blogs.propTypes = {
+Blog.propTypes = {
   data: PropTypes.shape({
     recentPosts: PropTypes.shape({
       edges: PropTypes.array,
     }),
     featuredPost: PropTypes.shape({
-      edges: PropTypes.arrayOf(
+      nodes: PropTypes.arrayOf(
         PropTypes.shape({
+          fields: PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+          }),
           frontmatter: PropTypes.shape({
             title: PropTypes.string,
           }),
@@ -68,7 +82,7 @@ Blogs.propTypes = {
   }).isRequired,
 };
 
-export default Blogs;
+export default Blog;
 
 export const pageQuery = graphql`
   query PostsTemplate {
@@ -82,35 +96,30 @@ export const pageQuery = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: 1
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
+      nodes {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          category
+          title
+          date
+          image: featuredImage {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
-          frontmatter {
-            category
-            title
-            date
-            image: featuredImage {
+          tags
+          author: authorFull {
+            name
+            email
+            image {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
                 )
-              }
-            }
-            tags
-            author: authorFull {
-              name
-              email
-              image {
-                childImageSharp {
-                  gatsbyImageData(
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP, AVIF]
-                  )
-                }
               }
             }
           }
