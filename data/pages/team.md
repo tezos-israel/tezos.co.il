@@ -42,14 +42,6 @@ teamMember:
         url: https://www.linkedin.com/in/efrat-kaufmann-47214b8/
     role: BizDev Expert
     image: /assets/efrat.jpeg
-  - image: /assets/aharon1.jpeg
-    name: Aharon Lando
-    role: Blockchain Developer
-    socialLinks:
-      - socialNetwork: twitter
-        url: https://www.twitter.com/LandoAharon
-      - socialNetwork: linkedin
-        url: https://linkedin.com/in/aharon-lando
   - image: /assets/adam.jpeg
     name: Adam Shinder
     role: Analyst, Dev
