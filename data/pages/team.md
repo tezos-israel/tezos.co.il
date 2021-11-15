@@ -8,8 +8,6 @@ teamMember:
     socialLinks:
       - socialNetwork: linkedin
         url: https://www.linkedin.com/in/elie-terdjman-85242836/
-      - socialNetwork: twitter
-        url: https://www.twitter.com/ET42L
       - socialNetwork: telegram
         url: https://t.me/etcryptoo
   - image: /assets/igal.jpeg
