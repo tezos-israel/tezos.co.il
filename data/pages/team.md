@@ -18,7 +18,7 @@ teamMember:
         url: https://www.linkedin.com/in/igal-nevo-11b54519/
   - image: /assets/chaim.jpeg
     name: Chaim Lev-Ari
-    role: Head of R&D
+    role: R&D
     socialLinks:
       - socialNetwork: twitter
         url: https://www.twitter.com/chiptus
