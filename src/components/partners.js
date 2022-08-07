@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 function Partners({ partnersList }) {
   return (
     <div className="text-center max-w-7xl mx-auto pt-7">
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center gap-2">
         {partnersList.map((item, index) => {
           return (
             <a href={item.url} key={index} target="_blank" rel="noreferrer">
