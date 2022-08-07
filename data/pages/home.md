@@ -34,7 +34,7 @@ joinSection:
 partnersSection:
   title: Our Partners
   partnersList:
-    - partnerImage: /assets/logo_long_bleu_couleur-1.png
+    - partnerImage: /assets/nomadic-logo.png
       url: https://www.nomadic-labs.com/
     - partnerImage: /assets/logotez.png
       url: https://tezos.foundation/
